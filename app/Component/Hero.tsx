@@ -3,12 +3,12 @@ import dp from '../assests/dp.png'
 import resume from '../assests/resume.pdf'
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-black via-blue-400 to-indigo-900 text-white py-32">
+    <section className="dark:bg-gray-800 bg-gray-200 dark:text-white text-black py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
-              Hi, I'm <span className="text-yellow-300">Dhanraj</span>
+              Hi, I'm <span className="dark:text-yellow-300 text-yellow-600">Dhanraj</span>
             </h1>
             <p className="text-xl md:text-2xl mb-6 animate-fade-in-up animation-delay-200">
               Full-Stack Developer | AI/ML Enthusiast | Problem Solver
@@ -16,7 +16,7 @@ const Hero = () => {
             <div className="flex space-x-4 animate-fade-in-up animation-delay-400">
               <a
                 href="#contact"
-                className="bg-white text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300"
+                className="bg-white  text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300"
               >
                 Contact Me
               </a>
@@ -42,7 +42,7 @@ const Hero = () => {
             href="https://github.com/dhanrajpimple"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-yellow-300 transition duration-300"
+            className="dark:text-white text-gray-600 dark:hover:text-yellow-300 hover:text-red-700 transition duration-300"
           >
             <FaGithub size={32} />
           </a>
@@ -50,7 +50,7 @@ const Hero = () => {
             href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-yellow-300 transition duration-300"
+            className="dark:text-white text-gray-600 dark:hover:text-yellow-300  hover:text-red-700  transition duration-300"
           >
             <FaLinkedin size={32} />
           </a>
