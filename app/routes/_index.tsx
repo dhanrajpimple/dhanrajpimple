@@ -11,7 +11,7 @@ import { MetaFunction } from "@remix-run/react";
 
 
 export let meta: MetaFunction = () => {
-  const placeholderDomain = "https://dhanrajpimple.netlify.app"; // Placeholder domain
+  const placeholderDomain = "https://finalportfolio-henna.vercel.app/"; // Placeholder domain
 
   return [
     // General Meta Tags
