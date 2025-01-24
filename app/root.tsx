@@ -27,6 +27,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
+        <meta name="google-site-verification" content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" />
           <meta name="google-site-verification" content="google483d10c7957a9524.html"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
