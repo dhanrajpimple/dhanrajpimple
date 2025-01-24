@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
-              Hi, I'm <span className="dark:text-yellow-300 text-yellow-600">Dhanraj</span>
+              Hi, I'm <span className="dark:text-yellow-300 text-yellow-600">Dhanraj Pimple</span>
             </h1>
             <p className="text-xl md:text-2xl mb-6 animate-fade-in-up animation-delay-200">
               Full-Stack Developer | AI/ML Enthusiast | Problem Solver

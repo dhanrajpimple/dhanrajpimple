@@ -25,7 +25,7 @@ export let meta: MetaFunction = () => {
     { property: "og:image", content: `${placeholderDomain}/assests/favicon.png` },
     { property: "og:url", content: placeholderDomain },
     { property: "og:type", content: "website" },
-    { property: "og:site_name", content: "John Doe Portfolio" },
+    { property: "og:site_name", content: "Dhanraj Portfolio" },
    
    {property:"google-site-verification", content:"DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
     // Twitter Card Tags
