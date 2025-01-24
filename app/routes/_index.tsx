@@ -26,7 +26,8 @@ export let meta: MetaFunction = () => {
     { property: "og:url", content: placeholderDomain },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "John Doe Portfolio" },
-   {property: "google-site-verification", content : "google483d10c7957a9524.html"},
+   
+   {property:"google-site-verification", content:"DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
     // Twitter Card Tags
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Dhanraj | Full-Stack Developer" },
