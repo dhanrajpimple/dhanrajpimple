@@ -40,7 +40,10 @@ export let meta: MetaFunction = () => {
     { name: "theme-color", content: "#4F46E5" },
     { name: "application-name", content: "Dhanraj Portfolio" },
 
-    // Schema.org Structured Data (JSON-LD)
+    // Canonical Link
+    { rel: "canonical", href: placeholderDomain },
+
+    // Structured Data (JSON-LD)
     { name: "jsonld", content: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
@@ -53,11 +56,10 @@ export let meta: MetaFunction = () => {
         ],
         "image": `${placeholderDomain}/assets/favicon.png`,
         "description": "Dhanraj Pimple: Best freelancer offering affordable website and software development services."
-      }) 
+      })
     }
   ];
 };
-
 export default function Index() {
   const [darkMode, setDarkMode] = useState(false);
 
