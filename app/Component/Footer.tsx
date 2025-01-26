@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -13,6 +13,7 @@ const Footer = () => {
               href="https://github.com/dhanajpimple"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit my GitHub profile"
               className="hover:text-indigo-400 transition duration-300"
             >
               <FaGithub size={24} />
@@ -21,16 +22,36 @@ const Footer = () => {
               href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit my LinkedIn profile"
               className="hover:text-indigo-400 transition duration-300"
             >
               <FaLinkedin size={24} />
             </a>
           </div>
         </div>
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Dhanraj Portfolio",
+            "url": "https://dhanrajpimple.vercel.app/",
+            "sameAs": [
+              "https://github.com/dhanajpimple",
+              "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Dhanraj"
+            }
+          })}
+        </script>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
+
+
 

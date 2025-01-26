@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 
+// Defining the links function to preconnect and load Google Fonts
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -22,19 +23,22 @@ export const links: LinksFunction = () => [
   },
 ];
 
+// Layout Component to wrap the entire app structure
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="google-site-verification" content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" />
+        <meta
+          name="google-site-verification"
+          content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE"
+        />
         <Meta />
-        
         <Links />
       </head>
       <body>
-        {children}
+        {children} {/* This will render child routes' content */}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,6 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// App Component for rendering the layout and routing outlet
 export default function App() {
-  return <Outlet />;
+  return <Outlet />; // Outlet renders the specific route's content
 }

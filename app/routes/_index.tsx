@@ -4,63 +4,59 @@ import Footer from "~/Component/Footer";
 import Hero from "~/Component/Hero";
 import Navbar from "~/Component/Navbar";
 import OurServices from "~/Component/OurService";
-import Projects from "~/Component/Projects";
+// import Projects from "~/Component/Projects";
 import Skills from "~/Component/Skills";
 import { MetaFunction } from "@remix-run/react";
 
-
-
+// Meta tags with improved SEO focus
 export let meta: MetaFunction = () => {
   const placeholderDomain = "https://dhanrajpimple.vercel.app/"; // Placeholder domain
 
   return [
     // General Meta Tags
-    { title: "Dhanraj | Full-Stack Developer " },
-    { name: "description", content: "Experienced full-stack developer offering bespoke web solutions. Open to full-time roles and freelance projects. Let's build something great together!" },
-    { name: "keywords", content: "full-stack developer, freelance web developer, web development, software engineer, hire developer, portfolio, React developer, Golang developer, mobile app developer, SaaS product development, scalable applications" },
+    { title: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
+    { name: "description", content: "Dhanraj Pimple: Best freelancer offering affordable website and software development services. Expertise in scalable backends, mobile apps, and SaaS solutions." },
+    { name: "keywords", content: "Dhanraj Pimple, best freelancer, cheap website developer, best website developer freelancer, software developer, full-stack developer, Golang developer, React developer, mobile app developer, SaaS development" },
 
     // Open Graph (OG) Tags
-    { property: "og:title", content: "Dhanraj | Full-Stack Developer " },
-    { property: "og:description", content: "Explore my portfolio showcasing diverse projects in web and mobile development. Available for hire and freelance opportunities." },
-    { property: "og:image", content: `${placeholderDomain}/assests/favicon.png` },
+    { property: "og:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
+    { property: "og:description", content: "Hire Dhanraj Pimple for top-notch website development services. Affordable and scalable solutions tailored to your needs." },
+    { property: "og:image", content: `${placeholderDomain}/assets/favicon.png` },
     { property: "og:url", content: placeholderDomain },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Dhanraj Portfolio" },
-   
-   {property:"google-site-verification", content:"DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
+    { property: "google-site-verification", content: "DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
+
     // Twitter Card Tags
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Dhanraj | Full-Stack Developer" },
-    { name: "twitter:description", content: "Discover my work in full-stack development. Open to new opportunities and collaborations." },
-    { name: "twitter:image", content: `${placeholderDomain}/assests/favicon.png` },
+    { name: "twitter:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
+    { name: "twitter:description", content: "Affordable freelance website development by Dhanraj Pimple. Expertise in scalable and modern web solutions." },
+    { name: "twitter:image", content: `${placeholderDomain}/assets/favicon.png` },
 
     // Additional SEO Meta Tags
     { name: "robots", content: "index, follow" },
-    { name: "author", content: "Dhanraj" },
+    { name: "author", content: "Dhanraj Pimple" },
     { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-    { name: "theme-color", content: "#4F46E5" }, // Custom theme color
+    { name: "theme-color", content: "#4F46E5" },
     { name: "application-name", content: "Dhanraj Portfolio" },
 
     // Schema.org Structured Data (JSON-LD)
     { name: "jsonld", content: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Dhanraj",
+        "name": "Dhanraj Pimple",
         "jobTitle": "Full-Stack Developer",
         "url": placeholderDomain,
         "sameAs": [
           "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
-          "https://github.com/dhanrajpimple",
-          
+          "https://github.com/dhanrajpimple"
         ],
-        "image": `${placeholderDomain}/assests/favicon.png`,
-        "description": "Experienced full-stack developer offering bespoke web solutions. Open to full-time roles and freelance projects."
+        "image": `${placeholderDomain}/assets/favicon.png`,
+        "description": "Dhanraj Pimple: Best freelancer offering affordable website and software development services."
       }) 
     }
   ];
 };
-
-
 
 export default function Index() {
   const [darkMode, setDarkMode] = useState(false);
@@ -100,7 +96,8 @@ export default function Index() {
         <Hero />
         <Skills />
         <OurServices />
-        <Contact  />
+        {/* <Projects /> Added Projects Section */}
+        <Contact />
       </main>
       <Footer />
     </div>

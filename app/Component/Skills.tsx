@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaPython, FaDatabase, FaAws, FaGithub, FaDocker, FaCube } from "react-icons/fa"
+import { FaReact, FaNodeJs, FaPython, FaDatabase, FaAws, FaGithub, FaDocker, FaCube } from "react-icons/fa";
 import {
   SiTypescript,
   SiTailwindcss,
@@ -10,7 +10,7 @@ import {
   SiReact,
   SiRemix,
   SiGo,
-} from "react-icons/si"
+} from "react-icons/si";
 
 const skills = [
   { name: "React", icon: FaReact, color: "text-blue-500" },
@@ -31,7 +31,7 @@ const skills = [
   { name: "GitHub", icon: FaGithub, color: "text-gray-800" },
   { name: "Remix", icon: SiRemix, color: "text-pink-600" },
   { name: "Golang", icon: SiGo, color: "text-cyan-500" },
-]
+];
 
 const Skills = () => {
   return (
@@ -39,22 +39,23 @@ const Skills = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">My Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-          {skills.map((skill) => (
+          {skills.map(({ name, icon: Icon, color }) => (
             <div
-              key={skill.name}
+              key={name}
               className="flex flex-col items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
+              aria-label={`${name} skill`}
             >
-              <skill.icon className={`text-4xl mb-2 ${skill.color}`} />
-              <h3 className="text-sm font-semibold text-center text-gray-800 dark:text-white">{skill.name}</h3>
+              <Icon className={`text-4xl mb-2 ${color}`} aria-hidden="true" />
+              <h3 className="text-sm font-semibold text-center text-gray-800 dark:text-white">{name}</h3>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
 
 
 
