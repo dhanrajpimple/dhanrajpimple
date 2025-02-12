@@ -22,16 +22,16 @@ export let meta: MetaFunction = () => {
     { property: "og:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
     { property: "og:description", content: "Hire Dhanraj Pimple for top-notch website development services. Affordable and scalable solutions tailored to your needs." },
     { property: "og:image", content: `${placeholderDomain}/assets/favicon.png` },
-    // { property: "og:url", content: placeholderDomain },
+    { property: "og:url", content: placeholderDomain },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Dhanraj Portfolio" },
     { property: "google-site-verification", content: "DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
 
     // Twitter Card Tags
-    { name: "twitter:card", content: "summary_large" },
+    { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
     { name: "twitter:description", content: "Affordable freelance website development by Dhanraj Pimple. Expertise in scalable and modern web solutions." },
-    // { name: "twitter:image", content: `${placeholderDomain}/assets/favicon.png` },
+    { name: "twitter:image", content: `${placeholderDomain}/assets/favicon.png` },
 
     // Additional SEO Meta Tags
     { name: "robots", content: "index, follow" },
@@ -54,7 +54,7 @@ export let meta: MetaFunction = () => {
           "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
           "https://github.com/dhanrajpimple"
         ],
-        // "image": `${placeholderDomain}/assets/favicon.png`,
+        "image": `${placeholderDomain}/assets/favicon.png`,
         "description": "Dhanraj Pimple: Best freelancer offering affordable website and software development services."
       })
     }
