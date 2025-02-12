@@ -28,7 +28,7 @@ export let meta: MetaFunction = () => {
     { property: "google-site-verification", content: "DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
 
     // Twitter Card Tags
-    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:card", content: "summary_large" },
     { name: "twitter:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
     { name: "twitter:description", content: "Affordable freelance website development by Dhanraj Pimple. Expertise in scalable and modern web solutions." },
     // { name: "twitter:image", content: `${placeholderDomain}/assets/favicon.png` },
