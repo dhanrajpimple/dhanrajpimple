@@ -34,6 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           name="google-site-verification"
           content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE"
         />
+        <meta name="google-site-verification" content="feeQ3QtYEX2lJuVM1BEos3tM5qiBNtQh6JoG87it2ZQ" />
+
         <Meta />
         <Links />
       </head>
