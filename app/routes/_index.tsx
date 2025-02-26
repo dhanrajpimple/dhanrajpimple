@@ -11,10 +11,10 @@ import { MetaFunction } from "@remix-run/react";
 // Meta tags with improved SEO focus
 export let meta: MetaFunction = () => {
   const siteUrl = "https://dhanrajpimple.vercel.app/"; // Update with your actual domain
-  const siteTitle = "Dhanraj Pimple | Best Freelancer in Satara, Pune, Kolhapur, Sangli";
-  const siteDescription = "Looking for the best freelancer in Satara, Pune, Kolhapur, or Sangli? Dhanraj Pimple is an expert full-stack developer offering AI chatbot development, website design, and mobile app solutions.";
-  const keywords = "Dhanraj Pimple, best freelancer Satara, best freelancer Pune, best freelancer Kolhapur, best freelancer Sangli, full-stack developer, AI chatbot developer, website developer Pune, SaaS development, Golang, Node.js, React, mobile app developer";
-
+  const siteTitle = "Dhanraj Pimple | Best Software Developer & Website Builder in Satara, Pune, Kolhapur, Sangli";
+  const siteDescription = "Looking for a top software developer and website builder in Satara, Pune, Kolhapur, or Sangli? Dhanraj Pimple specializes in full-stack development, AI chatbot creation, website design, mobile app development, and scalable SaaS solutions.";
+  const keywords = "Dhanraj Pimple, software developer Pune, best website developer Pune, AI chatbot builder, mobile app developer Pune, Golang developer, Node.js developer, React developer, e-commerce website builder, SaaS developer, software development services, best website builder Satara, full-stack developer Kolhapur, web app developer Sangli, custom software solutions, AI chatbot integration, digital marketing websites, portfolio website development, business website creator, AI-powered apps, SEO-optimized website, fast-loading website developer, enterprise software developer, cloud application developer, React Native expert, web scraping services, API development, machine learning integration, AI-powered chatbot, website development company Pune, custom web solutions, backend developer, scalable web apps, startup software solutions, affordable web development, CRM development, ERP software developer, fintech software developer, health-tech website builder, technology consultant, AI automation expert, software engineer Pune, hybrid mobile app development, PWAs (Progressive Web Apps), website optimization expert, freelance software engineer, AI consulting, chatbot automation services, best UI/UX web design, next-gen web solutions, professional coding services, software architect, AI-driven web apps, IT consultant Pune, cloud backend development, database optimization, DevOps consulting, fast website hosting, best SaaS website design.";
+  
   return [
     // ✅ **Primary SEO Tags**
     { title: siteTitle },
