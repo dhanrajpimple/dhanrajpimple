@@ -2,19 +2,22 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-gray-900 text-gray-300 py-8 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
+          {/* Copyright Text */}
+          <div className="mb-4 md:mb-0 text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} Dhanraj. All rights reserved.</p>
           </div>
+
+          {/* Social Links */}
           <div className="flex space-x-6">
             <a
               href="https://github.com/dhanajpimple"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my GitHub profile"
-              className="hover:text-indigo-400 transition duration-300"
+              className="hover:text-yellow-300 transition-colors duration-300"
             >
               <FaGithub size={24} />
             </a>
@@ -23,12 +26,13 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my LinkedIn profile"
-              className="hover:text-indigo-400 transition duration-300"
+              className="hover:text-yellow-300 transition-colors duration-300"
             >
               <FaLinkedin size={24} />
             </a>
           </div>
         </div>
+
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -52,6 +56,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-

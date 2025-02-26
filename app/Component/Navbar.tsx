@@ -1,33 +1,61 @@
-import { useState } from "react";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import logo from "../assests/dp.png";
 
-interface NavbarProps {
-  darkMode: boolean;
-  setDarkMode: (darkMode: boolean) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = () => {
+  const [activeSection, setActiveSection] = useState("home");
 
   const menuItems = [
-    { href: "#", label: "Home" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
+    { id: "home", label: "Home" },
+    { id: "skills", label: "Skills" },
+    { id: "services", label: "Services" },
+    { id: "contact", label: "Contact" },
   ];
 
+  // Function for smooth scrolling
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 70, // Adjusting for fixed navbar
+        behavior: "smooth",
+      });
+      setActiveSection(id); // Update active section immediately on click
+    }
+  };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null, // viewport
+      threshold: 0.5, // Trigger when 50% of the section is visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    menuItems.forEach((item) => {
+      const section = document.getElementById(item.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-10 bg-white dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-80 backdrop-filter backdrop-blur-lg">
+    <nav className="bg-gray-900 fixed top-0 left-0 w-full z-50 border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a
-              href="#"
-              className="text-3xl font-bold text-indigo-600 dark:text-indigo-400"
-              aria-label="Homepage"
-            >
-              Dhanraj
+            <a href="#" className="flex items-center">
+              <img src={logo} alt="Logo" className="h-8 w-8 mr-2" />
             </a>
           </div>
 
@@ -35,71 +63,22 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           <div className="hidden md:flex space-x-4">
             {menuItems.map((item) => (
               <a
-                key={item.label}
-                href={item.href}
-                className="text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleScroll(e, item.id)}
+                className={`relative text-gray-200 px-3 py-2 text-sm font-medium transition-colors duration-300 ${
+                  activeSection === item.id ? "text-yellow-300" : ""
+                }`}
               >
                 {item.label}
+                <span
+                  className={`absolute left-0 bottom-0 h-0.5 bg-yellow-300 transition-all duration-300 ${
+                    activeSection === item.id ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
               </a>
             ))}
           </div>
-
-          {/* Controls */}
-          <div className="flex items-center">
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="bg-gray-200 dark:bg-gray-700 p-2 rounded-full text-gray-800 dark:text-gray-200"
-              aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button>
-
-            {/* Mobile Menu Toggle */}
-            <div className="md:hidden ml-4">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-md text-gray-800 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                aria-label="Toggle navigation menu"
-              >
-                <svg
-                  className={`${isOpen ? "hidden" : "block"} h-6 w-6`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg
-                  className={`${isOpen ? "block" : "hidden"} h-6 w-6`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {menuItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {item.label}
-            </a>
-          ))}
         </div>
       </div>
     </nav>

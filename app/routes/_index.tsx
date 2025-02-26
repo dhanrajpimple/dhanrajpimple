@@ -10,90 +10,70 @@ import { MetaFunction } from "@remix-run/react";
 
 // Meta tags with improved SEO focus
 export let meta: MetaFunction = () => {
-  const placeholderDomain = "https://dhanrajpimple.vercel.app/"; // Placeholder domain
+  const siteUrl = "https://dhanrajpimple.vercel.app/"; // Update with your actual domain
+  const siteTitle = "Dhanraj Pimple | Best Freelancer in Satara, Pune, Kolhapur, Sangli";
+  const siteDescription = "Looking for the best freelancer in Satara, Pune, Kolhapur, or Sangli? Dhanraj Pimple is an expert full-stack developer offering AI chatbot development, website design, and mobile app solutions.";
+  const keywords = "Dhanraj Pimple, best freelancer Satara, best freelancer Pune, best freelancer Kolhapur, best freelancer Sangli, full-stack developer, AI chatbot developer, website developer Pune, SaaS development, Golang, Node.js, React, mobile app developer";
 
   return [
-    // General Meta Tags
-    { title: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
-    { name: "description", content: "Dhanraj Pimple: Best freelancer offering affordable website and software development services. Expertise in scalable backends, mobile apps, and SaaS solutions." },
-    { name: "keywords", content: "Dhanraj Pimple, best freelancer, cheap website developer, best website developer freelancer, software developer, full-stack developer, Golang developer, React developer, mobile app developer, SaaS development" },
+    // ✅ **Primary SEO Tags**
+    { title: siteTitle },
+    { name: "description", content: siteDescription },
+    { name: "keywords", content: keywords },
 
-    // Open Graph (OG) Tags
-    { property: "og:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
-    { property: "og:description", content: "Hire Dhanraj Pimple for top-notch website development services. Affordable and scalable solutions tailored to your needs." },
-    { property: "og:image", content: `${placeholderDomain}/assets/favicon.png` },
-    { property: "og:url", content: placeholderDomain },
+    // ✅ **Open Graph (OG) Tags for Social Media**
+    { property: "og:title", content: siteTitle },
+    { property: "og:description", content: siteDescription },
+    { property: "og:image", content: `${siteUrl}/assets/favicon.png` },
+    { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "Dhanraj Portfolio" },
-    { property: "google-site-verification", content: "DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
 
-    // Twitter Card Tags
+    // ✅ **Twitter Card Tags**
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Dhanraj Pimple | Best Freelancer & Full-Stack Developer" },
-    { name: "twitter:description", content: "Affordable freelance website development by Dhanraj Pimple. Expertise in scalable and modern web solutions." },
-    { name: "twitter:image", content: `${placeholderDomain}/assets/favicon.png` },
+    { name: "twitter:title", content: siteTitle },
+    { name: "twitter:description", content: siteDescription },
+    { name: "twitter:image", content: `${siteUrl}/assets/favicon.png` },
 
-    // Additional SEO Meta Tags
+    // ✅ **Technical SEO & Verification**
     { name: "robots", content: "index, follow" },
     { name: "author", content: "Dhanraj Pimple" },
     { name: "viewport", content: "width=device-width, initial-scale=1.0" },
     { name: "theme-color", content: "#4F46E5" },
     { name: "application-name", content: "Dhanraj Portfolio" },
+    { name: "google-site-verification", content: "DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" },
 
-    // Canonical Link
-    { rel: "canonical", href: placeholderDomain },
+    // ✅ **Canonical Link**
+    { rel: "canonical", href: siteUrl },
 
-    // Structured Data (JSON-LD)
+    // ✅ **Schema Markup (JSON-LD) for Local SEO**
     { name: "jsonld", content: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Dhanraj Pimple",
-        "jobTitle": "Full-Stack Developer",
-        "url": placeholderDomain,
+        "jobTitle": "Freelance Full-Stack Developer",
+        "url": siteUrl,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Satara, Pune, Kolhapur, Sangli",
+          "addressCountry": "IN"
+        },
         "sameAs": [
           "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
           "https://github.com/dhanrajpimple"
         ],
-        "image": `${placeholderDomain}/assets/favicon.png`,
-        "description": "Dhanraj Pimple: Best freelancer offering affordable website and software development services."
+        "image": `${siteUrl}/assets/favicon.png`,
+        "description": siteDescription
       })
     }
   ];
 };
 export default function Index() {
-  const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
-    // Ensure we are in the browser before accessing localStorage
-    if (typeof window !== "undefined") {
-      // Check localStorage for saved theme preference
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) {
-        setDarkMode(savedTheme === "dark");
-      } else {
-        // If no saved preference, use system preference
-        setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Save the theme to localStorage whenever it changes
-      localStorage.setItem("theme", darkMode ? "dark" : "light");
-
-      // Apply dark mode class to the document
-      if (darkMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }
-  }, [darkMode]);
 
   return (
-    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className={`min-h-screen`}>
+      <Navbar />
       <main>
         <Hero />
         <Skills />

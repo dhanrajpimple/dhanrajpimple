@@ -10,3 +10,80 @@ body {
     color-scheme: dark;
   }
 }
+
+
+@keyframes typing {
+  0% { width: 0 }
+  100% { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #fbbf24 }
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  animation: 
+    typing 3.5s steps(20, end) infinite,
+    blink 0.75s step-end infinite;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes type-delete {
+  0% { width: 0; }
+  10% { width: 0; }
+  70% { width: 14ch; } /* Adjust based on text length */
+  85% { width: 14ch; }
+  100% { width: 0; }
+}
+
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: #fde047; }
+}
+
+.typing-deleting-animation {
+  display: inline-block;
+  position: relative;
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fde047;
+  animation: 
+    type-delete 6s infinite,
+    blink-cursor 0.75s step-end infinite;
+}
+
+/* Calculate width based on character count */
+.typing-deleting-animation::after {
+  content: 'Dhanraj Pimple';
+  visibility: hidden;
+}

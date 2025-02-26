@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import axios from "axios"; // Import axios
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -44,16 +45,29 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section id="contact" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <motion.h2
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-12 text-yellow-300"
+        >
           Contact Me
-        </h2>
+        </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
                 </label>
                 <input
@@ -63,11 +77,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full bg-white rounded-md h-10 px-5 text-black border-gray-500 border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent"
+                  placeholder="Enter your name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <input
@@ -77,11 +92,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full h-10 rounded-md text-black px-5 border-gray-500 bg-white border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent"
+                  placeholder="Enter your email"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -91,39 +107,48 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-500 px-5 py-2 text-black bg-white border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent"
+                  placeholder="Your message..."
                 ></textarea>
               </div>
               <div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full py-2 px-4 bg-yellow-300 text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-300"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
               </div>
             </form>
             {responseMessage && (
-              <div className="mt-4 text-center text-sm text-gray-700 dark:text-gray-300">
+              <div className="mt-4 text-center text-sm text-gray-300">
                 {responseMessage}
               </div>
             )}
-          </div>
-          <div className="space-y-6">
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
             <div className="flex items-center">
-              <FaEnvelope className="text-2xl text-indigo-600 mr-4" />
-              <span className="text-gray-700 dark:text-gray-300">dhanraj.webdev@gmail.com</span>
+              <FaEnvelope className="text-2xl text-yellow-300 mr-4" />
+              <span className="text-gray-300">dhanraj.webdev@gmail.com</span>
             </div>
             <div className="flex items-center">
-              <FaPhone className="text-2xl text-indigo-600 mr-4" />
-              <span className="text-gray-700 dark:text-gray-300">+91 7219111601</span>
+              <FaPhone className="text-2xl text-yellow-300 mr-4" />
+              <span className="text-gray-300">+91 7219111601</span>
             </div>
             <div className="flex items-center">
-              <FaMapMarkerAlt className="text-2xl text-indigo-600 mr-4" />
-              <span className="text-gray-700 dark:text-gray-300">Pune, India</span>
+              <FaMapMarkerAlt className="text-2xl text-yellow-300 mr-4" />
+              <span className="text-gray-300">Pune, India</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
