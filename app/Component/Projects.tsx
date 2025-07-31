@@ -1,84 +1,122 @@
-import { useState } from "react"
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
-
-const projects = [
-  {
-    id: 1,
-    title: "Project 1",
-    description: "A brief description of Project 1",
-    image: "/path-to-project1-image.jpg",
-    technologies: ["React", "Node.js", "MongoDB"],
-    githubLink: "https://github.com/yourusername/project1",
-    liveLink: "https://project1-demo.com",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    description: "A brief description of Project 2",
-    image: "/path-to-project2-image.jpg",
-    technologies: ["Vue.js", "Express", "PostgreSQL"],
-    githubLink: "https://github.com/yourusername/project2",
-    liveLink: "https://project2-demo.com",
-  },
-  // Add more projects as needed
-]
-
-const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+"use client"
+import { motion } from "framer-motion"
+import { ExternalLink, Rocket } from "lucide-react"
+import { Card, CardContent } from "./ui/Card"
+import Badge from "./ui/Badge"
+import Button from "./ui/Button"
+import image1 from "../assests/shettry.png"
+import flixix from "../assests/flixix.png"
+const ProjectsSection = () => {
+  const projects = [
+    {
+      title: "FlixixStudio.in",
+      description: "Modern entertainment platform with seamless UX and advanced streaming capabilities",
+      image: flixix,
+      tech: ["Remix", "Node.js", "MongoDB", "Supabase", "Tailwind CSS","SEO", "Cloudinary"],
+      impact: "User engagement increased by 200%",
+      link: "#",
+    },
+    {
+      title: "ShettyEducators.in",
+      description: "Comprehensive educational platform connecting students with quality learning resources",
+      image: image1,
+      tech: ["Remix.js","Tailwind CSS","SEO",],
+      impact: "Student enrollment up 250%",
+      link: "#",
+    },
+  ]
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">My Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="relative overflow-hidden rounded-lg shadow-lg"
-              onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+    <section className="py-20 relative">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            Featured Projects
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="h-1 bg-gradient-to-r from-[#00aaff] to-[#aa00ff] mx-auto mt-4"
+            />
+          </h2>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.3, duration: 0.8 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10, rotateY: 5 }}
+              className="group perspective-1000"
             >
-              <img src={project.image || "/placeholder.svg"} alt={project.title} className="w-full h-64 object-cover" />
-              <div
-                className={`absolute inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center p-4 transition-opacity duration-300 ${
-                  hoveredProject === project.id ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-white text-center mb-4">{project.description}</p>
-                <div className="flex space-x-4 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="bg-blue-500 text-white px-2 py-1 rounded-full text-sm">
-                      {tech}
-                    </span>
-                  ))}
+              <Card className="overflow-hidden hover:bg-white/10 transition-all duration-500">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image }
+                    alt={project.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-800 text-white px-4 py-2 rounded-full flex items-center"
-                  >
-                    <FaGithub className="mr-2" /> GitHub
-                  </a>
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-600 text-white px-4 py-2 rounded-full flex items-center"
-                  >
-                    <FaExternalLinkAlt className="mr-2" /> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
+
+                <CardContent>
+                  <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-white/80 mb-4">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <Badge key={techIndex} variant="secondary">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <p className="text-[#00aaff] font-semibold mb-4">{project.impact}</p>
+
+                  <Button variant="primary" className="w-full">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    View Live Site
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
+
+        {/* Coming Soon Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Card className="p-8 max-w-md mx-auto">
+            <CardContent className="p-0">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                className="w-16 h-16 bg-gradient-to-r from-[#00ff88] to-[#00aaff] rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <Rocket className="w-8 h-8 text-black" />
+              </motion.div>
+              <h3 className="text-xl font-bold text-white mb-2">More Projects Coming Soon</h3>
+              <p className="text-white/60">Amazing projects in development...</p>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-export default Projects
-
+export default ProjectsSection

@@ -1,97 +1,112 @@
-import { FaReact, FaNodeJs, FaPython, FaDatabase, FaAws, FaGithub, FaDocker, FaCube } from "react-icons/fa";
-import {
-  SiTypescript,
-  SiTailwindcss,
-  SiMongodb,
-  SiKubernetes,
-  SiCplusplus,
-  SiSupabase,
-  SiWechat,
-  SiReact,
-  SiRemix,
-  SiGo,
-} from "react-icons/si";
-import { motion } from "framer-motion";
+"use client"
+import { motion } from "framer-motion"
+import { Code, Zap, Brain, Database } from "lucide-react"
 
-const skills = [
-  { name: "React", icon: FaReact, color: "text-blue-400" },
-  { name: "Node.js", icon: FaNodeJs, color: "text-green-400" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
-  { name: "Python", icon: FaPython, color: "text-yellow-400" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-400" },
-  { name: "SQL", icon: FaDatabase, color: "text-red-400" },
-  { name: "Docker", icon: FaDocker, color: "text-blue-300" },
-  { name: "AWS", icon: FaAws, color: "text-orange-400" },
-  { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
-  { name: "Kubernetes", icon: SiKubernetes, color: "text-blue-600" },
-  { name: "C++", icon: SiCplusplus, color: "text-blue-700" },
-  { name: "Supabase", icon: SiSupabase, color: "text-emerald-400" },
-  { name: "WeWeb", icon: SiWechat, color: "text-purple-400" },
-  { name: "React Native", icon: SiReact, color: "text-blue-300" },
-  { name: "Xano", icon: FaCube, color: "text-indigo-400" },
-  { name: "GitHub", icon: FaGithub, color: "text-gray-300" },
-  { name: "Remix", icon: SiRemix, color: "text-pink-500" },
-  { name: "Golang", icon: SiGo, color: "text-cyan-400" },
-];
-
-const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
+const SkillsSection = () => {
+  const skillCategories = [
+    {
+      title: "Frontend Mastery",
+      icon: Code,
+      skills: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "TypeScript", "React", "Remix.js"],
+      color: "#00ff88",
     },
-  };
-
-  const itemVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100, damping: 10 },
+    {
+      title: "Backend Power",
+      icon: Zap,
+      skills: ["Python", "FastAPI", "Node.js", "Go", "C++"],
+      color: "#00aaff",
     },
-    hover: { scale: 1.1, y: -5, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)" },
-  };
+    {
+      title: "AI & Automation",
+      icon: Brain,
+      skills: ["Generative AI", "AI Chatbots", "Machine Learning"],
+      color: "#aa00ff",
+    },
+    {
+      title: "Database Arsenal",
+      icon: Database,
+      skills: ["PostgreSQL", "MongoDB", "MySQL"],
+      color: "#00ff88",
+    },
+  ]
 
   return (
-    <section id="skills" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-12 text-yellow-300"
-        >
-          My Skills
-        </motion.h2>
-
+    <section className="py-20 relative">
+      <div className="container mx-auto px-6">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+          className="text-center mb-16"
         >
-          {skills.map(({ name, icon: Icon, color }) => (
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            Skills & Expertise
             <motion.div
-              key={name}
-              variants={itemVariants}
-              whileHover="hover"
-              className="flex flex-col items-center p-6 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl border border-gray-700"
-              aria-label={`${name} skill`}
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="h-1 bg-gradient-to-r from-[#00ff88] to-[#aa00ff] mx-auto mt-4"
+            />
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.8 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="relative group"
             >
-              <Icon className={`text-5xl mb-4 ${color}`} aria-hidden="true" />
-              <h3 className="text-sm font-semibold text-center text-gray-200">{name}</h3>
+              <div
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 h-full hover:bg-white/10 transition-all duration-300"
+                style={{
+                  boxShadow: `0 0 30px ${category.color}20`,
+                }}
+              >
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                  className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: `${category.color}20` }}
+                >
+                  <category.icon className="w-8 h-8" style={{ color: category.color }} />
+                </motion.div>
+
+                <h3 className="text-xl font-bold text-white mb-4 text-center">{category.title}</h3>
+
+                <div className="space-y-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: skillIndex * 0.1, duration: 0.5 }}
+                      viewport={{ once: true }}
+                      className="flex items-center justify-between"
+                    >
+                      <span className="text-white/80 text-sm">{skill}</span>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "60%" }}
+                        transition={{ delay: skillIndex * 0.1 + 0.5, duration: 1 }}
+                        className="h-1 rounded-full"
+                        style={{ backgroundColor: category.color }}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default SkillsSection

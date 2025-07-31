@@ -1,131 +1,155 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion } from "framer-motion";
-import dp from "../assests/dp.png";
-import resume from "../assests/resume.pdf";
+"use client"
+import { motion } from "framer-motion"
+import { ChevronDown } from "lucide-react"
+import Button from "./ui/Button"
+import useTypewriter from "../hooks/useTypewrite"
+import useCounter from "../hooks/useConter"
+import image from "../assests/dp.png"
+const HeroSection = () => {
+  const typewriterText = useTypewriter("AI ARCHITECT • FULL-STACK VISIONARY • CHATBOT SPECIALIST", 100)
+  const experienceCount = useCounter(1.5, 2000)
+  const clientCount = useCounter(3, 2500)
 
-const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[80vh] bg-gray-900 text-white py-10 mt-16 overflow-hidden ">
-      {/* Lamp Effect Components */}
-     {/* Lamp Effect Components */}
-<div className="absolute top-0 isolate z-0 flex w-screen items-start justify-center">
-  {/* Main glow - increased size and blur */}
-  <div className="absolute inset-auto z-0 h-48 w-[50rem] -translate-y-[25%] rounded-full bg-yellow-300/50 opacity-90 blur-[100px]" />
-
-  {/* Lamp animation - wider spread */}
-  <motion.div
-    initial={{ width: "12rem" }}
-    viewport={{ once: true }}
-    transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-    whileInView={{ width: "24rem" }}
-    className="absolute top-0 z-0 h-48 -translate-y-[15%] rounded-full bg-yellow-300/50 blur-[80px]"
-  />
-
-  {/* Top line - extended width */}
-  <motion.div
-    initial={{ width: "20rem" }}
-    viewport={{ once: true }}
-    transition={{ ease: "easeInOut", delay: 0.3, duration: 0.8 }}
-    whileInView={{ width: "50rem" }}
-    className="absolute inset-auto z-0 h-0.5 -translate-y-[5%] bg-yellow-300/50"
-  />
-
-  {/* Gradient cones - larger and more transparent */}
-  <motion.div
-    initial={{ opacity: 0.5, width: "20rem" }}
-    whileInView={{ opacity: 0.8, width: "40rem" }}
-    transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-    className="absolute inset-auto right-1/2 h-64 w-[40rem] bg-gradient-conic from-yellow-300/40 via-transparent to-transparent"
-  />
-  <motion.div
-    initial={{ opacity: 0.5, width: "20rem" }}
-    whileInView={{ opacity: 0.8, width: "40rem" }}
-    transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-    className="absolute inset-auto left-1/2 h-64 w-[40rem] bg-gradient-conic from-transparent via-transparent to-yellow-300/40"
-  />
-</div>
-
-      {/* Content */}
-      <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        viewport={{ once: true }}
-        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center"
-      >
-        {/* Hero Image */}
-        <div className="mb-8 md:mb-12">
-          <img
-            src={dp}
-            alt="Dhanraj Pimple"
-            className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-yellow-300 shadow-lg"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Hero Text */}
-        <div className="text-center">
-          
-       
-  <h1 className="text-3xl md:text-5xl font-bold mb-4">Hi, I'm</h1>
-  <div className="h-16 md:h-24 flex items-center justify-center">
-    <h1 className="text-3xl md:text-5xl font-bold text-yellow-300 typing-deleting-animation">
-      Dhanraj Pimple
-    </h1>
-  </div>
-
-          <p className="text-lg md:text-xl mb-8 opacity-90">
-            Full-Stack Developer | AI/ML Enthusiast | Problem Solver
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="bg-yellow-300 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-all duration-300 shadow-md"
-            >
-              Contact Me
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href={resume}
-              download
-              className="bg-gray-800 text-yellow-300 px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition-all duration-300 shadow-md border border-yellow-300/30"
-            >
-              Download CV
-            </motion.a>
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-5">
+      <div className="container mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mb-8"
+        >
+          {/* Profile Photo with Rotating Ring */}
+          <div className="relative inline-block mb-8">
+            <div className="w-48 h-48 mx-auto relative">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-r from-[#00ff88] via-[#00aaff] to-[#aa00ff] p-1"
+              >
+                <div className="w-full h-full rounded-full bg-[#0a0a0a]"></div>
+              </motion.div>
+              <motion.img
+                animate={{ y: [-5, 5, -5] }}
+                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                src={image}
+                alt="Dhanraj Pimple"
+                className="absolute inset-2 w-44 h-44 rounded-full object-cover border-2 border-white/20"
+              />
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                className="absolute -top-2 -right-2 w-6 h-6 bg-[#00ff88] rounded-full shadow-lg shadow-[#00ff88]/50"
+              />
+            </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6">
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://github.com/dhanrajpimple"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-300 hover:text-yellow-400 transition-colors duration-300"
-            >
-              <FaGithub size={28} />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yellow-300 hover:text-yellow-400 transition-colors duration-300"
-            >
-              <FaLinkedin size={28} />
-            </motion.a>
+          {/* Name Display */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-[#00ff88] via-[#00aaff] to-[#aa00ff] bg-clip-text text-transparent"
+            style={{
+              textShadow: "0 0 30px rgba(0, 255, 136, 0.3)",
+            }}
+          >
+            Dhanraj Pimple
+          </motion.h1>
+
+          {/* Typewriter Title */}
+          <div className="h-16 mb-6">
+            <p className="text-xl md:text-2xl text-white/90 font-mono">
+              {typewriterText}
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+                className="text-[#00ff88]"
+              >
+                |
+              </motion.span>
+            </p>
           </div>
-        </div>
-      </motion.div>
+
+          {/* Tagline with Particles */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+            className="text-2xl md:text-3xl text-white/80 mb-8 relative"
+          >
+            Transforming Ideas Into Digital Reality
+            <motion.span
+              animate={{
+                x: [0, 10, -10, 0],
+                y: [0, -5, 5, 0],
+              }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+              className="absolute -top-2 -right-8 text-[#00aaff]"
+            >
+              ✨
+            </motion.span>
+          </motion.p>
+
+          {/* Availability Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2 }}
+            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 mb-8"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+              className="w-3 h-3 bg-[#00ff88] rounded-full shadow-lg shadow-[#00ff88]/50"
+            />
+            <span className="text-white/90">Available for Projects</span>
+          </motion.div>
+
+          {/* Hero Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.5 }}
+            className="flex flex-wrap justify-center gap-8 mb-12 text-white/80"
+          >
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[#00ff88]">{experienceCount}+</div>
+              <div className="text-sm">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[#00aaff]">MCA</div>
+              <div className="text-sm">Graduate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-[#aa00ff]">{clientCount}</div>
+              <div className="text-sm">Happy Clients</div>
+            </div>
+          </motion.div>
+
+          {/* Primary CTA */}
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3 }}>
+            <Button
+              size="lg"
+              variant="primary"
+              className="px-8 py-4 rounded-full text-lg transform hover:scale-105 hover:shadow-2xl hover:shadow-[#00ff88]/25"
+            >
+              Let's Build Something Amazing
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        {/* <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <ChevronDown className="w-8 h-8 text-white/60" />
+        </motion.div> */}
+      </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default HeroSection
