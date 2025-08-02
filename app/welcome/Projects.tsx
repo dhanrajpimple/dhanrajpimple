@@ -1,4 +1,3 @@
-"use client"
 import { motion } from "framer-motion"
 import { ExternalLink, Rocket } from "lucide-react"
 import { Card, CardContent } from "./ui/Card"

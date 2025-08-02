@@ -1,4 +1,3 @@
-"use client"
 import { motion } from "framer-motion"
 import { Code, Zap, Brain, Database } from "lucide-react"
 
