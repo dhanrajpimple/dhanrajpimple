@@ -1,8 +1,0 @@
-[build]
-  command = "npm run build"
-  publish = "build"
-
-[[redirects]]
-  from = "/favicon.ico"
-  to = "/public/favicon.ico"
-  status = 200

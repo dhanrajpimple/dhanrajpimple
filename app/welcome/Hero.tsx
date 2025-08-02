@@ -1,10 +1,10 @@
-"use client"
+
 import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import Button from "./ui/Button"
 import useTypewriter from "../hooks/useTypewrite"
 import useCounter from "../hooks/useConter"
-import image from "../assests/dp.png"
+import image from "~/assests/dp.png"
 const HeroSection = () => {
   const typewriterText = useTypewriter("AI ARCHITECT • FULL-STACK VISIONARY • CHATBOT SPECIALIST", 100)
   const experienceCount = useCounter(1.5, 2000)

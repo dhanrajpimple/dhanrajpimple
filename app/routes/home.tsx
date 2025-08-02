@@ -1,14 +1,13 @@
+import type { Route } from "./+types/home";
+import { Welcome } from "../welcome/welcome";
+import HeroSection from "~/welcome/Hero";
+import AboutSection from "~/welcome/about";
+import SkillsSection from "~/welcome/Skills";
+import ProjectsSection from "~/welcome/Projects";
+import ContactSection from "~/welcome/Contact";
+import Footer from "~/welcome/Footer";
 
-import Footer from "~/Component/Footer";
-import Hero from "~/Component/Hero";
-import { MetaFunction } from "@remix-run/react";
-import AboutSection from "~/Component/about";
-import SkillsSection from "~/Component/Skills";
-import ProjectsSection from "~/Component/Projects";
-import ContactSection from "~/Component/Contact";
-
-// Meta tags with improved SEO focus
-export let meta: MetaFunction = () => {
+export function meta({}: Route.MetaArgs) {
   const siteUrl = "https://dhanrajpimple.vercel.app/";
   const siteTitle = "Dhanraj Pimple | #1 Software Developer & Website Builder in Satara, Pune, Kolhapur, Sangli | Expert Full-Stack Developer";
   const siteDescription = "🚀 Hire Dhanraj Pimple - Top-rated software developer and website builder in Satara, Pune, Kolhapur, Sangli. Specializing in AI chatbots, mobile apps, SaaS solutions, React, Node.js, Golang development with 99% client satisfaction. Get your dream website built today!";
@@ -28,7 +27,6 @@ export let meta: MetaFunction = () => {
   const enhancedTitle = "🚀 Dhanraj Pimple | #1 AI-Powered Software Developer & Expert Website Builder in Satara, Pune, Kolhapur, Sangli | 5⭐ Rated Full-Stack Developer | Hire Now!";
   
   const detailedDescription = "⚡ Looking for the BEST software developer in Maharashtra? Dhanraj Pimple is your go-to expert! 🏆 Top-rated full-stack developer specializing in AI chatbots, lightning-fast websites, mobile apps, and SaaS solutions. Serving Satara, Pune, Kolhapur, Sangli with 99% client satisfaction. 💼 React, Node.js, Golang expert. 🚀 Get your dream project delivered in record time! Call now for FREE consultation. ⭐ 500+ successful projects | 24/7 support | Money-back guarantee!";
-
   return [
     // ✅ **Enhanced Primary SEO Tags**
     { title: enhancedTitle },
@@ -654,23 +652,18 @@ export let meta: MetaFunction = () => {
       })
     }
   ];
-};
+}
 
-
-export default function Index() {
-
-
+export default function Home() {
   return (
-    <div className={`min-h-screen px-2`}>
-    
-      <main>
-        <Hero />
-        <AboutSection/>
-        <SkillsSection/>
-        <ProjectsSection/>
-       <ContactSection/>
-      </main>
-      <Footer />
-    </div>
-  );
+    <>
+  <HeroSection/>
+  <AboutSection/>
+  <SkillsSection/>
+  <ProjectsSection/>
+  <ContactSection/>
+  <Footer/>
+
+  </>
+);
 }
