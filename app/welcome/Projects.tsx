@@ -7,13 +7,14 @@ import image1 from "../assests/shettry.png"
 import flixix from "../assests/flixix.png"
 const ProjectsSection = () => {
   const projects = [
+   const projects = [
     {
-      title: "FlixixStudio.in",
+      title: "FlixixStudios.in",
       description: "Modern entertainment platform with seamless UX and advanced streaming capabilities",
       image: flixix,
       tech: ["Remix", "Node.js", "MongoDB", "Supabase", "Tailwind CSS","SEO", "Cloudinary"],
       impact: "User engagement increased by 200%",
-      link: "#",
+      link: "https://flixixstudios.in/",
     },
     {
       title: "ShettyEducators.in",
@@ -21,8 +22,9 @@ const ProjectsSection = () => {
       image: image1,
       tech: ["Remix.js","Tailwind CSS","SEO",],
       impact: "Student enrollment up 250%",
-      link: "#",
+      link: "https://shettyeducators.in/",
     },
+  ]
   ]
 
   return (
