@@ -5,9 +5,10 @@ import Badge from "./ui/Badge"
 import Button from "./ui/Button"
 import image1 from "../assests/shettry.png"
 import flixix from "../assests/flixix.png"
+import image3 from "../assests/apcelebration.png" // Add your third project image
+
 const ProjectsSection = () => {
   const projects = [
-
     {
       title: "FlixixStudios.in",
       description: "Modern entertainment platform with seamless UX and advanced streaming capabilities",
@@ -20,12 +21,24 @@ const ProjectsSection = () => {
       title: "ShettyEducators.in",
       description: "Comprehensive educational platform connecting students with quality learning resources",
       image: image1,
-      tech: ["Remix.js","Tailwind CSS","SEO",],
+      tech: ["Remix.js","Tailwind CSS","SEO"],
       impact: "Student enrollment up 250%",
       link: "https://shettyeducators.in/",
+    },
+    {
+      title: "A.P. Celebration Traders",
+      description: "Wholesale celebration materials platform offering party supplies and decorative items at competitive rates",
+      image: image3,
+      tech: ["Remix.js", "Tailwind CSS", "Motion"],
+      impact: "Increased sales significantly",
+      link: "https://apcelebrationtraders.in/",
     }
-  
   ]
+
+  // Function to handle external link opening
+  const handleExternalLink = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <section className="py-20 relative">
@@ -48,7 +61,7 @@ const ProjectsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -59,19 +72,19 @@ const ProjectsSection = () => {
               whileHover={{ y: -10, rotateY: 5 }}
               className="group perspective-1000"
             >
-              <Card className="overflow-hidden hover:bg-white/10 transition-all duration-500">
+              <Card className="overflow-hidden hover:bg-white/10 transition-all duration-500 h-full flex flex-col">
                 <div className="relative overflow-hidden">
                   <img
-                    src={project.image }
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
-                <CardContent>
+                <CardContent className="flex-1 flex flex-col">
                   <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-white/80 mb-4">{project.description}</p>
+                  <p className="text-white/80 mb-4 flex-1">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
@@ -83,7 +96,11 @@ const ProjectsSection = () => {
 
                   <p className="text-[#00aaff] font-semibold mb-4">{project.impact}</p>
 
-                  <Button variant="primary" className="w-full">
+                  <Button 
+                    variant="primary" 
+                    className="w-full"
+                    onClick={() => handleExternalLink(project.link)}
+                  >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     View Live Site
                   </Button>

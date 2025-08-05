@@ -117,14 +117,14 @@ const ContactSection = () => {
                       name="projectType"
                       value={formData.projectType}
                       onChange={handleChange}
-                      className="w-full p-3 bg-white/5 border border-white/20 rounded-md text-white focus:border-[#aa00ff] transition-colors"
+                      className="w-full p-3 bg-white/5 border border-white/20 rounded-md text- focus:border-[#aa00ff] transition-colors"
                       required
                     >
-                      <option value="">Select Project Type</option>
-                      <option value="website">Website</option>
-                      <option value="chatbot">AI Chatbot</option>
-                      <option value="fullstack">Full-Stack App</option>
-                      <option value="other">Other</option>
+                      <option value="" className="bg-black">Select Project Type</option>
+                      <option value="website" className="bg-black">Website</option>
+                      <option value="chatbot" className="bg-black">AI Chatbot</option>
+                      <option value="fullstack" className="bg-black">Full-Stack App</option>
+                      <option value="other" className="bg-black">Other</option>
                     </select>
                   </div>
 
