@@ -34,12 +34,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
-          content="Dhanraj Pimple is a top-rated software developer, AI chatbot builder, and website creator offering services in Satara, Pune, Kolhapur, and Sangli."
+          content="Hire Dhanraj Pimple – top-rated freelance software developer, AI chatbot builder, and high-performance website creator serving Satara, Pune, Kolhapur, and Sangli, Maharashtra, India."
         />
         <meta name="author" content="Dhanraj Pimple" />
         <meta
           name="keywords"
-          content="Dhanraj Pimple, Software Developer, Website Builder, AI Chatbot Developer, Full-Stack Developer, Golang, Node.js, React.js, Mobile App Development, SaaS, SEO Optimization, Satara, Pune, Kolhapur, Sangli"
+          content="Dhanraj Pimple, freelance software developer, freelance web developer, hire freelance developer, hire freelance programmer, hire freelance software engineer, best freelance developer India, best freelance developer Maharashtra, best freelance developer Pune, best freelance developer Satara, best freelance developer Kolhapur, best freelance developer Sangli, Software Developer, Website Builder, AI Chatbot Developer, Full-Stack Developer, Golang, Node.js, React.js, Mobile App Development, SaaS, SEO Optimization, Satara, Pune, Kolhapur, Sangli"
         />
         <meta name="google-site-verification" content="feeQ3QtYEX2lJuVM1BEos3tM5qiBNtQh6JoG87it2ZQ" />
         <Links />

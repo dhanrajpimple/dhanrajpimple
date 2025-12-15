@@ -6,7 +6,7 @@ import Button from "./ui/Button"
 import image1 from "../assests/shettry.png"
 import flixix from "../assests/flixix.png"
 import image3 from "../assests/apcelebration.png" // Add your third project image
-
+import imageFlexiGlobal from "../assests/fleixi global.png"
 const ProjectsSection = () => {
   const projects = [
     {
@@ -32,7 +32,18 @@ const ProjectsSection = () => {
       tech: ["Remix.js", "Tailwind CSS", "Motion"],
       impact: "Increased sales significantly",
       link: "https://apcelebrationtraders.in/",
+    },
+    {
+      title: "Flexi Global Holidays",
+      description:
+        "Travel agency website showcasing tour packages and destinations with an inquiry-based booking system for customers.",
+      image: imageFlexiGlobal,
+      tech: ["Remix.js", "Tailwind CSS", "Framer Motion"],
+      impact:
+        "Established a professional online presence for the travel agency and streamlined customer inquiries through a centralized booking request workflow.",
+      link: "http://flexiglobalholidays.in/",
     }
+    
   ]
 
   // Function to handle external link opening

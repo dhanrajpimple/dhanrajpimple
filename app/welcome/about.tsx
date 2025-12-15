@@ -7,7 +7,7 @@ const AboutSection = () => {
     { icon: GraduationCap, title: "MCA Graduate", subtitle: "Computer Applications" },
     { icon: Briefcase, title: "1.5 Years", subtitle: "Experience" },
     { icon: Brain, title: "AI Solutions", subtitle: "Specialist" },
-    { icon: Star, title: "3 Projects", subtitle: "Delivered" },
+    { icon: Star, title: "4 Projects", subtitle: "Delivered" },
   ]
 
   return (

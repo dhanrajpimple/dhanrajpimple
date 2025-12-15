@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           <div className="text-sm text-white/40 space-y-2">
-            <p>© 2025 Dhanraj Pimple. Designed & Developed with ❤️</p>
+            <p>© 2025 Dhanraj Pimple</p>
          
           </div>
         </div>
