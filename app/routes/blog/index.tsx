@@ -2,15 +2,61 @@ import { motion } from "framer-motion";
 import { blogPosts } from "../../data/blog";
 import { Calendar, Clock, ArrowRight, Search, Tag, MessageSquare } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => {
     return [
         { title: "Technical Insights | Dhanraj Pimple Blog | DevOps & Development" },
-        { name: "description", content: "Read about DevOps best practices, CI/CD optimization, and modern software scaling on the Dhanraj Pimple engineering blog." },
+        { name: "description", content: "Expert guides on DevOps automation, CI/CD pipelines, CI/CD optimization, and modern software scaling by Dhanraj Pimple. Serving Pune, Satara, and Kolhapur." },
+        { name: "keywords", content: "DevOps Blog Satara, Software Engineering Pune, Technical Guides Maharashtra, CI/CD Best Practices, Cloud Infrastructure India, Web Development Insights" },
     ];
 };
 
 export default function BlogIndex() {
+    const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email) return;
+
+        setStatus("loading");
+
+        const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+        if (!supabaseKey || !supabaseUrl) {
+            console.error("Supabase environment variables are missing");
+            setStatus("error");
+            return;
+        }
+
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/subscribe_email`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": supabaseKey,
+                    "Authorization": `Bearer ${supabaseKey}`
+                },
+                body: JSON.stringify({
+                    p_email: email
+                })
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                setEmail("");
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error("Newsletter subscription error:", error);
+            setStatus("error");
+        }
+    };
+
     return (
         <main className="pt-20 pb-32">
             <div className="container mx-auto px-6">
@@ -111,16 +157,25 @@ export default function BlogIndex() {
                     <div className="relative z-10">
                         <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Stay Ahead of the Curve</h2>
                         <p className="text-brand-gray mb-10 max-w-xl mx-auto">Join 2,000+ engineers receiving bi-weekly tips on DevOps, scaling infrastructure, and AI development.</p>
-                        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                             <input
                                 type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email"
+                                required
                                 className="flex-1 bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-brand-blue transition-all"
                             />
-                            <button className="bg-brand-blue text-brand-navy font-bold px-8 py-4 rounded-xl hover:bg-brand-coral hover:text-white transition-all shadow-xl shadow-brand-blue/20">
-                                Subscribe
+                            <button
+                                type="submit"
+                                disabled={status === "loading"}
+                                className="bg-brand-blue text-brand-navy font-bold px-8 py-4 rounded-xl hover:bg-brand-coral hover:text-white transition-all shadow-xl shadow-brand-blue/20 disabled:opacity-50"
+                            >
+                                {status === "loading" ? "Subscribing..." : "Subscribe"}
                             </button>
-                        </div>
+                        </form>
+                        {status === "success" && <p className="text-brand-green text-sm font-bold mt-4">Successfully subscribed!</p>}
+                        {status === "error" && <p className="text-red-400 text-sm font-bold mt-4">Error subscribing. Please try again.</p>}
                         <p className="text-[10px] text-brand-gray mt-6 italic">No spam, just pure technical value. Unsubscribe anytime.</p>
                     </div>
                 </div>

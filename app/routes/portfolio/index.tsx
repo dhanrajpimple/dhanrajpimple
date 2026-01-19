@@ -6,8 +6,9 @@ import { NavLink, type MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Portfolio | Dhanraj Pimple | DevOps & Software Projects" },
-        { name: "description", content: "Explore a curated selection of DevOps automation pipelines, SaaS platforms, and AI-driven applications built by Dhanraj Pimple." },
+        { title: "Portfolio | DevOps Automation & Software Expert Satara, Pune" },
+        { name: "description", content: "Explore case studies of DevOps pipelines, SaaS architectures, and AI-driven products built by Dhanraj Pimple. High-performance software solutions for business growth." },
+        { name: "keywords", content: "Portfolio Satara, DevOps Projects Pune, Software Case Studies Maharashtra, AI App Development India, Full Stack Developer Pune, Hire Developer Satara" },
     ];
 };
 

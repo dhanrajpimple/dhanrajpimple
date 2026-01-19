@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -27,9 +28,12 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+const SITE_URL = "https://dhanrajpimple.vercel.app";
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -268,11 +272,15 @@ const Footer = () => {
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const canonicalUrl = `${SITE_URL}${location.pathname === "/" ? "" : location.pathname}`;
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={canonicalUrl} />
         <Meta />
         <Links />
         <script
@@ -362,6 +370,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   { "@type": "Country", "name": "India" }
                 ],
                 "priceRange": "$$$"
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": location.pathname.split("/").filter(Boolean).map((path, index, array) => ({
+                  "@type": "ListItem",
+                  "position": index + 1,
+                  "name": path.charAt(0).toUpperCase() + path.slice(1),
+                  "item": `${SITE_URL}/${array.slice(0, index + 1).join("/")}`
+                }))
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "SiteNavigationElement",
+                "name": ["Home", "About", "Services", "Portfolio", "Blog", "Contact"],
+                "url": [
+                  `${SITE_URL}/`,
+                  `${SITE_URL}/about`,
+                  `${SITE_URL}/services`,
+                  `${SITE_URL}/portfolio`,
+                  `${SITE_URL}/blog`,
+                  `${SITE_URL}/contact`
+                ]
               },
               {
                 "@context": "https://schema.org",

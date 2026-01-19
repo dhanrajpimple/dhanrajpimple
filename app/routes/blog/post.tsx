@@ -7,9 +7,15 @@ export const meta: MetaFunction = ({ params }) => {
     const post = blogPosts.find(p => p.id === params.id);
     const title = post ? `${post.title} | Dhanraj Pimple Blog` : "Article Not Found";
     const description = post ? post.excerpt : "Article not found.";
+    const keywords = post ? `${post.category}, ${post.tags.join(", ")}, Dhanraj Pimple Blog, Technical Guide` : "DevOps, Software Development, technical blog";
+
     return [
         { title },
         { name: "description", content: description },
+        { name: "keywords", content: keywords },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
     ];
 };
 

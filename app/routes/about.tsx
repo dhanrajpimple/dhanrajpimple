@@ -1,4 +1,4 @@
-import type { MetaFunction } from "react-router";
+import { NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { Award, Briefcase, GraduationCap, Code2, Terminal, Cpu, Cloud, Database, Globe, CheckCircle2, Layers } from "lucide-react";
 
@@ -73,8 +73,16 @@ export default function About() {
                             A Full Stack Developer with over a year of production experience building SaaS and AI-powered platforms. I believe in building systems that work for you, not against you.
                         </p>
                         <p className="text-lg text-brand-gray/80 mb-10">
-                            My core expertise lies at the intersection of development and operations, ensuring that high-quality code is matched with robust, automated infrastructure. I've helped startups automate their bidding processes and travel agencies optimize their booking systems.
+                            My core expertise lies at the intersection of development and operations, ensuring that high-quality code is matched with robust, automated infrastructure. I've helps startups automate their bidding processes and travel agencies optimize their booking systems.
                         </p>
+                        <div className="flex flex-wrap gap-4 mb-12">
+                            <NavLink to="/portfolio" className="bg-brand-blue text-brand-navy px-8 py-3 rounded-xl font-bold hover:bg-brand-coral hover:text-white transition-all shadow-lg shadow-brand-blue/20">
+                                View My Work
+                            </NavLink>
+                            <NavLink to="/contact" className="glass px-8 py-3 rounded-xl font-bold border border-white/10 hover:border-brand-blue/30 transition-all">
+                                Let's Talk
+                            </NavLink>
+                        </div>
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                             <div className="text-center p-4 glass rounded-xl">
                                 <div className="text-3xl font-display font-bold text-brand-blue mb-1">1+</div>
