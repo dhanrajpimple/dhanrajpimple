@@ -145,6 +145,50 @@ const Navigation = () => {
 };
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+
+    const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+    if (!supabaseKey || !supabaseUrl) {
+      console.error("Supabase environment variables are missing");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${supabaseUrl}/rest/v1/rpc/subscribe_email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": supabaseKey,
+          "Authorization": `Bearer ${supabaseKey}`
+        },
+        body: JSON.stringify({
+          p_email: email
+        })
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <footer className="mt-20 border-t border-white/5 py-20 relative overflow-hidden">
       <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
@@ -186,12 +230,30 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-brand-offwhite">Newsletter</h4>
             <p className="text-sm text-brand-gray mb-4">Get the latest DevOps tips and tech insights.</p>
-            <div className="flex gap-2">
-              <input type="email" placeholder="Email" className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-blue w-full" />
-              <button className="bg-brand-blue text-brand-navy px-4 py-2 rounded-lg font-bold text-sm">Join</button>
-            </div>
+            <form onSubmit={handleSubscribe} className="space-y-2">
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-brand-blue w-full"
+                />
+                <button
+                  disabled={status === "loading"}
+                  type="submit"
+                  className="bg-brand-blue text-brand-navy px-4 py-2 rounded-lg font-bold text-sm disabled:opacity-50"
+                >
+                  {status === "loading" ? "..." : "Join"}
+                </button>
+              </div>
+              {status === "success" && <p className="text-brand-green text-[10px] font-bold">Successfully subscribed!</p>}
+              {status === "error" && <p className="text-red-400 text-[10px] font-bold">Error. Try again.</p>}
+            </form>
           </div>
         </div>
+
 
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-gray">
           <p>© {new Date().getFullYear()} Dhanraj Pimple. Built with Remix & Tailwind v4.</p>
@@ -225,13 +287,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "url": "https://dhanrajpimple.vercel.app/",
                 "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
                 "description":
-                  "Expert DevOps engineer and full-stack software developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s), and AI-driven platforms.",
+                  "Expert DevOps engineer, SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s), AI-driven chatbot platforms, and high-performance websites for businesses in Pune, Satara, and beyond.",
                 "sameAs": [
                   "https://www.linkedin.com/in/dhanrajpimple/",
                   "https://github.com/dhanrajpimple",
                 ],
                 "knowsAbout": [
                   "DevOps Automation",
+                  "SEO Strategy & Implementation",
                   "Cloud Infrastructure (AWS, Azure, GCP)",
                   "Infrastructure as Code (Terraform, Ansible)",
                   "CI/CD Pipelines (Jenkins, GitHub Actions, GitLab CI)",
@@ -239,16 +302,72 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   "Docker & Containerization",
                   "AI & LLM Integration (OpenAI, LangChain)",
                   "Full-Stack Development (React, Remix, Next.js)",
-                  "Backend Development (Node.js, FastAPI, Python)",
+                  "Backend Development (Node.js, FastAPI, Python, Go)",
+                  "Mobile App Development",
                   "Database Design (PostgreSQL, MongoDB, Supabase)",
-                  "Technical SEO & Performance Optimization"
+                  "Technical SEO & Performance Optimization",
+                  "Chatbot Development"
                 ],
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Satara",
+                  "addressRegion": "Maharashtra",
+                  "addressCountry": "IN"
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "Dhanraj Pimple - Freelance Web Developer & SEO Expert",
+                "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
+                "@id": "https://dhanrajpimple.vercel.app/",
+                "url": "https://dhanrajpimple.vercel.app/",
+                "telephone": "+91-91468-90521",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Satara",
+                  "addressLocality": "Satara",
+                  "addressRegion": "MH",
+                  "postalCode": "415001",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 17.6805,
+                  "longitude": 73.9803
+                },
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "21:00"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/in/dhanrajpimple/",
+                  "https://github.com/dhanrajpimple"
+                ],
+                "areaServed": [
+                  { "@type": "City", "name": "Satara" },
+                  { "@type": "City", "name": "Pune" },
+                  { "@type": "City", "name": "Kolhapur" },
+                  { "@type": "City", "name": "Sangli" },
+                  { "@type": "City", "name": "Solapur" },
+                  { "@type": "Country", "name": "India" }
+                ],
+                "priceRange": "$$$"
               },
               {
                 "@context": "https://schema.org",
                 "@id": "https://dhanrajpimple.vercel.app/#service",
                 "@type": "Service",
-                "serviceType": "DevOps Consulting & Full-Stack Development",
+                "serviceType": "DevOps Consulting, SEO Optimization, & Full-Stack Development",
                 "provider": {
                   "@type": "Person",
                   "name": "Dhanraj Pimple"
@@ -256,27 +375,41 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "areaServed": "Global",
                 "hasOfferCatalog": {
                   "@type": "OfferCatalog",
-                  "name": "DevOps & Development Services",
+                  "name": "DevOps, SEO & Development Services",
                   "itemListElement": [
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "DevOps Automation & CI/CD"
+                        "name": "DevOps Automation & CI/CD Pipelines"
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Custom Software Development"
+                        "name": "Custom Software & SaaS Development"
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Web Performance & SEO Optimization"
+                        "name": "Technical SEO & Web Performance Optimization"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "AI Chatbot & LLM Integration"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Mobile App Development (React Native, Flutter)"
                       }
                     }
                   ]

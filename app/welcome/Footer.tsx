@@ -18,7 +18,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-2xl font-bold bg-gradient-to-r from-[#00ff88] to-[#00aaff] bg-clip-text text-transparent"
           >
-           Dhanraj Pimple
+            Dhanraj Pimple
           </motion.h3>
 
           <p className="text-white/60">Crafting Digital Experiences That Matter</p>
@@ -38,8 +38,77 @@ const Footer = () => {
             </a>
           </div>
 
+          <div className="max-w-md mx-auto py-6">
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+                const button = form.querySelector("button");
+                const statusText = form.querySelector(".status-text");
+
+                if (button) button.disabled = true;
+                if (statusText) {
+                  statusText.textContent = "Subscribing...";
+                  statusText.className = "status-text text-white/40 text-xs mt-2";
+                }
+
+                try {
+                  const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+                  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+                  const response = await fetch(`${supabaseUrl}/rest/v1/rpc/subscribe_email`, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      "apikey": supabaseKey,
+                      "Authorization": `Bearer ${supabaseKey}`
+                    },
+                    body: JSON.stringify({ p_email: email })
+                  });
+
+                  if (response.ok) {
+                    if (statusText) {
+                      statusText.textContent = "Successfully subscribed!";
+                      statusText.className = "status-text text-[#00ff88] text-xs mt-2";
+                    }
+                    form.reset();
+                  } else {
+                    throw new Error();
+                  }
+                } catch (err) {
+                  if (statusText) {
+                    statusText.textContent = "Error. Please try again.";
+                    statusText.className = "status-text text-red-400 text-xs mt-2";
+                  }
+                } finally {
+                  if (button) button.disabled = false;
+                }
+              }}
+              className="flex flex-col items-center"
+            >
+              <div className="flex w-full gap-2">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Subscribe to newsletter"
+                  required
+                  className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-[#00aaff] text-white"
+                />
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-[#00ff88] to-[#00aaff] text-black px-6 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity"
+                >
+                  Join
+                </button>
+              </div>
+              <p className="status-text h-4 mt-2"></p>
+            </form>
+          </div>
+
+
           <div className="flex justify-center space-x-6">
-            {[{icons:Github, link:"https://github.com/dhanrajpimple"}, {icons:Linkedin, link:"https://www.linkedin.com/in/dhanraj-pimple-1b802a274"}, {icons:Mail, link: "mailto:dhanraj.webdev@gmail.com"}].map((Icon, index) => (
+            {[{ icons: Github, link: "https://github.com/dhanrajpimple" }, { icons: Linkedin, link: "https://www.linkedin.com/in/dhanraj-pimple-1b802a274" }, { icons: Mail, link: "mailto:dhanraj.webdev@gmail.com" }].map((Icon, index) => (
               <motion.a
                 key={index}
                 href={Icon.link}
@@ -53,7 +122,7 @@ const Footer = () => {
 
           <div className="text-sm text-white/40 space-y-2">
             <p>© 2025 Dhanraj Pimple</p>
-         
+
           </div>
         </div>
 

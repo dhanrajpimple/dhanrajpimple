@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Zap, Shield, Server, Terminal, ArrowRight } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, type MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+    return [
+        { title: "DevOps Expert & Cloud Automation Satara | AWS Professional Pune" },
+        { name: "description", content: "Professional DevOps automation, CI/CD pipeline design, and Kubernetes consulting. Freelance DevOps expert serving Pune, Satara, and Kolhapur enterprises." },
+        { name: "keywords", content: "DevOps Expert Satara, AWS Consultant Pune, Kubernetes Specialist Maharashtra, Automation Expert Sangli, CI/CD Pipeline Pune, Cloud Infrastructure India" },
+    ];
+};
 
 export default function DevOpsService() {
     const highlights = [

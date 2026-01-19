@@ -4,9 +4,9 @@ import { Award, Briefcase, GraduationCap, Code2, Terminal, Cpu, Cloud, Database,
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Dhanraj Pimple | DevOps Specialist & Full Stack Architect" },
-        { name: "description", content: "Dhanraj Pimple is a production-experienced DevOps Engineer and Full Stack Developer specializing in AI-driven SaaS, Kubernetes, and AWS automation. Based in India, serving global clients." },
-        { name: "keywords", content: "Dhanraj Pimple biography, DevOps consultant Pune, Full stack developer Satara, AI automation expert, Kubernetes architect, Freelance software engineer India" },
+        { title: "About Dhanraj Pimple | Freelance SEO Specialst & Web Developer" },
+        { name: "description", content: "Dhanraj Pimple is a production-experienced Web Developer, SEO Specialist, and DevOps Engineer based in Satara, India. Expert in building AI-SaaS, high-ranking websites, and automated systems for global businesses." },
+        { name: "keywords", content: "Dhanraj Pimple biography, Web Developer Satara, SEO Specialist Pune, Freelance Software Engineer Kolhapur, AI Chatbot Expert India, Best Developer Rural Maharashtra" },
     ];
 };
 

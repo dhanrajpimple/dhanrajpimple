@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Globe, Rocket, Search, Smartphone, ArrowRight } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, type MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+    return [
+        { title: "SEO Expert & Web Developer Satara | Dhanraj Pimple" },
+        { name: "description", content: "High-performance website development with built-in SEO strategy. Serving Pune, Satara, and Kolhapur. Get top Google rankings for your business today." },
+        { name: "keywords", content: "SEO Expert Satara, Web Developer Pune, Best SEO Specialist Maharashtra, Website Performance Optimization, Google Ranking Expert India, Freelance Web Developer Satara" },
+    ];
+};
 
 export default function WebsiteService() {
     const highlights = [

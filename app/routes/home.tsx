@@ -6,19 +6,23 @@ import { projects } from "../data/projects";
 import { blogPosts } from "../data/blog";
 
 export const meta: MetaFunction = () => {
-  const siteTitle = "Dhanraj Pimple | DevOps Automation & Full-Stack Developer | AWS & K8s Expert";
-  const siteDescription = "Expert DevOps engineer and full-stack software developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s), and AI-driven platforms. Serving Pune, Satara, and global clients.";
+  const siteTitle = "Dhanraj Pimple | Freelance Web Developer & SEO Expert | Pune, Satara, Kolhapur";
+  const siteDescription = "Leading Freelance Web Developer, SEO Expert & Software Automation Specialist serving Pune, Satara, Kolhapur, Sangli, and Solapur. Expert in AI Chatbots, DevOps, App Development & Backend Systems.";
+  const siteKeywords = "Dhanraj Pimple, Freelance Web Developer Satara, SEO Expert Pune, Software Developer Kolhapur, Automation Expert Sangli, Chatbot Specialist Solapur, Mobile App Developer Maharashtra, Backend Developer India, DevOps Automation, CI/CD Pipeline, AWS Expert, Kubernetes Consultant, AI Chatbot Developer, Technical SEO Rural India, Performance Optimization";
 
   return [
     { title: siteTitle },
     { name: "description", content: siteDescription },
-    { name: "keywords", content: "Dhanraj Pimple, DevOps Automation, CI/CD Pipeline, Freelance Developer Pune, AWS Expert Satara, Kubernetes Consultant, Full Stack Developer, React, Node.js, FastAPI, AI Chatbot Developer, Technical SEO, Performance Optimization" },
+    { name: "keywords", content: siteKeywords },
     { property: "og:title", content: siteTitle },
     { property: "og:description", content: siteDescription },
     { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://dhanrajpimple.vercel.app/assets/og-image.png" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: siteTitle },
     { name: "twitter:description", content: siteDescription },
+    { name: "geo.region", content: "IN-MH" },
+    { name: "geo.placename", content: "Satara, Pune, Kolhapur, Sangli, Solapur" },
   ];
 };
 
@@ -282,6 +286,28 @@ export default function Home() {
               <div className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-2">100%</div>
               <p className="text-xs text-brand-gray uppercase tracking-widest">Client Satisfaction</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regional Expertise Section */}
+      <section className="py-24 border-t border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-8">Serving Businesses Across <span className="text-gradient">Maharashtra</span></h2>
+            <p className="text-brand-gray text-lg mb-12">
+              As a premier **Freelance Web Developer & SEO Expert**, I provide high-performance digital solutions tailored for the growing markets of **Pune**, **Satara**, **Kolhapur**, **Sangli**, and **Solapur**. From rural automation to urban SaaS platforms, I help businesses across India scale their digital presence.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {['Satara', 'Pune', 'Kolhapur', 'Sangli', 'Solapur'].map((city) => (
+                <div key={city} className="glass py-4 rounded-xl border border-white/5 hover:border-brand-blue/30 transition-all">
+                  <span className="font-bold text-sm">{city}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-12 text-sm text-brand-gray/60 italic">
+              Specializing in App Development, Backend Systems, Chatbot Integration, and Automation for rural & urban India.
+            </p>
           </div>
         </div>
       </section>

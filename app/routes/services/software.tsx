@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Code2, Database, Cpu, Layout, ArrowRight } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, type MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+    return [
+        { title: "Software & App Developer Satara | Chatbot Specialist Pune" },
+        { name: "description", content: "Custom software development, mobile apps, and AI chatbot solutions. Freelance software developer serving Pune, Satara, and Kolhapur with scalable digital products." },
+        { name: "keywords", content: "Software Developer Satara, App Developer Pune, Chatbot Specialist Maharashtra, AI Automation Expert India, Backend Developer Kolhapur, SaaS Developer Pune" },
+    ];
+};
 
 export default function SoftwareService() {
     const highlights = [
