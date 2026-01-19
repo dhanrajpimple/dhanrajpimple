@@ -142,7 +142,11 @@ export default function BlogIndex() {
                                     <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                                     <span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
                                 </div>
-                                <NavLink to={`/blog/${post.id}`} className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-brand-gray group-hover:bg-brand-blue group-hover:text-brand-navy transition-all">
+                                <NavLink
+                                    to={`/blog/${post.id}`}
+                                    aria-label={`Read article: ${post.title}`}
+                                    className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-brand-gray group-hover:bg-brand-blue group-hover:text-brand-navy transition-all"
+                                >
                                     <ArrowRight size={18} />
                                 </NavLink>
                             </div>

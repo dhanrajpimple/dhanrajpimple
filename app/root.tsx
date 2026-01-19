@@ -108,7 +108,11 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-brand-offwhite" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          aria-label="Toggle menu"
+          className="md:hidden text-brand-offwhite"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
@@ -209,13 +213,25 @@ const Footer = () => {
               DevOps Automation Engineer & Full-Stack Developer specializing in CI/CD pipelines, cloud infrastructure, and AI-driven platforms.
             </p>
             <div className="flex gap-4">
-              <a href="https://github.com/dhanrajpimple" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all">
+              <a
+                href="https://github.com/dhanrajpimple"
+                aria-label="GitHub Profile"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
+              >
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com/in/dhanrajpimple" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all">
+              <a
+                href="https://linkedin.com/in/dhanrajpimple"
+                aria-label="LinkedIn Profile"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:dhanrajpimple16@gmail.com" className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all">
+              <a
+                href="mailto:dhanrajpimple16@gmail.com"
+                aria-label="Email Dhanraj"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
+              >
                 <Mail size={20} />
               </a>
             </div>

@@ -158,7 +158,11 @@ const ServicesGrid = () => {
               <div className="mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
               <h3 className="text-xl font-bold mb-4">{service.title}</h3>
               <p className="text-brand-gray mb-8 leading-relaxed">{service.description}</p>
-              <NavLink to={service.link} className="inline-flex items-center gap-2 text-brand-blue font-bold text-sm hover:gap-4 transition-all">
+              <NavLink
+                to={service.link}
+                aria-label={`Learn more about ${service.title}`}
+                className="inline-flex items-center gap-2 text-brand-blue font-bold text-sm hover:gap-4 transition-all"
+              >
                 Learn More <ArrowRight size={16} />
               </NavLink>
             </motion.div>
@@ -195,18 +199,35 @@ const FeaturedProjects = () => {
               viewport={{ once: true }}
               className="group relative overflow-hidden rounded-2xl aspect-video cursor-pointer"
             >
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <img
+                src={project.image}
+                alt={project.title}
+                width="1200"
+                height="675"
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-brand-navy via-brand-navy/60 to-transparent opacity-90" />
               <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform">
                 <span className="text-brand-blue text-xs font-bold uppercase mb-2">{project.category}</span>
                 <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
                 <p className="text-brand-gray text-xs mb-4 max-w-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap overflow-hidden text-ellipsis">{project.description}</p>
                 <div className="flex gap-4 items-center">
-                  <NavLink to={`/portfolio/${project.id}`} className="text-xs font-bold text-white flex items-center gap-1 hover:text-brand-blue transition-colors">
+                  <NavLink
+                    to={`/portfolio/${project.id}`}
+                    aria-label={`View case study for ${project.title}`}
+                    className="text-xs font-bold text-white flex items-center gap-1 hover:text-brand-blue transition-colors"
+                  >
                     Case Study <ArrowRight size={14} />
                   </NavLink>
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noreferrer" className="text-xs font-bold text-brand-blue flex items-center gap-1">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Visit live site for ${project.title}`}
+                      className="text-xs font-bold text-brand-blue flex items-center gap-1"
+                    >
                       Live Site <ArrowUpRight size={14} />
                     </a>
                   )}
@@ -247,7 +268,11 @@ const LatestInsights = () => {
             >
               <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest mb-4 inline-block">{post.category}</span>
               <h3 className="text-xl font-bold mb-4 group-hover:text-brand-blue transition-colors flex-1">{post.title}</h3>
-              <NavLink to={`/blog/${post.id}`} className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-brand-offwhite hover:gap-3 transition-all">
+              <NavLink
+                to={`/blog/${post.id}`}
+                aria-label={`Read article: ${post.title}`}
+                className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-brand-offwhite hover:gap-3 transition-all"
+              >
                 Read Article <ArrowRight size={14} />
               </NavLink>
             </motion.div>

@@ -56,7 +56,14 @@ export default function About() {
                         <div className="relative aspect-square">
                             <div className="absolute inset-0 bg-brand-blue blur-3xl opacity-20 animate-pulse" />
                             <div className="relative h-full w-full rounded-2xl overflow-hidden glass border-4 border-white/10">
-                                <img src="https://github.com/dhanrajpimple.png" alt="Dhanraj Pimple" className="w-full h-full object-cover" />
+                                <img
+                                    src="https://github.com/dhanrajpimple.png"
+                                    alt="Dhanraj Pimple"
+                                    width="400"
+                                    height="400"
+                                    loading="eager"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                         </div>
                     </motion.div>
@@ -76,10 +83,18 @@ export default function About() {
                             My core expertise lies at the intersection of development and operations, ensuring that high-quality code is matched with robust, automated infrastructure. I've helps startups automate their bidding processes and travel agencies optimize their booking systems.
                         </p>
                         <div className="flex flex-wrap gap-4 mb-12">
-                            <NavLink to="/portfolio" className="bg-brand-blue text-brand-navy px-8 py-3 rounded-xl font-bold hover:bg-brand-coral hover:text-white transition-all shadow-lg shadow-brand-blue/20">
+                            <NavLink
+                                to="/portfolio"
+                                aria-label="View Dhanraj's portfolio of work"
+                                className="bg-brand-blue text-brand-navy px-8 py-3 rounded-xl font-bold hover:bg-brand-coral hover:text-white transition-all shadow-lg shadow-brand-blue/20"
+                            >
                                 View My Work
                             </NavLink>
-                            <NavLink to="/contact" className="glass px-8 py-3 rounded-xl font-bold border border-white/10 hover:border-brand-blue/30 transition-all">
+                            <NavLink
+                                to="/contact"
+                                aria-label="Contact Dhanraj for a project"
+                                className="glass px-8 py-3 rounded-xl font-bold border border-white/10 hover:border-brand-blue/30 transition-all"
+                            >
                                 Let's Talk
                             </NavLink>
                         </div>

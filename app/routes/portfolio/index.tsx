@@ -80,11 +80,15 @@ export default function PortfolioIndex() {
                                     <img
                                         src={project.image}
                                         alt={project.title}
+                                        width="1200"
+                                        height="675"
+                                        loading="lazy"
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                                         <NavLink
                                             to={`/portfolio/${project.id}`}
+                                            aria-label={`View details for ${project.title}`}
                                             className="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-brand-navy hover:scale-110 transition-transform"
                                         >
                                             <ArrowRight size={24} />
@@ -94,6 +98,7 @@ export default function PortfolioIndex() {
                                                 href={project.link}
                                                 target="_blank"
                                                 rel="noreferrer"
+                                                aria-label={`Visit live site of ${project.title}`}
                                                 className="w-12 h-12 glass rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"
                                             >
                                                 <ExternalLink size={20} />
@@ -105,7 +110,7 @@ export default function PortfolioIndex() {
                                     <div className="flex justify-between items-start mb-4">
                                         <span className="text-[10px] font-bold text-brand-blue uppercase tracking-widest">{project.category}</span>
                                         <div className="flex gap-4">
-                                            {project.github && <a href={project.github} className="text-brand-gray hover:text-white transition-colors"><Github size={18} /></a>}
+                                            {project.github && <a href={project.github} aria-label={`View GitHub repository for ${project.title}`} className="text-brand-gray hover:text-white transition-colors"><Github size={18} /></a>}
                                         </div>
                                     </div>
                                     <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
