@@ -4,9 +4,9 @@ import { NavLink, type MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "SEO Expert & Web Developer Satara | Dhanraj Pimple" },
-        { name: "description", content: "High-performance website development with built-in SEO strategy. Serving Pune, Satara, and Kolhapur. Get top Google rankings for your business today." },
-        { name: "keywords", content: "SEO Expert Satara, Web Developer Pune, Best SEO Specialist Maharashtra, Website Performance Optimization, Google Ranking Expert India, Freelance Web Developer Satara" },
+        { title: "AI SEO Expert & Web Developer Satara | Brave Search Optimization" },
+        { name: "description", content: "High-performance website development optimized for AI search engines and browsers like Brave. Strategic technical SEO for businesses in Pune, Satara, and Kolhapur." },
+        { name: "keywords", content: "AI SEO Expert Satara, Brave Search Optimization, Perplexity SEO, Technical SEO Pune, Web Developer Maharashtra, AI-Friendly Website Design, Google Ranking Expert India" },
     ];
 };
 

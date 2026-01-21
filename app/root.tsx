@@ -307,30 +307,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "@context": "https://schema.org",
                 "@type": "Person",
                 "name": "Dhanraj Pimple",
-                "jobTitle": "DevOps Engineer & Full-Stack Developer",
+                "jobTitle": "DevOps Engineer, Full-Stack Developer & AI SEO Specialist",
                 "url": "https://dhanrajpimple.vercel.app/",
                 "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
                 "description":
-                  "Expert DevOps engineer, SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s), AI-driven chatbot platforms, and high-performance websites for businesses in Pune, Satara, and beyond.",
+                  "Expert DevOps engineer, AI SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s/Azure), AI-driven platforms, LLM integration, and high-performance websites optimized for AI browsers like Brave and Perplexity.",
                 "sameAs": [
                   "https://www.linkedin.com/in/dhanrajpimple/",
                   "https://github.com/dhanrajpimple",
                 ],
                 "knowsAbout": [
                   "DevOps Automation",
-                  "SEO Strategy & Implementation",
+                  "AI Search Engine Optimization (AI SEO)",
+                  "Generative AI & LLM Integration",
                   "Cloud Infrastructure (AWS, Azure, GCP)",
                   "Infrastructure as Code (Terraform, Ansible)",
                   "CI/CD Pipelines (Jenkins, GitHub Actions, GitLab CI)",
-                  "Kubernetes (EKS, GKE, K8s)",
-                  "Docker & Containerization",
-                  "AI & LLM Integration (OpenAI, LangChain)",
+                  "Kubernetes & Docker Containerization",
                   "Full-Stack Development (React, Remix, Next.js)",
-                  "Backend Development (Node.js, FastAPI, Python, Go)",
-                  "Mobile App Development",
-                  "Database Design (PostgreSQL, MongoDB, Supabase)",
-                  "Technical SEO & Performance Optimization",
-                  "Chatbot Development"
+                  "Backend Systems (Node.js, FastAPI, Python, Go)",
+                  "Technical SEO & Core Web Vitals",
+                  "Machine Learning Model Deployment",
+                  "Microservices Architecture",
+                  "API Design & Security",
+                  "Brave Browser & AI Search Optimization"
                 ],
                 "address": {
                   "@type": "PostalAddress",
@@ -342,7 +342,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               {
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
-                "name": "Dhanraj Pimple - Freelance Web Developer & SEO Expert",
+                "name": "Dhanraj Pimple - Freelance AI Developer & SEO Expert",
                 "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
                 "@id": "https://dhanrajpimple.vercel.app/",
                 "url": "https://dhanrajpimple.vercel.app/",
@@ -377,25 +377,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   "https://www.linkedin.com/in/dhanrajpimple/",
                   "https://github.com/dhanrajpimple"
                 ],
-                "areaServed": [
-                  { "@type": "City", "name": "Satara" },
-                  { "@type": "City", "name": "Pune" },
-                  { "@type": "City", "name": "Kolhapur" },
-                  { "@type": "City", "name": "Sangli" },
-                  { "@type": "City", "name": "Solapur" },
-                  { "@type": "Country", "name": "India" }
-                ],
+                "areaServed": ["Satara", "Pune", "Mumbai", "Bangalore", "Hyderabad", "Global"],
                 "priceRange": "$$$"
               },
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
-                "itemListElement": location.pathname.split("/").filter(Boolean).map((path, index, array) => ({
-                  "@type": "ListItem",
-                  "position": index + 1,
-                  "name": path.charAt(0).toUpperCase() + path.slice(1),
-                  "item": `${SITE_URL}/${array.slice(0, index + 1).join("/")}`
-                }))
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": SITE_URL
+                  },
+                  ...location.pathname.split("/").filter(Boolean).map((path, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 2,
+                    "name": path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, " "),
+                    "item": `${SITE_URL}/${location.pathname.split("/").filter(Boolean).slice(0, index + 1).join("/")}`
+                  }))
+                ]
               },
               {
                 "@context": "https://schema.org",
@@ -414,7 +415,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "@context": "https://schema.org",
                 "@id": "https://dhanrajpimple.vercel.app/#service",
                 "@type": "Service",
-                "serviceType": "DevOps Consulting, SEO Optimization, & Full-Stack Development",
+                "serviceType": "DevOps Consulting, AI SEO Optimization, & Full-Stack Development",
                 "provider": {
                   "@type": "Person",
                   "name": "Dhanraj Pimple"
@@ -422,7 +423,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "areaServed": "Global",
                 "hasOfferCatalog": {
                   "@type": "OfferCatalog",
-                  "name": "DevOps, SEO & Development Services",
+                  "name": "DevOps, AI & Development Services",
                   "itemListElement": [
                     {
                       "@type": "Offer",
@@ -435,31 +436,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Custom Software & SaaS Development"
+                        "name": "AI Integration & LLM Ops"
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "Technical SEO & Web Performance Optimization"
+                        "name": "Custom SaaS & Web Application Development"
                       }
                     },
                     {
                       "@type": "Offer",
                       "itemOffered": {
                         "@type": "Service",
-                        "name": "AI Chatbot & LLM Integration"
-                      }
-                    },
-                    {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": "Mobile App Development (React Native, Flutter)"
+                        "name": "Technical SEO & AI Search Visibility"
                       }
                     }
                   ]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Dhanraj Pimple Portfolio",
+                "url": SITE_URL,
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": `${SITE_URL}/blog?q={search_term_string}`,
+                  "query-input": "required name=search_term_string"
                 }
               }
             ]),

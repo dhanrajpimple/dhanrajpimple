@@ -6,9 +6,9 @@ import { projects } from "../data/projects";
 import { blogPosts } from "../data/blog";
 
 export const meta: MetaFunction = () => {
-  const siteTitle = "Dhanraj Pimple | Freelance Web Developer & SEO Expert | Pune, Satara, Kolhapur";
-  const siteDescription = "Leading Freelance Web Developer, SEO Expert & Software Automation Specialist serving Pune, Satara, Kolhapur, Sangli, and Solapur. Expert in AI Chatbots, DevOps, App Development & Backend Systems.";
-  const siteKeywords = "Dhanraj Pimple, Freelance Web Developer Satara, SEO Expert Pune, Software Developer Kolhapur, Automation Expert Sangli, Chatbot Specialist Solapur, Mobile App Developer Maharashtra, Backend Developer India, DevOps Automation, CI/CD Pipeline, AWS Expert, Kubernetes Consultant, AI Chatbot Developer, Technical SEO Rural India, Performance Optimization";
+  const siteTitle = "Dhanraj Pimple | AI SEO Expert & DevOps Automation Engineer | Pune, Satara, Kolhapur";
+  const siteDescription = "Expert AI SEO, DevOps Automation & Full-Stack Development. Optimized for AI browsers like Brave and Perplexity. Helping businesses in Pune, Satara, and Kolhapur scale with AI-driven solutions.";
+  const siteKeywords = "Dhanraj Pimple, AI SEO Expert, Brave Search Optimization, Perplexity SEO, DevOps Automation Satara, Full-Stack Developer Pune, AI Chatbot Development, LLM Integration, React Developer Maharashtra, Cloud Infrastructure Expert, CI/CD Pipeline Satara, Freelance Web Developer Kolhapur, Technical SEO India, Core Web Vitals Optimization, AI Search Visibility";
 
   return [
     { title: siteTitle },
@@ -23,6 +23,7 @@ export const meta: MetaFunction = () => {
     { name: "twitter:description", content: siteDescription },
     { name: "geo.region", content: "IN-MH" },
     { name: "geo.placename", content: "Satara, Pune, Kolhapur, Sangli, Solapur" },
+    { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
   ];
 };
 

@@ -4,9 +4,9 @@ import { NavLink, type MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Software & App Developer Satara | Chatbot Specialist Pune" },
-        { name: "description", content: "Custom software development, mobile apps, and AI chatbot solutions. Freelance software developer serving Pune, Satara, and Kolhapur with scalable digital products." },
-        { name: "keywords", content: "Software Developer Satara, App Developer Pune, Chatbot Specialist Maharashtra, AI Automation Expert India, Backend Developer Kolhapur, SaaS Developer Pune" },
+        { title: "AI & Software Developer Satara | LLM Integration Pune" },
+        { name: "description", content: "Custom AI software development, mobile apps, and LLM automation. Freelance software architect specializing in AI-SaaS and intelligent products for global clients." },
+        { name: "keywords", content: "Software Developer Satara, LLM Integration Pune, AI SaaS Developer Maharashtra, AI Automation Expert India, Backend Architect Kolhapur, SaaS Development Satara, OpenAI Developer" },
     ];
 };
 

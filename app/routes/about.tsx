@@ -4,9 +4,9 @@ import { Award, Briefcase, GraduationCap, Code2, Terminal, Cpu, Cloud, Database,
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "About Dhanraj Pimple | Freelance SEO Specialst & Web Developer" },
-        { name: "description", content: "Dhanraj Pimple is a production-experienced Web Developer, SEO Specialist, and DevOps Engineer based in Satara, India. Expert in building AI-SaaS, high-ranking websites, and automated systems for global businesses." },
-        { name: "keywords", content: "Dhanraj Pimple biography, Web Developer Satara, SEO Specialist Pune, Freelance Software Engineer Kolhapur, AI Chatbot Expert India, Best Developer Rural Maharashtra" },
+        { title: "About Dhanraj Pimple | AI Developer, SEO Expert & DevOps Engineer" },
+        { name: "description", content: "Learn about Dhanraj Pimple, a production-experienced AI Developer, SEO Specialist, and DevOps Engineer. Specializing in AI-SaaS, high-ranking websites, and automated CI/CD systems for global clients from Satara, India." },
+        { name: "keywords", content: "Dhanraj Pimple biography, AI Developer Satara, Technical SEO Expert Pune, DevOps Engineer Maharashtra, Freelance Software Architect India, AI-SaaS Development, Optimized for AI Search" },
     ];
 };
 

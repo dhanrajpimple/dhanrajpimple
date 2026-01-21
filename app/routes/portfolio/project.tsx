@@ -6,10 +6,16 @@ import { ArrowLeft, ExternalLink, Github, CheckCircle2, Server, Layout, Cpu } fr
 export const meta: MetaFunction = ({ params }) => {
     const project = projects.find(p => p.id === params.id);
     const title = project ? `${project.title} | Case Study | Dhanraj Pimple` : "Project Not Found";
-    const description = project ? project.description : "Project not found.";
+    const description = project ? `${project.description} Built with ${project.techStack.join(", ")}.` : "Project not found.";
+    const keywords = project ? `${project.title}, ${project.category}, ${project.techStack.join(", ")}, Dhanraj Pimple Portfolio` : "DevOps Project, Full Stack Case Study";
+
     return [
         { title },
         { name: "description", content: description },
+        { name: "keywords", content: keywords },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
     ];
 };
 
