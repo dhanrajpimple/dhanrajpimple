@@ -12,7 +12,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Github, Linkedin, Mail, Cpu, Terminal } from "lucide-react";
+import { Menu, X, ChevronDown, Github, Linkedin, Mail, Cpu, Terminal, Twitter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const links: Route.LinksFunction = () => [
@@ -214,18 +214,31 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/dhanrajpimple"
+                href="https://github.com/dhanrajpimple/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub Profile"
                 className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
               >
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/dhanrajpimple"
+                href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
                 className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
               >
                 <Linkedin size={20} />
+              </a>
+              <a
+                href="https://x.com/DhanrajPimple16"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter/X Profile"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-brand-blue hover:text-brand-navy transition-all"
+              >
+                <Twitter size={20} />
               </a>
               <a
                 href="mailto:dhanrajpimple16@gmail.com"
@@ -313,8 +326,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "description":
                   "Expert DevOps engineer, AI SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s/Azure), AI-driven platforms, LLM integration, and high-performance websites optimized for AI browsers like Brave and Perplexity.",
                 "sameAs": [
-                  "https://www.linkedin.com/in/dhanrajpimple/",
-                  "https://github.com/dhanrajpimple",
+                  "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
+                  "https://github.com/dhanrajpimple/",
+                  "https://x.com/DhanrajPimple16"
                 ],
                 "knowsAbout": [
                   "DevOps Automation",
@@ -374,8 +388,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   "closes": "21:00"
                 },
                 "sameAs": [
-                  "https://www.linkedin.com/in/dhanrajpimple/",
-                  "https://github.com/dhanrajpimple"
+                  "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
+                  "https://github.com/dhanrajpimple/",
+                  "https://x.com/DhanrajPimple16"
                 ],
                 "areaServed": ["Satara", "Pune", "Mumbai", "Bangalore", "Hyderabad", "Global"],
                 "priceRange": "$$$"

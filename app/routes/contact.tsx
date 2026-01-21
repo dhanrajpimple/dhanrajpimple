@@ -1,6 +1,6 @@
 import type { MetaFunction } from "react-router";
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Github, MessageSquare, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, MessageSquare, Send, CheckCircle2, Twitter } from "lucide-react";
 
 export const meta: MetaFunction = () => {
     return [
@@ -120,8 +120,20 @@ export default function Contact() {
                             <ContactMethod
                                 icon={<Linkedin size={24} />}
                                 label="LinkedIn"
-                                value="in/dhanrajpimple"
-                                href="https://linkedin.com/in/dhanrajpimple"
+                                value="dhanraj-pimple"
+                                href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/"
+                            />
+                            <ContactMethod
+                                icon={<Github size={24} />}
+                                label="GitHub"
+                                value="dhanrajpimple"
+                                href="https://github.com/dhanrajpimple/"
+                            />
+                            <ContactMethod
+                                icon={<Twitter size={24} />}
+                                label="Twitter / X"
+                                value="@DhanrajPimple16"
+                                href="https://x.com/DhanrajPimple16"
                             />
                         </div>
 

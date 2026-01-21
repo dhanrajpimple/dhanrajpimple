@@ -113,9 +113,9 @@ export default function BlogPostDetail() {
                                 <h4 className="text-2xl font-bold mb-3">Written by Dhanraj Pimple</h4>
                                 <p className="text-brand-gray mb-8 leading-relaxed">I help companies bridge the gap between complex code and scalable infrastructure. With a focus on automation and user-centric design, I build systems that work for you.</p>
                                 <div className="flex justify-center md:justify-start gap-6">
-                                    <a href="#" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Twitter size={20} /> Twitter</a>
-                                    <a href="#" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Linkedin size={20} /> LinkedIn</a>
-                                    <a href="#" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Github size={20} /> GitHub</a>
+                                    <a href="https://x.com/DhanrajPimple16" target="_blank" rel="noopener noreferrer" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Twitter size={20} /> Twitter</a>
+                                    <a href="https://www.linkedin.com/in/dhanraj-pimple-1b802a274/" target="_blank" rel="noopener noreferrer" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Linkedin size={20} /> LinkedIn</a>
+                                    <a href="https://github.com/dhanrajpimple/" target="_blank" rel="noopener noreferrer" className="text-brand-gray hover:text-brand-blue transition-all flex items-center gap-2 font-bold text-sm"><Github size={20} /> GitHub</a>
                                 </div>
                             </div>
                         </div>

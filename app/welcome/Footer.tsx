@@ -108,7 +108,7 @@ const Footer = () => {
 
 
           <div className="flex justify-center space-x-6">
-            {[{ icons: Github, link: "https://github.com/dhanrajpimple" }, { icons: Linkedin, link: "https://www.linkedin.com/in/dhanraj-pimple-1b802a274" }, { icons: Mail, link: "mailto:dhanraj.webdev@gmail.com" }].map((Icon, index) => (
+            {[{ icons: Github, link: "https://github.com/dhanrajpimple/" }, { icons: Linkedin, link: "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/" }, { icons: Mail, link: "mailto:dhanrajpimple16@gmail.com" }].map((Icon, index) => (
               <motion.a
                 key={index}
                 href={Icon.link}

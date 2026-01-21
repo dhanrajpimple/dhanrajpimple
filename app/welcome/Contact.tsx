@@ -46,9 +46,9 @@ const ContactSection = () => {
   }
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", href: "https://github.com/dhanrajpimple", color: "#00ff88" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/dhanraj-pimple-1b802a274", color: "#00aaff" },
-    { icon: Mail, label: "Email", href: "mailto:dhanraj.webdev@gmail.com", color: "#aa00ff" },
+    { icon: Github, label: "GitHub", href: "https://github.com/dhanrajpimple/", color: "#00ff88" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/", color: "#00aaff" },
+    { icon: Mail, label: "Email", href: "mailto:dhanrajpimple16@gmail.com", color: "#aa00ff" },
     { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919146890521", color: "#00ff88" },
     { icon: Phone, label: "Call", href: "tel:+919146890521", color: "#00aaff" },
   ]

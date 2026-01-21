@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { Layers, Code2, Globe, CheckCircle2 } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, type MetaFunction } from "react-router";
+
+export const meta: MetaFunction = () => {
+    return [
+        { title: "Our Services | DevOps, AI & Web Development Satara | Dhanraj Pimple" },
+        { name: "description", content: "Explore our expert digital services ranging from DevOps automation and CI/CD pipelines to AI-driven software development and high-performance technical SEO." },
+        { name: "keywords", content: "DevOps Services Satara, AI Development Pune, Web Development Maharashtra, Software Engineering India, Technical SEO Services" },
+    ];
+};
 
 export default function ServicesIndex() {
     const categories = [
