@@ -1,6 +1,13 @@
 "use client"
 
-const Textarea = ({ placeholder, value, onChange, className = "", rows = 4, ...props }) => {
+import type { ChangeEventHandler, TextareaHTMLAttributes } from "react"
+
+type Props = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange" | "value"> & {
+  value: string
+  onChange: ChangeEventHandler<HTMLTextAreaElement>
+}
+
+const Textarea = ({ placeholder, value, onChange, className = "", rows = 4, ...props }: Props) => {
   return (
     <textarea
       placeholder={placeholder}

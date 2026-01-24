@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
     { property: "og:title", content: siteTitle },
     { property: "og:description", content: siteDescription },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://dhanrajpimple.vercel.app/assets/og-image.png" },
+    { property: "og:image", content: "https://github.com/dhanrajpimple.png" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: siteTitle },
     { name: "twitter:description", content: siteDescription },

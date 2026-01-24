@@ -1,6 +1,13 @@
 "use client"
 
-const Input = ({ type = "text", placeholder, value, onChange, className = "", ...props }) => {
+import type { ChangeEventHandler, InputHTMLAttributes } from "react"
+
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> & {
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
+}
+
+const Input = ({ type = "text", placeholder, value, onChange, className = "", ...props }: Props) => {
   return (
     <input
       type={type}

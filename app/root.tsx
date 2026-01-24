@@ -26,9 +26,35 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
   },
+  { rel: "icon", href: "/favicon.ico" },
+  { rel: "apple-touch-icon", href: "/favicon.ico" },
 ];
 
 const SITE_URL = "https://dhanrajpimple.vercel.app";
+
+export const meta: Route.MetaFunction = () => {
+  const title = "Dhanraj Pimple | DevOps Automation Engineer & Full-Stack Developer";
+  const description =
+    "DevOps Automation Engineer & Full-Stack Developer specializing in CI/CD pipelines, cloud infrastructure, and high-performance web applications.";
+  const image = "https://github.com/dhanrajpimple.png";
+
+  return [
+    { title },
+    { name: "description", content: description },
+    {
+      name: "robots",
+      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: image },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: image },
+  ];
+};
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -309,6 +335,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="Dhanraj Pimple" />
+        <meta name="twitter:site" content="@DhanrajPimple16" />
+        <meta name="twitter:creator" content="@DhanrajPimple16" />
         <link rel="canonical" href={canonicalUrl} />
         <Meta />
         <Links />
@@ -322,7 +353,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "name": "Dhanraj Pimple",
                 "jobTitle": "DevOps Engineer, Full-Stack Developer & AI SEO Specialist",
                 "url": "https://dhanrajpimple.vercel.app/",
-                "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
+                "image": "https://github.com/dhanrajpimple.png",
                 "description":
                   "Expert DevOps engineer, AI SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s/Azure), AI-driven platforms, LLM integration, and high-performance websites optimized for AI browsers like Brave and Perplexity.",
                 "sameAs": [
@@ -357,7 +388,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
                 "name": "Dhanraj Pimple - Freelance AI Developer & SEO Expert",
-                "image": "https://dhanrajpimple.vercel.app/assets/og-image.png",
+                "image": "https://github.com/dhanrajpimple.png",
                 "@id": "https://dhanrajpimple.vercel.app/",
                 "url": "https://dhanrajpimple.vercel.app/",
                 "telephone": "+91-91468-90521",

@@ -1,5 +1,19 @@
 "use client"
 import { motion } from "framer-motion"
+import type { HTMLMotionProps } from "framer-motion"
+import type { ReactNode } from "react"
+
+type ButtonSize = "default" | "sm" | "lg"
+type ButtonVariant = "default" | "primary" | "secondary"
+
+type Props = Omit<HTMLMotionProps<"button">, "type"> & {
+  children: ReactNode
+  className?: string
+  size?: ButtonSize
+  variant?: ButtonVariant
+  disabled?: boolean
+  type?: "button" | "submit" | "reset"
+}
 
 const Button = ({
   children,
@@ -10,17 +24,17 @@ const Button = ({
   disabled = false,
   type = "button",
   ...props
-}) => {
+}: Props) => {
   const baseClasses =
     "inline-flex items-center justify-center rounded-md font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
 
-  const sizeClasses = {
+  const sizeClasses: Record<ButtonSize, string> = {
     default: "px-4 py-2 text-sm",
     sm: "px-3 py-1.5 text-xs",
     lg: "px-8 py-3 text-base",
   }
 
-  const variantClasses = {
+  const variantClasses: Record<ButtonVariant, string> = {
     default: "bg-white/10 text-white hover:bg-white/20 border border-white/20",
     primary:
       "bg-gradient-to-r from-[#00ff88] to-[#00aaff] hover:from-[#00aaff] hover:to-[#aa00ff] text-black font-bold",
