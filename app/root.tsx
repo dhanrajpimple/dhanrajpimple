@@ -82,8 +82,8 @@ const Navigation = () => {
       ]
     },
     { name: "Portfolio", href: "/portfolio" },
+    { name: "Resources", href: "/resources" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -282,7 +282,8 @@ const Footer = () => {
               <li><NavLink to="/services/devops" className="hover:text-brand-blue transition-colors">DevOps Automation</NavLink></li>
               <li><NavLink to="/services/software" className="hover:text-brand-blue transition-colors">Software Development</NavLink></li>
               <li><NavLink to="/services/website" className="hover:text-brand-blue transition-colors">Website Development</NavLink></li>
-              <li><NavLink to="/blog" className="hover:text-brand-blue transition-colors">Technical Blog</NavLink></li>
+              <li><NavLink to="/resources" className="hover:text-brand-blue transition-colors">Technical Resources</NavLink></li>
+              <li><NavLink to="/scorecard" className="hover:text-brand-green transition-colors font-bold">Free UX Scorecard →</NavLink></li>
             </ul>
           </div>
 

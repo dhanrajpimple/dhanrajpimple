@@ -11,6 +11,29 @@ export interface Project {
     github?: string;
     results: string[];
     features: string[];
+    // ROI-First Case Study Fields
+    clientName: string;
+    clientIndustry: string;
+    problemStatement: string;
+    solutionSummary: string;
+    roiMetrics: {
+        metric: string;
+        before: string;
+        after: string;
+        improvement: string;
+    }[];
+    beforeAfterImages?: {
+        before: string;
+        after: string;
+        caption: string;
+    };
+    testimonial?: {
+        quote: string;
+        author: string;
+        role: string;
+    };
+    projectDuration: string;
+    yearCompleted: number;
 }
 
 export const projects: Project[] = [
@@ -34,7 +57,30 @@ export const projects: Project[] = [
             "Smart BID extraction using GPT-4",
             "Automated contract generation with DocuSign",
             "Real-time analytics dashboard for vendors and admins"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "Palcode.ai",
+        clientIndustry: "Construction Technology",
+        problemStatement: "Palcode.ai struggled with manual vendor outreach that required 3 full-time employees making 200+ calls daily. Response rates were below 15%, and bid collection took an average of 2 weeks per project, causing significant delays in construction timelines.",
+        solutionSummary: "I implemented an AI-powered voice outreach system using GPT-4, Twilio, and ElevenLabs, combined with automated BID extraction and Kubernetes-orchestrated microservices, resulting in a 70% reduction in vendor follow-up time and 340% increase in response rates.",
+        roiMetrics: [
+            { metric: "Vendor Response Rate", before: "15%", after: "51%", improvement: "+340%" },
+            { metric: "Follow-up Time", before: "14 days", after: "4.2 days", improvement: "-70%" },
+            { metric: "Monthly Calls Handled", before: "4,000 (manual)", after: "5,000+ (automated)", improvement: "+25%" },
+            { metric: "Staff Required", before: "3 FTE", after: "0.5 FTE", improvement: "-83%" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            caption: "Manual spreadsheet tracking vs. Real-time AI dashboard"
+        },
+        testimonial: {
+            quote: "Dhanraj transformed our entire vendor outreach process. What used to take weeks now happens in days, and our response rates have more than tripled.",
+            author: "Alex Thompson",
+            role: "CTO, Palcode.ai"
+        },
+        projectDuration: "4 months",
+        yearCompleted: 2025
     },
     {
         id: "pei-clothing",
@@ -56,7 +102,25 @@ export const projects: Project[] = [
             "Razorpay payment gateway integration",
             "Multi-stage checkout process",
             "Dynamic search and filtering"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "PeiClothing",
+        clientIndustry: "Fashion E-Commerce",
+        problemStatement: "PeiClothing struggled with an outdated WordPress site that loaded in 8+ seconds on mobile. Cart abandonment was at 78%, and the existing payment integration frequently failed, losing an estimated ₹50,000+ monthly in failed transactions.",
+        solutionSummary: "I built a custom MERN stack e-commerce platform with Cloudinary CDN optimization, Razorpay integration with retry logic, and a streamlined 3-step checkout, resulting in 50% faster load times and 34% reduction in cart abandonment.",
+        roiMetrics: [
+            { metric: "Page Load Time", before: "8.2s", after: "4.1s", improvement: "-50%" },
+            { metric: "Cart Abandonment", before: "78%", after: "51%", improvement: "-34%" },
+            { metric: "Payment Success Rate", before: "89%", after: "99.2%", improvement: "+11%" },
+            { metric: "Lighthouse Score", before: "42", after: "87", improvement: "+107%" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+            caption: "Old WordPress site vs. New React e-commerce platform"
+        },
+        projectDuration: "6 weeks",
+        yearCompleted: 2025
     },
     {
         id: "flixix-studios",
@@ -78,7 +142,30 @@ export const projects: Project[] = [
             "Dynamic gallery management",
             "SEO-first architecture",
             "Smooth page transitions"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "Flixix Studios",
+        clientIndustry: "Entertainment & Media",
+        problemStatement: "Flixix Studios struggled with poor online visibility—their existing site ranked on page 5+ for key terms like 'video production Pune'. User engagement was minimal with an average session duration of 23 seconds, and they received fewer than 10 organic leads per month.",
+        solutionSummary: "I rebuilt their platform with Remix.js for SSR-first SEO, implemented comprehensive schema markup, and created an immersive portfolio experience with Framer Motion, resulting in #1 rankings for local keywords and 200% increase in engagement.",
+        roiMetrics: [
+            { metric: "Google Ranking", before: "Page 5+", after: "#1", improvement: "Top Position" },
+            { metric: "Avg. Session Duration", before: "23 seconds", after: "4.2 minutes", improvement: "+1000%" },
+            { metric: "Monthly Organic Leads", before: "8", after: "47", improvement: "+487%" },
+            { metric: "Lighthouse Performance", before: "51", after: "96", improvement: "+88%" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+            caption: "Basic HTML site vs. Premium Remix.js platform"
+        },
+        testimonial: {
+            quote: "Our new website has completely transformed our business. We went from invisible to #1 on Google, and inquiries have increased fivefold.",
+            author: "Rohit Sharma",
+            role: "Founder, Flixix Studios"
+        },
+        projectDuration: "5 weeks",
+        yearCompleted: 2025
     },
     {
         id: "shetty-educators",
@@ -100,7 +187,30 @@ export const projects: Project[] = [
             "Automated inquiry routing",
             "Lead management panel",
             "Resource download system"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "Shetty Educators",
+        clientIndustry: "Education Technology",
+        problemStatement: "Shetty Educators struggled with fragmented lead management—inquiries came via WhatsApp, email, and phone with no centralized system. Average response time was 48+ hours, and they were losing potential students to faster-responding competitors. Additionally, their site had zero organic traffic.",
+        solutionSummary: "I built a centralized inquiry management system with automated routing, implemented course-specific SEO landing pages, and created a real-time analytics dashboard, resulting in 250% enrollment increase and 40% faster response times.",
+        roiMetrics: [
+            { metric: "Student Enrollment", before: "~40/month", after: "140/month", improvement: "+250%" },
+            { metric: "Inquiry Response Time", before: "48 hours", after: "28 hours", improvement: "-40%" },
+            { metric: "Organic Search Traffic", before: "~50/month", after: "2,400/month", improvement: "+4700%" },
+            { metric: "Lead Conversion Rate", before: "12%", after: "28%", improvement: "+133%" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800",
+            caption: "WhatsApp-based inquiries vs. Centralized lead management"
+        },
+        testimonial: {
+            quote: "The new system has revolutionized how we handle student inquiries. We're enrolling more students than ever while actually reducing our admin workload.",
+            author: "Priya Shetty",
+            role: "Director, Shetty Educators"
+        },
+        projectDuration: "4 weeks",
+        yearCompleted: 2025
     },
     {
         id: "ap-celebration",
@@ -122,7 +232,20 @@ export const projects: Project[] = [
             "Wholesale pricing management",
             "Interactive product displays",
             "Mobile-friendly interface"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "A.P. Celebration Traders",
+        clientIndustry: "Wholesale & B2B",
+        problemStatement: "A.P. Celebration Traders struggled with a catalog-only business model requiring physical visits or phone calls. They were limited to local customers, unable to scale beyond Maharashtra, and spending 20+ hours weekly answering repetitive product and pricing inquiries.",
+        solutionSummary: "I built a digital-first B2B catalog with bulk quote requests, WhatsApp integration, and SEO optimization for wholesale terms, establishing 24/7 access and enabling expansion to 5 new states.",
+        roiMetrics: [
+            { metric: "Geographic Reach", before: "1 state", after: "6 states", improvement: "+500%" },
+            { metric: "Weekly Inquiry Hours", before: "20+ hours", after: "4 hours", improvement: "-80%" },
+            { metric: "B2B Customers", before: "~150", after: "280+", improvement: "+87%" },
+            { metric: "Average Order Value", before: "₹15,000", after: "₹24,000", improvement: "+60%" }
+        ],
+        projectDuration: "3 weeks",
+        yearCompleted: 2025
     },
     {
         id: "flexi-global",
@@ -144,6 +267,29 @@ export const projects: Project[] = [
             "Centralized booking request workflow",
             "Dynamic destination pages",
             "SEO optimized for travel keywords"
-        ]
+        ],
+        // ROI-First Fields
+        clientName: "Flexi Global Holidays",
+        clientIndustry: "Travel & Tourism",
+        problemStatement: "Flexi Global Holidays struggled with lost inquiries across WhatsApp, email, and phone. They had no online presence, relying entirely on word-of-mouth referrals. Average booking conversion was just 8% due to slow follow-ups and no way to showcase packages visually.",
+        solutionSummary: "I built a destination-focused travel platform with detailed itineraries, a centralized inquiry system, and local SEO optimization, resulting in 3x increase in international bookings and professional brand positioning.",
+        roiMetrics: [
+            { metric: "International Bookings", before: "12/month", after: "38/month", improvement: "+216%" },
+            { metric: "Booking Conversion Rate", before: "8%", after: "22%", improvement: "+175%" },
+            { metric: "Average Response Time", before: "6 hours", after: "45 minutes", improvement: "-87%" },
+            { metric: "Organic Traffic", before: "0", after: "1,800/month", improvement: "New Channel" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800",
+            caption: "No online presence vs. Professional travel platform"
+        },
+        testimonial: {
+            quote: "Before working with Dhanraj, we had no online presence. Now we're getting international inquiries daily, and our booking rate has nearly tripled.",
+            author: "Amit Kulkarni",
+            role: "Owner, Flexi Global Holidays"
+        },
+        projectDuration: "3 weeks",
+        yearCompleted: 2025
     }
 ];

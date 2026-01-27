@@ -9,6 +9,8 @@ export async function loader(_args: LoaderFunctionArgs) {
     { loc: `${SITE_URL}/contact`, changefreq: "monthly", priority: "0.9" },
     { loc: `${SITE_URL}/portfolio`, changefreq: "weekly", priority: "0.9" },
     { loc: `${SITE_URL}/blog`, changefreq: "weekly", priority: "0.8" },
+    { loc: `${SITE_URL}/resources`, changefreq: "weekly", priority: "0.95" },
+    { loc: `${SITE_URL}/scorecard`, changefreq: "monthly", priority: "0.95" },
     { loc: `${SITE_URL}/services`, changefreq: "monthly", priority: "0.8" },
     { loc: `${SITE_URL}/services/devops`, changefreq: "monthly", priority: "0.9" },
     { loc: `${SITE_URL}/services/software`, changefreq: "monthly", priority: "0.9" },
