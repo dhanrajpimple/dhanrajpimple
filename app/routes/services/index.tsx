@@ -4,34 +4,34 @@ import { NavLink, type MetaFunction } from "react-router";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Our Services | DevOps, AI & Web Development Satara | Dhanraj Pimple" },
-        { name: "description", content: "Explore our expert digital services ranging from DevOps automation and CI/CD pipelines to AI-driven software development and high-performance technical SEO." },
-        { name: "keywords", content: "DevOps Services Satara, AI Development Pune, Web Development Maharashtra, Software Engineering India, Technical SEO Services" },
+        { title: "Hire Freelance Website & Mobile App Developer | DevOps & AI Services India" },
+        { name: "description", content: "I want to build a website for my business? Hire freelance website developer and mobile app developer for small business. Custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions. Remote developer for hire in India." },
+        { name: "keywords", content: "freelance website developer, mobile app developer for business, hire website developer, affordable website design for business, custom mobile app development, build AI chatbot for website, devops engineer for hire, website developer in India, mobile app developer India, automation developer freelancer, hire full stack developer, website development for startup, business automation services, end to end tech development, startup technology partner" },
     ];
 };
 
 export default function ServicesIndex() {
     const categories = [
         {
-            title: "DevOps Automation",
-            description: "Streamline your deployment pipeline and infrastructure with industry-standard patterns.",
-            href: "/services/devops",
-            icon: <Layers className="text-brand-blue" size={32} />,
-            features: ["CI/CD Optimization", "Infrastructure as Code", "K8s Orchestration", "Cloud Migration"]
-        },
-        {
-            title: "Software Development",
-            description: "Build scalable backends and intelligent platforms with a focus on performance and security.",
-            href: "/services/software",
-            icon: <Code2 className="text-brand-blue" size={32} />,
-            features: ["SaaS Architecture", "AI Integration", "API Development", "Microservices"]
-        },
-        {
-            title: "Web Development",
-            description: "Create stunning, high-performance websites that rank well and convert users.",
+            title: "Website Development for Business",
+            description: "Professional freelance website developer for small business and startups. Affordable website design, static website developer, business website development service, and fast website development service.",
             href: "/services/website",
             icon: <Globe className="text-brand-blue" size={32} />,
-            features: ["Remix/Next.js Expert", "SEO Optimization", "Responsive Design", "Headless CMS"]
+            features: ["Responsive Design", "SEO Optimization", "Headless CMS", "Website Redesign Service"]
+        },
+        {
+            title: "Mobile App Development",
+            description: "Custom mobile app development for Android and iOS. Hire mobile app developer for business—affordable app development, scalable apps, and startup-ready solutions.",
+            href: "/services/software",
+            icon: <Code2 className="text-brand-blue" size={32} />,
+            features: ["Android & iOS Apps", "API Development", "Microservices", "App Maintenance"]
+        },
+        {
+            title: "AI Chatbot & Automation",
+            description: "Build AI chatbot for website and WhatsApp. Business automation services, workflow automation for small business, and automate business processes with AI tools.",
+            href: "/services/devops",
+            icon: <Layers className="text-brand-blue" size={32} />,
+            features: ["AI Chatbot Development", "Business Process Automation", "CI/CD Pipelines", "Cloud Deployment"]
         }
     ];
 

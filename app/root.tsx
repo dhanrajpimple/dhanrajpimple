@@ -277,7 +277,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-display font-bold mb-6 text-brand-offwhite">Services</h4>
+            <h3 className="font-display font-bold mb-6 text-brand-offwhite">Services</h3>
             <ul className="space-y-4 text-brand-gray">
               <li><NavLink to="/services/devops" className="hover:text-brand-blue transition-colors">DevOps Automation</NavLink></li>
               <li><NavLink to="/services/software" className="hover:text-brand-blue transition-colors">Software Development</NavLink></li>

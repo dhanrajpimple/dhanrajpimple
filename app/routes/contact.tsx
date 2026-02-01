@@ -4,9 +4,9 @@ import { Mail, Phone, Linkedin, Github, MessageSquare, Send, CheckCircle2, Twitt
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Hire Best Web Developer & SEO Expert in Satara, Pune | Dhanraj Pimple" },
-        { name: "description", content: "Looking for a freelance web developer, app specialist, or SEO expert in Satara, Pune, or Kolhapur? Contact Dhanraj Pimple for custom software, chatbots, and automation." },
-        { name: "keywords", content: "Hire Web Developer Satara, Freelancer Pune, SEO Expert Kolhapur, Chatbot Developer India, Software Consultant Sangli, App Developer Solapur, Backend Developer Maharashtra" },
+        { title: "Hire Freelance Developer in India | Website & Mobile App Development" },
+        { name: "description", content: "Ready to build your website or mobile app? Hire freelance developer for small business and startups. Custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions. Remote developer for hire in India." },
+        { name: "keywords", content: "i want to hire a developer, hire freelance developer, hire full stack developer, remote developer for hire, developer for startup project, freelance software developer, web and app developer for hire, technical partner for startup, dedicated developer for project, experienced developer for business" },
     ];
 };
 

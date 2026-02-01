@@ -6,9 +6,9 @@ import { projects } from "../data/projects";
 import { blogPosts } from "../data/blog";
 
 export const meta: MetaFunction = () => {
-  const siteTitle = "Dhanraj Pimple | AI SEO Expert & DevOps Automation Engineer | Pune, Satara, Kolhapur";
-  const siteDescription = "Expert AI SEO, DevOps Automation & Full-Stack Development. Optimized for AI browsers like Brave and Perplexity. Helping businesses in Pune, Satara, and Kolhapur scale with AI-driven solutions.";
-  const siteKeywords = "Dhanraj Pimple, AI SEO Expert, Brave Search Optimization, Perplexity SEO, DevOps Automation Satara, Full-Stack Developer Pune, AI Chatbot Development, LLM Integration, React Developer Maharashtra, Cloud Infrastructure Expert, CI/CD Pipeline Satara, Freelance Web Developer Kolhapur, Technical SEO India, Core Web Vitals Optimization, AI Search Visibility";
+  const siteTitle = "Hire Freelance Website & Mobile App Developer in India | Dhanraj Pimple";
+  const siteDescription = "I want to build a website for my business? Hire freelance website developer and mobile app developer for small business and startups. Affordable website design, custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions in India. Remote developer for hire.";
+  const siteKeywords = "freelance website developer, mobile app developer for business, hire website developer, affordable website design for business, custom mobile app development, build AI chatbot for website, devops engineer for hire, website developer in India, mobile app developer India, automation developer freelancer, hire full stack developer, website development for startup, business automation services, end to end tech development, startup technology partner";
 
   return [
     { title: siteTitle },
@@ -43,10 +43,10 @@ const Hero = () => {
               <span className="text-xs font-bold uppercase tracking-wider">Available for new projects</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
-              Building <span className="text-gradient">Automated</span> Solutions & Scalable Systems
+              I Build <span className="text-gradient">Websites & Mobile Apps</span> for Business
             </h1>
             <p className="text-lg md:text-xl text-brand-gray mb-10 max-w-xl leading-relaxed">
-              DevOps Engineer & Full-Stack Developer specializing in CI/CD pipelines, cloud infrastructure, and performance-optimized software. I help businesses scale with precision and speed.
+              Professional freelance website developer and mobile app developer for small business and startups. I offer affordable website design, custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions. Let’s build your website, app, and automate your business—fast and scalable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <NavLink
@@ -295,6 +295,7 @@ export default function Home() {
       {/* Social Proof / Stats */}
       <section className="py-24 border-y border-white/5 bg-white/[0.02]">
         <div className="container mx-auto px-6">
+          <h2 className="sr-only">Achievements and Stats</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-2">50+</div>
@@ -311,6 +312,35 @@ export default function Home() {
             <div>
               <div className="text-4xl md:text-5xl font-display font-bold text-brand-blue mb-2">100%</div>
               <p className="text-xs text-brand-gray uppercase tracking-widest">Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ / Problem-Based Section */}
+      <section className="py-24 border-t border-white/5 bg-white/[0.02]">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-12 text-center">Got Questions? Let’s Answer Them</h2>
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div>
+              <h3 className="text-xl font-bold mb-2">How to create a website for my business?</h3>
+              <p className="text-brand-gray">As a freelance website developer for small business, I handle everything—from affordable website design to launch. Whether you need a static website developer or a business website development service, I’ll build a professional site that ranks and converts.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2">What’s the cost to build a website or mobile app?</h3>
+              <p className="text-brand-gray">Costs vary based on features. I offer affordable website design for business and custom mobile app development. Contact me for a transparent quote—no surprises. I also provide end-to-end tech development, so you get one reliable partner.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2">Can you build an AI chatbot for my website?</h3>
+              <p className="text-brand-gray">Yes. I build AI chatbots for business—including WhatsApp chatbots and customer support automation. Automate business processes and save time with AI tools designed for your workflow.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2">Do you work with startups and non-technical founders?</h3>
+              <p className="text-brand-gray">Absolutely. I’m a startup technology partner and remote developer for hire. I’ll guide you from idea to launch—whether you need to hire full stack developer or a dedicated developer for your project.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-2">Where are you based? Can you help local businesses?</h3>
+              <p className="text-brand-gray">I’m based in India and serve businesses globally. If you’re looking for a website developer in India or a mobile app developer India, I can help. I also support local businesses in Pune, Satara, Kolhapur, Sangli, and Solapur.</p>
             </div>
           </div>
         </div>
