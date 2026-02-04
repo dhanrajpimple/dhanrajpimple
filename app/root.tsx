@@ -14,6 +14,7 @@ import "./app.css";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Github, Linkedin, Mail, Cpu, Terminal, Twitter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import VoiceCommandButton from "./components/VoiceCommandButton";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -82,6 +83,7 @@ const Navigation = () => {
       ]
     },
     { name: "Portfolio", href: "/portfolio" },
+    { name: "Pricing", href: "/pricing" },
     { name: "Resources", href: "/resources" },
     { name: "Blog", href: "/blog" },
   ];
@@ -282,6 +284,7 @@ const Footer = () => {
               <li><NavLink to="/services/devops" className="hover:text-brand-blue transition-colors">DevOps Automation</NavLink></li>
               <li><NavLink to="/services/software" className="hover:text-brand-blue transition-colors">Software Development</NavLink></li>
               <li><NavLink to="/services/website" className="hover:text-brand-blue transition-colors">Website Development</NavLink></li>
+              <li><NavLink to="/pricing" className="hover:text-brand-blue transition-colors">Pricing Plans</NavLink></li>
               <li><NavLink to="/resources" className="hover:text-brand-blue transition-colors">Technical Resources</NavLink></li>
               <li><NavLink to="/scorecard" className="hover:text-brand-green transition-colors font-bold">Free UX Scorecard →</NavLink></li>
             </ul>
@@ -524,6 +527,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <Footer />
+        <VoiceCommandButton />
         <ScrollRestoration />
         <Scripts />
       </body>

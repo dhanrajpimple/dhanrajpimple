@@ -1,4 +1,46 @@
+# Robots.txt for Dhanraj Pimple Portfolio
+# https://dhanrajpimple.vercel.app
+
+# Allow all crawlers
 User-agent: *
 Allow: /
 
+# Sitemap location
 Sitemap: https://dhanrajpimple.vercel.app/sitemap.xml
+
+# AI Agent and Assistant Crawlers - Explicitly Allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# AI-friendly endpoints
+# /agent-info.json - Machine-readable service information
+# /contact - Contact form API
+# /pricing - Pricing information
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block sensitive paths
+Disallow: /api/
+Disallow: /_actions/

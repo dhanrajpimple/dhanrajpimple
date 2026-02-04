@@ -1,0 +1,160 @@
+{
+    "name": "Dhanraj Pimple",
+    "title": "DevOps Automation Engineer & Full-Stack Developer",
+    "description": "Expert freelance developer specializing in DevOps automation, full-stack web development, mobile apps, AI chatbots, and SEO optimization. Based in Satara, Maharashtra, serving clients globally.",
+    "website": "https://dhanrajpimple.vercel.app",
+    "contact": {
+        "email": "dhanrajpimple16@gmail.com",
+        "phone": "+91-91468-90521",
+        "formUrl": "/contact",
+        "availability": "Monday to Saturday, 9AM - 9PM IST"
+    },
+    "location": {
+        "city": "Satara",
+        "state": "Maharashtra",
+        "country": "India",
+        "timezone": "Asia/Kolkata",
+        "servingAreas": [
+            "Satara",
+            "Pune",
+            "Mumbai",
+            "Kolhapur",
+            "Sangli",
+            "Solapur",
+            "Global"
+        ]
+    },
+    "services": [
+        {
+            "id": "static-website",
+            "name": "Static Website",
+            "description": "Professional 8-page static website with modern responsive design, SEO optimization, and 1 year .in domain included",
+            "price": {
+                "amount": 5999,
+                "currency": "INR",
+                "type": "fixed",
+                "includes": [
+                    "8 custom pages",
+                    "1 year .in domain",
+                    "Basic SEO",
+                    "Responsive design",
+                    "1 month support"
+                ]
+            },
+            "deliveryTime": "7-14 days"
+        },
+        {
+            "id": "fullstack-website",
+            "name": "Full-Stack Website",
+            "description": "Complete dynamic website with custom backend, admin dashboard, database integration, and 2 years .in domain",
+            "price": {
+                "amount": 9999,
+                "currency": "INR",
+                "type": "fixed",
+                "includes": [
+                    "Custom backend CMS",
+                    "Admin dashboard",
+                    "Database integration",
+                    "2 years .in domain",
+                    "Advanced SEO",
+                    "3 months support"
+                ]
+            },
+            "deliveryTime": "14-30 days"
+        },
+        {
+            "id": "mobile-app",
+            "name": "Mobile Application",
+            "description": "Cross-platform mobile app for Android and iOS with push notifications and API integration",
+            "price": {
+                "amount": 14999,
+                "currency": "INR",
+                "type": "starting",
+                "includes": [
+                    "Android & iOS support",
+                    "Push notifications",
+                    "API integration",
+                    "Play Store guidance",
+                    "3 months support"
+                ]
+            },
+            "deliveryTime": "30-60 days"
+        },
+        {
+            "id": "ai-chatbot",
+            "name": "AI Chatbot for Website",
+            "description": "Intelligent AI-powered chatbot for automated customer support on your website",
+            "price": {
+                "amount": 999,
+                "currency": "INR",
+                "type": "addon"
+            },
+            "deliveryTime": "3-7 days"
+        },
+        {
+            "id": "seo-automation",
+            "name": "SEO & Automation",
+            "description": "Advanced SEO optimization and workflow automation for your business",
+            "price": {
+                "amount": 499,
+                "currency": "INR",
+                "type": "addon"
+            },
+            "deliveryTime": "Ongoing"
+        },
+        {
+            "id": "devops",
+            "name": "DevOps Consulting",
+            "description": "CI/CD pipeline setup, cloud infrastructure, Kubernetes, Terraform, and automation",
+            "price": {
+                "amount": 5000,
+                "currency": "INR",
+                "type": "hourly"
+            },
+            "deliveryTime": "Project-based"
+        }
+    ],
+    "skills": [
+        "React",
+        "Next.js",
+        "Remix",
+        "Node.js",
+        "Python",
+        "Go",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "CI/CD",
+        "Jenkins",
+        "GitHub Actions",
+        "MongoDB",
+        "PostgreSQL",
+        "AI/ML",
+        "LLM Integration",
+        "SEO",
+        "Technical SEO"
+    ],
+    "socialLinks": {
+        "github": "https://github.com/dhanrajpimple/",
+        "linkedin": "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
+        "twitter": "https://x.com/DhanrajPimple16"
+    },
+    "features": {
+        "voiceCommands": true,
+        "aiAgentFriendly": true,
+        "contactFormApi": "/contact",
+        "pricingPage": "/pricing"
+    },
+    "bookingInstructions": {
+        "forAIAgents": "To book a service, submit a POST request to /contact with fields: name, email, phone (optional), service (one of: static-website, fullstack-website, mobile-app, ai-chatbot, seo-automation, devops), and message. Response will confirm submission.",
+        "forHumans": "Visit /contact to fill out the contact form, or use voice commands by clicking the microphone button."
+    },
+    "meta": {
+        "lastUpdated": "2026-02-04",
+        "version": "1.0.0",
+        "schema": "https://schema.org/ProfessionalService"
+    }
+}

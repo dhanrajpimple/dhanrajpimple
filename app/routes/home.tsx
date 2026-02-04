@@ -1,6 +1,6 @@
 import type { MetaFunction } from "react-router";
 import { motion } from "framer-motion";
-import { Terminal, Cpu, Code2, Globe, ArrowRight, Zap, Layers, Server, Activity, ArrowUpRight } from "lucide-react";
+import { Terminal, Cpu, Code2, Globe, ArrowRight, Zap, Layers, Server, Activity, ArrowUpRight, Smartphone } from "lucide-react";
 import { NavLink } from "react-router";
 import { projects } from "../data/projects";
 import { blogPosts } from "../data/blog";
@@ -284,11 +284,73 @@ const LatestInsights = () => {
   );
 };
 
+const PricingSection = () => {
+  const plans = [
+    {
+      title: "Starter",
+      price: "5,999",
+      description: "8 Pages + 1 Year .in Domain",
+      icon: <Globe className="w-6 h-6 text-brand-blue" />
+    },
+    {
+      title: "Pro Full-Stack",
+      price: "9,999",
+      description: "Backend + 2 Year .in Domain",
+      icon: <Zap className="w-6 h-6 text-brand-blue" />,
+      highlight: true
+    },
+    {
+      title: "Mobile App",
+      price: "14,999",
+      description: "Android & iOS Applications",
+      icon: <Smartphone className="w-6 h-6 text-brand-blue" />
+    }
+  ];
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Transparent Pricing</h2>
+          <p className="text-brand-gray max-w-2xl mx-auto">High-quality development that fits your budget. No hidden costs, just results.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={plan.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className={`glass p-8 rounded-3xl border transition-all ${plan.highlight ? "border-brand-blue/50 shadow-2xl shadow-brand-blue/10 scale-105" : "border-white/5"}`}
+            >
+              <div className="mb-6">{plan.icon}</div>
+              <h3 className="text-xl font-bold mb-2">{plan.title}</h3>
+              <p className="text-brand-gray text-sm mb-6">{plan.description}</p>
+              <div className="text-3xl font-bold mb-8">₹{plan.price}</div>
+              <NavLink
+                to="/pricing"
+                className={`w-full py-3 rounded-xl font-bold text-center inline-block transition-all ${plan.highlight ? "bg-brand-blue text-brand-navy hover:bg-brand-coral hover:text-white" : "button-glass hover:bg-white/10"}`}
+              >
+                View Details
+              </NavLink>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-brand-gray text-sm italic">* All packages include SEO & 3 months support available.</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function Home() {
   return (
     <main>
       <Hero />
       <ServicesGrid />
+      <PricingSection />
       <FeaturedProjects />
       <LatestInsights />
 

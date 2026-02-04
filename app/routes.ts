@@ -18,4 +18,6 @@ export default [
     route("terms", "routes/terms.tsx"),
     route("resources", "routes/resources/index.tsx"),
     route("scorecard", "routes/scorecard/index.tsx"),
+    route("pricing", "routes/pricing.tsx"),
+    route("api/contact", "routes/api.contact.tsx"),
 ] satisfies RouteConfig;
