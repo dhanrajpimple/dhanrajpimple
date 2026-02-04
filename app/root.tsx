@@ -527,7 +527,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <Footer />
+        {/* VoiceCommandButton disabled - requires Google Speech Services which may be blocked
         <VoiceCommandButton />
+        */}
         <ScrollRestoration />
         <Scripts />
       </body>

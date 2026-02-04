@@ -122,11 +122,40 @@ export const action: ActionFunction = async ({ request }) => {
         // Log submission (in production, you'd send email or save to database)
         console.log('Contact form submission:', sanitizedData);
 
-        // TODO: Add your email service integration here
-        // Examples:
-        // - Resend: await resend.emails.send({ ... })
-        // - SendGrid: await sgMail.send({ ... })
-        // - Supabase: await supabase.from('contacts').insert(sanitizedData)
+        // Supabase integration
+        const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+        if (supabaseKey && supabaseUrl) {
+            try {
+                const supabaseResponse = await fetch(`${supabaseUrl}/rest/v1/rpc/create_form_inquiry`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": supabaseKey,
+                        "Authorization": `Bearer ${supabaseKey}`
+                    },
+                    body: JSON.stringify({
+                        p_full_name: sanitizedData.name,
+                        p_email: sanitizedData.email,
+                        p_interested_service: sanitizedData.service,
+                        p_project_details: sanitizedData.message
+                    })
+                });
+
+                if (!supabaseResponse.ok) {
+                    const error = await supabaseResponse.json();
+                    console.error("Supabase RPC error:", error);
+                    // We continue to return success to the user/AI, but log the error
+                } else {
+                    console.log("Supabase submission successful");
+                }
+            } catch (err) {
+                console.error("Supabase fetch error:", err);
+            }
+        } else {
+            console.warn("Supabase environment variables missing, skipping database save");
+        }
 
         // Success response with AI-friendly metadata
         return new Response(

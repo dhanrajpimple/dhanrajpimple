@@ -22,6 +22,62 @@ export const meta: MetaFunction = () => {
         { name: "geo.region", content: "IN-MH" },
         { name: "geo.placename", content: "Satara, Pune" },
         { name: "robots", content: "index, follow, max-image-preview:large" },
+        // JSON-LD Structured Data for AI agents
+        {
+            "script:ld+json": JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "PriceSpecification",
+                "name": "Web Development Services Pricing - Dhanraj Pimple",
+                "url": "https://dhanrajpimple.vercel.app/pricing",
+                "provider": {
+                    "@type": "Person",
+                    "name": "Dhanraj Pimple",
+                    "email": "dhanrajpimple16@gmail.com",
+                    "telephone": "+91-91468-90521"
+                },
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "name": "Starter Static Website",
+                        "price": "5999",
+                        "priceCurrency": "INR",
+                        "description": "8-page static website with 1 year .in domain, responsive design, SEO, 1 month support",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Full Stack Pro Website",
+                        "price": "9999",
+                        "priceCurrency": "INR",
+                        "description": "Dynamic website with backend CMS, admin dashboard, database, 2 year domain, 3 months support",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Mobile Application",
+                        "price": "14999",
+                        "priceCurrency": "INR",
+                        "description": "Cross-platform Android & iOS app with push notifications, API integration, 3 months support",
+                        "availability": "https://schema.org/InStock"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "AI Chatbot Integration",
+                        "price": "999",
+                        "priceCurrency": "INR",
+                        "description": "AI-powered chatbot for 24/7 automated customer support"
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "SEO & Automation",
+                        "price": "499",
+                        "priceCurrency": "INR",
+                        "description": "Advanced keyword ranking and business workflow automation"
+                    }
+                ],
+                "areaServed": ["Satara", "Pune", "Mumbai", "Maharashtra", "India", "Global"]
+            })
+        }
     ];
 };
 
