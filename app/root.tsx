@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Github, Linkedin, Mail, Cpu, Terminal, Twitter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import VoiceCommandButton from "./components/VoiceCommandButton";
+import { REGIONAL_SEO_KEYWORDS_META_CONTENT } from "./data/regionalSeoKeywords";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -344,6 +345,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta property="og:site_name" content="Dhanraj Pimple" />
         <meta name="twitter:site" content="@DhanrajPimple16" />
         <meta name="twitter:creator" content="@DhanrajPimple16" />
+        <meta name="keywords" content={REGIONAL_SEO_KEYWORDS_META_CONTENT} />
         <link rel="canonical" href={canonicalUrl} />
         <Meta />
         <Links />
