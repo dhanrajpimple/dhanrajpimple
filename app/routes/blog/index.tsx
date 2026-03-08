@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { blogPosts } from "../../data/blog";
-import { Calendar, Clock, ArrowRight, Search, Tag, MessageSquare } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
 import { useState } from "react";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "Technical Insights | Dhanraj Pimple Blog | DevOps & Development" },
-        { name: "description", content: "Expert guides on DevOps automation, CI/CD pipelines, CI/CD optimization, and modern software scaling by Dhanraj Pimple. Serving Pune, Satara, and Kolhapur." },
-        { name: "keywords", content: "DevOps Blog Satara, Software Engineering Pune, Technical Guides Maharashtra, CI/CD Best Practices, Cloud Infrastructure India, Web Development Insights" },
-    ];
+    return buildPageMeta({
+        title: "Technical Insights | Dhanraj Pimple Blog",
+        description: "Technical insights from Dhanraj Pimple on DevOps, AI delivery, performance optimization, software architecture, and freelance product engineering.",
+        path: "/blog",
+    });
 };
 
 export default function BlogIndex() {

@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Code2, Database, Cpu, Layout, ArrowRight } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "AI & Software Developer Satara | LLM Integration Pune" },
-        { name: "description", content: "Custom AI software development, mobile apps, and LLM automation. Freelance software architect specializing in AI-SaaS and intelligent products for global clients." },
-        { name: "keywords", content: "Software Developer Satara, LLM Integration Pune, AI SaaS Developer Maharashtra, AI Automation Expert India, Backend Architect Kolhapur, SaaS Development Satara, OpenAI Developer" },
-    ];
+    return buildPageMeta({
+        title: "Software, SaaS & AI Agent Development India | Dhanraj Pimple",
+        description: "Hire Dhanraj Pimple for SaaS engineering, backend systems, AI agent development, LangChain workflows, AI/ML integration, desktop apps, and mobile app delivery in India.",
+        path: "/services/software",
+    });
 };
 
 export default function SoftwareService() {
@@ -23,7 +24,7 @@ export default function SoftwareService() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 blur-3xl -translate-y-1/2 translate-x-1/2" />
                 <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Custom Solutions Built for <span className="text-brand-blue">Your Business</span></h2>
                 <p className="text-lg text-brand-gray mb-10 max-w-2xl leading-relaxed">
-                    I architecture and build specialized digital products that solve complex business problems using the latest production-grade technologies.
+                    I architect and build specialized digital products that solve complex business problems using the latest production-grade technologies.
                 </p>
                 <NavLink to="/contact" className="px-8 py-4 bg-brand-blue text-brand-navy font-bold rounded-xl inline-flex items-center gap-2 hover:bg-brand-coral hover:text-white transition-all">
                     Build Your Product <ArrowRight size={20} />

@@ -1,17 +1,12 @@
 import type { LoaderFunctionArgs } from "react-router";
-
-const SITE_URL = "https://dhanrajpimple.vercel.app";
+import { SITE_URL } from "~/lib/seo";
 
 export async function loader(_args: LoaderFunctionArgs) {
   const body = [
     "User-agent: *",
     "Allow: /",
     "",
-    "Sitemap: https://dhanrajpimple.vercel.app/sitemap.xml",
-    "Host: dhanrajpimple.vercel.app",
-    "",
-    "# SEO-focused notes:",
-    "# Primary target: best freelance software developer, hire freelance web developer, AI chatbot freelancer, full-stack freelancer in Satara, Pune, Kolhapur, Sangli, Maharashtra, India.",
+    `Sitemap: ${SITE_URL}/sitemap.xml`,
   ].join("\n");
 
   return new Response(body, {

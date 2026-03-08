@@ -1,13 +1,15 @@
 import { NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { Award, Briefcase, GraduationCap, Code2, Terminal, Cpu, Cloud, Database, Globe, CheckCircle2, Layers } from "lucide-react";
+import portrait from "~/assets/dp.png";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "About Dhanraj Pimple | Reliable Freelance Developer | End-to-End Tech Solutions" },
-        { name: "description", content: "Experienced freelance software developer and startup technology partner in India. I offer end-to-end product development, custom software solutions for business, modern website development services, and scalable app development. Professional software development services you can trust." },
-        { name: "keywords", content: "reliable freelance developer, experienced app developer, professional software development services, end to end product development, custom software solutions for business, modern website development services, scalable app development, secure website development, startup technology partner, digital product development services" },
-    ];
+    return buildPageMeta({
+        title: "About Dhanraj Pimple | Freelance Full-Stack & AI Agent Developer India",
+        description: "Learn about Dhanraj Pimple, a freelance full-stack developer in India based in Satara, Maharashtra. He builds web apps, mobile apps, desktop software, AI agents, DevOps pipelines, and cloud-ready products for startups and businesses.",
+        path: "/about",
+    });
 };
 
 const SkillCard = ({ title, icon, skills }: { title: string, icon: React.ReactNode, skills: string[] }) => (
@@ -57,11 +59,13 @@ export default function About() {
                             <div className="absolute inset-0 bg-brand-blue blur-3xl opacity-20 animate-pulse" />
                             <div className="relative h-full w-full rounded-2xl overflow-hidden glass border-4 border-white/10">
                                 <img
-                                    src="https://github.com/dhanrajpimple.png"
+                                    src={portrait}
                                     alt="Dhanraj Pimple"
                                     width="400"
                                     height="400"
                                     loading="eager"
+                                    fetchPriority="high"
+                                    decoding="async"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

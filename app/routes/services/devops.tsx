@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Zap, Shield, Server, Terminal, ArrowRight } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "DevOps Expert & Cloud Automation Satara | AI Infrastructure Pune" },
-        { name: "description", content: "Professional DevOps automation, CI/CD pipeline design, and Kubernetes consulting. Specializing in AI model deployment and scalable cloud infrastructure for global enterprises from Pune and Satara." },
-        { name: "keywords", content: "DevOps Expert Satara, AI Infrastructure Pune, AWS Consultant Maharashtra, Kubernetes Specialist Kolhapur, Automation Expert Sangli, CI/CD Pipeline Pune, Cloud Migration India, MLOps Specialist" },
-    ];
+    return buildPageMeta({
+        title: "DevOps & Cloud Deployment Services India | Dhanraj Pimple",
+        description: "DevOps engineer India teams hire for CI/CD pipelines, Docker, Kubernetes, Terraform, observability, and cloud deployment on AWS, GCP, and Vercel.",
+        path: "/services/devops",
+    });
 };
 
 export default function DevOpsService() {

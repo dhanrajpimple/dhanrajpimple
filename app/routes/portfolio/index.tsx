@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../data/projects";
 import { ArrowRight, ExternalLink, Github, Filter } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "Portfolio | DevOps Automation & Software Expert Satara, Pune" },
-        { name: "description", content: "Explore case studies of DevOps pipelines, SaaS architectures, and AI-driven products built by Dhanraj Pimple. High-performance software solutions for business growth." },
-        { name: "keywords", content: "Portfolio Satara, DevOps Projects Pune, Software Case Studies Maharashtra, AI App Development India, Full Stack Developer Pune, Hire Developer Satara" },
-    ];
+    return buildPageMeta({
+        title: "Portfolio | Dhanraj Pimple - AI, SaaS, Web & DevOps Case Studies",
+        description: "Explore Dhanraj Pimple's portfolio of AI systems, SaaS builds, websites, mobile products, and DevOps delivery for startups and businesses across India.",
+        path: "/portfolio",
+    });
 };
 
 export default function PortfolioIndex() {
@@ -83,6 +84,7 @@ export default function PortfolioIndex() {
                                         width="1200"
                                         height="675"
                                         loading="lazy"
+                                        decoding="async"
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">

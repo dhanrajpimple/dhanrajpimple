@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Layers, Code2, Globe, CheckCircle2 } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "Hire Freelance Website & Mobile App Developer | DevOps & AI Services India" },
-        { name: "description", content: "I want to build a website for my business? Hire freelance website developer and mobile app developer for small business. Custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions. Remote developer for hire in India." },
-        { name: "keywords", content: "freelance website developer, mobile app developer for business, hire website developer, affordable website design for business, custom mobile app development, build AI chatbot for website, devops engineer for hire, website developer in India, mobile app developer India, automation developer freelancer, hire full stack developer, website development for startup, business automation services, end to end tech development, startup technology partner" },
-    ];
+    return buildPageMeta({
+        title: "Services | AI Agent, Web, Mobile, Desktop & DevOps Developer India",
+        description: "Explore Dhanraj Pimple's services for AI agents, web apps, mobile apps, desktop software, SaaS systems, chatbot automation, DevOps, and cloud deployment for startups and businesses in India.",
+        path: "/services",
+    });
 };
 
 export default function ServicesIndex() {
@@ -21,17 +22,45 @@ export default function ServicesIndex() {
         },
         {
             title: "Mobile App Development",
-            description: "Custom mobile app development for Android and iOS. Hire mobile app developer for business—affordable app development, scalable apps, and startup-ready solutions.",
+            description: "Custom mobile app development for Android and iOS with startup-ready delivery, API integrations, and scalable product architecture.",
             href: "/services/software",
             icon: <Code2 className="text-brand-blue" size={32} />,
             features: ["Android & iOS Apps", "API Development", "Microservices", "App Maintenance"]
         },
         {
-            title: "AI Chatbot & Automation",
-            description: "Build AI chatbot for website and WhatsApp. Business automation services, workflow automation for small business, and automate business processes with AI tools.",
+            title: "Desktop App Development",
+            description: "Cross-platform desktop software for Windows, macOS, and Linux using Electron, Python, or Tauri for operations and internal tooling.",
+            href: "/services/software",
+            icon: <Code2 className="text-brand-blue" size={32} />,
+            features: ["Windows Apps", "macOS Apps", "Linux Apps", "Offline Workflows"]
+        },
+        {
+            title: "AI Agent Development",
+            description: "Build agentic AI workflows and autonomous systems with LangChain, CrewAI, and AutoGen for research, support, and automation use cases.",
+            href: "/services/software",
+            icon: <Layers className="text-brand-blue" size={32} />,
+            features: ["LangChain", "CrewAI", "AutoGen", "Workflow Orchestration"]
+        },
+        {
+            title: "AI/ML Integration",
+            description: "Integrate OpenAI, Gemini, and HuggingFace models into web apps, mobile products, copilots, and business automation workflows.",
+            href: "/services/software",
+            icon: <Code2 className="text-brand-blue" size={32} />,
+            features: ["OpenAI", "Gemini", "HuggingFace", "Model Integration"]
+        },
+        {
+            title: "Deployment & Cloud",
+            description: "Production-ready deployments on AWS, GCP, and Vercel with Docker, Kubernetes, CI/CD, observability, and release automation.",
             href: "/services/devops",
             icon: <Layers className="text-brand-blue" size={32} />,
-            features: ["AI Chatbot Development", "Business Process Automation", "CI/CD Pipelines", "Cloud Deployment"]
+            features: ["AWS & GCP", "Docker", "Kubernetes", "Deployment Pipelines"]
+        },
+        {
+            title: "AI Chatbot & Automation",
+            description: "Build AI chatbot for websites and WhatsApp, automate support, and connect lead workflows with your backend systems.",
+            href: "/services/software",
+            icon: <Layers className="text-brand-blue" size={32} />,
+            features: ["WhatsApp Chatbots", "Website Chatbots", "Automation Flows", "Lead Capture"]
         }
     ];
 

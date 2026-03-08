@@ -7,25 +7,22 @@ import {
     ChevronRight
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = ({ params }) => {
     const project = projects.find(p => p.id === params.id);
-    const title = project ? `${project.title} | Case Study | Dhanraj Pimple` : "Project Not Found";
-    const description = project
-        ? `${project.clientName} struggled with ${project.problemStatement.slice(0, 100)}... See how I delivered ${project.roiMetrics[0]?.improvement} improvement.`
-        : "Project not found.";
-    const keywords = project
-        ? `${project.title}, ${project.category}, ${project.techStack.join(", ")}, Case Study, ROI, ${project.clientIndustry}`
-        : "DevOps Project, Full Stack Case Study";
-
-    return [
-        { title },
-        { name: "description", content: description },
-        { name: "keywords", content: keywords },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:type", content: "article" },
-    ];
+    return buildPageMeta({
+        title: project ? `${project.title} | Case Study | Dhanraj Pimple` : "Project Not Found",
+        description: project
+            ? `${project.clientName} struggled with ${project.problemStatement.slice(0, 100)}... See how I delivered ${project.roiMetrics[0]?.improvement} improvement.`
+            : "Project not found.",
+        path: project ? `/portfolio/${project.id}` : "/portfolio",
+        keywords: project
+            ? `${project.title}, ${project.category}, ${project.techStack.join(", ")}, Case Study, ROI, ${project.clientIndustry}`
+            : undefined,
+        type: "article",
+        image: project?.image,
+    });
 };
 
 // Before/After Slider Component
@@ -81,6 +78,10 @@ const BeforeAfterSlider = ({
                 <img
                     src={after}
                     alt="After"
+                    width="800"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover"
                 />
 
@@ -92,6 +93,10 @@ const BeforeAfterSlider = ({
                     <img
                         src={before}
                         alt="Before"
+                        width="800"
+                        height="450"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover"
                         style={{ width: `${100 / (sliderPosition / 100)}%`, maxWidth: 'none' }}
                     />
@@ -178,7 +183,16 @@ export default function ProjectDetail() {
         <main className="pb-32">
             {/* Hero Header */}
             <section className="relative h-[60vh] overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    width="1600"
+                    height="900"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-transparent" />
                 <div className="absolute inset-0 container mx-auto px-6 flex flex-col justify-end pb-12">
                     <NavLink to="/portfolio" className="flex items-center gap-2 text-brand-offwhite/60 hover:text-brand-blue transition-colors mb-6 text-sm font-bold">

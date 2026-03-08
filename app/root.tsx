@@ -12,16 +12,30 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Github, Linkedin, Mail, Cpu, Terminal, Twitter } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail, Terminal, Twitter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import VoiceCommandButton from "./components/VoiceCommandButton";
-import { REGIONAL_SEO_KEYWORDS_META_CONTENT } from "./data/regionalSeoKeywords";
+import { SITE_NAME, SITE_URL } from "./lib/seo";
 
 export const links: Route.LinksFunction = () => [
+  { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+  { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
+  { rel: "dns-prefetch", href: "https://images.unsplash.com" },
+  { rel: "dns-prefetch", href: "https://media.istockphoto.com" },
+  { rel: "dns-prefetch", href: "https://github.com" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preconnect",
+    href: "https://images.unsplash.com",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preconnect",
+    href: "https://media.istockphoto.com",
     crossOrigin: "anonymous",
   },
   {
@@ -32,31 +46,7 @@ export const links: Route.LinksFunction = () => [
   { rel: "apple-touch-icon", href: "/favicon.ico" },
 ];
 
-const SITE_URL = "https://dhanrajpimple.vercel.app";
-
-export const meta: Route.MetaFunction = () => {
-  const title = "Dhanraj Pimple | DevOps Automation Engineer & Full-Stack Developer";
-  const description =
-    "DevOps Automation Engineer & Full-Stack Developer specializing in CI/CD pipelines, cloud infrastructure, and high-performance web applications.";
-  const image = "https://github.com/dhanrajpimple.png";
-
-  return [
-    { title },
-    { name: "description", content: description },
-    {
-      name: "robots",
-      content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-    },
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:type", content: "website" },
-    { property: "og:image", content: image },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-    { name: "twitter:image", content: image },
-  ];
-};
+export const meta: Route.MetaFunction = () => [];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -238,8 +228,16 @@ const Footer = () => {
                 DHANRAJ<span className="text-brand-blue text-lg">_PIMPLE</span>
               </span>
             </div>
-            <p className="text-brand-gray max-w-sm mb-8">
-              DevOps Automation Engineer & Full-Stack Developer specializing in CI/CD pipelines, cloud infrastructure, and AI-driven platforms.
+            <p className="text-brand-gray max-w-md mb-4 leading-relaxed">
+              Freelance developer Satara teams, freelance developer Pune startups,
+              and freelance developer Maharashtra businesses hire for AI systems,
+              SaaS platforms, web builds, mobile apps, desktop apps, and cloud
+              delivery.
+            </p>
+            <p className="text-sm text-brand-gray/80 max-w-md mb-8 leading-relaxed">
+              Website developer for small business India founders, startup tech
+              partner India teams, and remote developer India clients looking for
+              direct execution without agency overhead.
             </p>
             <div className="flex gap-4">
               <a
@@ -282,18 +280,18 @@ const Footer = () => {
           <div>
             <h3 className="font-display font-bold mb-6 text-brand-offwhite">Services</h3>
             <ul className="space-y-4 text-brand-gray">
-              <li><NavLink to="/services/devops" className="hover:text-brand-blue transition-colors">DevOps Automation</NavLink></li>
-              <li><NavLink to="/services/software" className="hover:text-brand-blue transition-colors">Software Development</NavLink></li>
-              <li><NavLink to="/services/website" className="hover:text-brand-blue transition-colors">Website Development</NavLink></li>
-              <li><NavLink to="/pricing" className="hover:text-brand-blue transition-colors">Pricing Plans</NavLink></li>
-              <li><NavLink to="/resources" className="hover:text-brand-blue transition-colors">Technical Resources</NavLink></li>
+              <li><NavLink to="/services/software" className="hover:text-brand-blue transition-colors">AI agents, SaaS, desktop and mobile apps</NavLink></li>
+              <li><NavLink to="/services/website" className="hover:text-brand-blue transition-colors">Web development and SEO systems</NavLink></li>
+              <li><NavLink to="/services/devops" className="hover:text-brand-blue transition-colors">DevOps automation and cloud deployment</NavLink></li>
+              <li><NavLink to="/pricing" className="hover:text-brand-blue transition-colors">Pricing plans</NavLink></li>
+              <li><NavLink to="/resources" className="hover:text-brand-blue transition-colors">Technical resources</NavLink></li>
               <li><NavLink to="/scorecard" className="hover:text-brand-green transition-colors font-bold">Free UX Scorecard →</NavLink></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-display font-bold mb-6 text-brand-offwhite">Newsletter</h4>
-            <p className="text-sm text-brand-gray mb-4">Get the latest DevOps tips and tech insights.</p>
+            <p className="text-sm text-brand-gray mb-4">Get AI, product engineering, and DevOps insights without the noise.</p>
             <form onSubmit={handleSubscribe} className="space-y-2">
               <div className="flex gap-2">
                 <input
@@ -333,193 +331,67 @@ const Footer = () => {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const canonicalUrl = `${SITE_URL}${location.pathname === "/" ? "" : location.pathname}`;
+  const pathSegments = location.pathname.split("/").filter(Boolean);
+  const globalSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        ...pathSegments.map((path, index) => ({
+          "@type": "ListItem",
+          position: index + 2,
+          name: path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, " "),
+          item: `${SITE_URL}/${pathSegments.slice(0, index + 1).join("/")}`,
+        })),
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SiteNavigationElement",
+      name: ["Home", "About", "Services", "Portfolio", "Pricing", "Blog", "Contact"],
+      url: [
+        SITE_URL,
+        `${SITE_URL}/about`,
+        `${SITE_URL}/services`,
+        `${SITE_URL}/portfolio`,
+        `${SITE_URL}/pricing`,
+        `${SITE_URL}/blog`,
+        `${SITE_URL}/contact`,
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: `${SITE_NAME} Portfolio`,
+      url: SITE_URL,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${SITE_URL}/blog?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ];
 
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="DQ_IXno1gDKyvpbZc8wNcM5xGsh-ofKRlbAi7oAPetE" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="Dhanraj Pimple" />
         <meta name="twitter:site" content="@DhanrajPimple16" />
         <meta name="twitter:creator" content="@DhanrajPimple16" />
-        <meta name="keywords" content={REGIONAL_SEO_KEYWORDS_META_CONTENT} />
-        <link rel="canonical" href={canonicalUrl} />
         <Meta />
         <Links />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Dhanraj Pimple",
-                "jobTitle": "DevOps Engineer, Full-Stack Developer & AI SEO Specialist",
-                "url": "https://dhanrajpimple.vercel.app/",
-                "image": "https://github.com/dhanrajpimple.png",
-                "description":
-                  "Expert DevOps engineer, AI SEO Specialist, and Full-Stack Software Developer specializing in CI/CD pipelines, cloud infrastructure (AWS/K8s/Azure), AI-driven platforms, LLM integration, and high-performance websites optimized for AI browsers like Brave and Perplexity.",
-                "sameAs": [
-                  "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
-                  "https://github.com/dhanrajpimple/",
-                  "https://x.com/DhanrajPimple16"
-                ],
-                "knowsAbout": [
-                  "DevOps Automation",
-                  "AI Search Engine Optimization (AI SEO)",
-                  "Generative AI & LLM Integration",
-                  "Cloud Infrastructure (AWS, Azure, GCP)",
-                  "Infrastructure as Code (Terraform, Ansible)",
-                  "CI/CD Pipelines (Jenkins, GitHub Actions, GitLab CI)",
-                  "Kubernetes & Docker Containerization",
-                  "Full-Stack Development (React, Remix, Next.js)",
-                  "Backend Systems (Node.js, FastAPI, Python, Go)",
-                  "Technical SEO & Core Web Vitals",
-                  "Machine Learning Model Deployment",
-                  "Microservices Architecture",
-                  "API Design & Security",
-                  "Brave Browser & AI Search Optimization"
-                ],
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Satara",
-                  "addressRegion": "Maharashtra",
-                  "addressCountry": "IN"
-                }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                "name": "Dhanraj Pimple - Freelance AI Developer & SEO Expert",
-                "image": "https://github.com/dhanrajpimple.png",
-                "@id": "https://dhanrajpimple.vercel.app/",
-                "url": "https://dhanrajpimple.vercel.app/",
-                "telephone": "+91-91468-90521",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Satara",
-                  "addressLocality": "Satara",
-                  "addressRegion": "MH",
-                  "postalCode": "415001",
-                  "addressCountry": "IN"
-                },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": 17.6805,
-                  "longitude": 73.9803
-                },
-                "openingHoursSpecification": {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday"
-                  ],
-                  "opens": "09:00",
-                  "closes": "21:00"
-                },
-                "sameAs": [
-                  "https://www.linkedin.com/in/dhanraj-pimple-1b802a274/",
-                  "https://github.com/dhanrajpimple/",
-                  "https://x.com/DhanrajPimple16"
-                ],
-                "areaServed": ["Satara", "Pune", "Mumbai", "Bangalore", "Hyderabad", "Global"],
-                "priceRange": "$$$"
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": SITE_URL
-                  },
-                  ...location.pathname.split("/").filter(Boolean).map((path, index) => ({
-                    "@type": "ListItem",
-                    "position": index + 2,
-                    "name": path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, " "),
-                    "item": `${SITE_URL}/${location.pathname.split("/").filter(Boolean).slice(0, index + 1).join("/")}`
-                  }))
-                ]
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "SiteNavigationElement",
-                "name": ["Home", "About", "Services", "Portfolio", "Blog", "Contact"],
-                "url": [
-                  `${SITE_URL}/`,
-                  `${SITE_URL}/about`,
-                  `${SITE_URL}/services`,
-                  `${SITE_URL}/portfolio`,
-                  `${SITE_URL}/blog`,
-                  `${SITE_URL}/contact`
-                ]
-              },
-              {
-                "@context": "https://schema.org",
-                "@id": "https://dhanrajpimple.vercel.app/#service",
-                "@type": "Service",
-                "serviceType": "DevOps Consulting, AI SEO Optimization, & Full-Stack Development",
-                "provider": {
-                  "@type": "Person",
-                  "name": "Dhanraj Pimple"
-                },
-                "areaServed": "Global",
-                "hasOfferCatalog": {
-                  "@type": "OfferCatalog",
-                  "name": "DevOps, AI & Development Services",
-                  "itemListElement": [
-                    {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": "DevOps Automation & CI/CD Pipelines"
-                      }
-                    },
-                    {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": "AI Integration & LLM Ops"
-                      }
-                    },
-                    {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": "Custom SaaS & Web Application Development"
-                      }
-                    },
-                    {
-                      "@type": "Offer",
-                      "itemOffered": {
-                        "@type": "Service",
-                        "name": "Technical SEO & AI Search Visibility"
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Dhanraj Pimple Portfolio",
-                "url": SITE_URL,
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": `${SITE_URL}/blog?q={search_term_string}`,
-                  "query-input": "required name=search_term_string"
-                }
-              }
-            ]),
+            __html: JSON.stringify(globalSchemas),
           }}
         />
       </head>

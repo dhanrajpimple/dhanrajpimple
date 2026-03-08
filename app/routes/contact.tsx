@@ -1,13 +1,14 @@
 import type { MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Github, MessageSquare, Send, CheckCircle2, Twitter } from "lucide-react";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "Hire Freelance Developer in India | Website & Mobile App Development" },
-        { name: "description", content: "Ready to build your website or mobile app? Hire freelance developer for small business and startups. Custom mobile app development, AI chatbot for business, DevOps automation, and end-to-end tech solutions. Remote developer for hire in India." },
-        { name: "keywords", content: "i want to hire a developer, hire freelance developer, hire full stack developer, remote developer for hire, developer for startup project, freelance software developer, web and app developer for hire, technical partner for startup, dedicated developer for project, experienced developer for business" },
-    ];
+    return buildPageMeta({
+        title: "Contact Dhanraj Pimple | Hire Freelance Developer in India",
+        description: "Contact Dhanraj Pimple to hire a freelance developer in India for AI agents, websites, SaaS systems, desktop apps, mobile apps, chatbots, DevOps, and cloud delivery.",
+        path: "/contact",
+    });
 };
 
 const ContactMethod = ({ icon, label, value, href }: { icon: React.ReactNode, label: string, value: string, href: string }) => (
@@ -141,7 +142,7 @@ export default function Contact() {
                             <h3 className="text-xl font-bold font-display border-b border-white/5 pb-4">Availability Status</h3>
                             <div className="flex items-center gap-3">
                                 <div className="w-3 h-3 bg-brand-green rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                                <span className="font-bold">Currently Booking for February 2026</span>
+                                <span className="font-bold">Currently Booking for March 2026</span>
                             </div>
                             <ul className="space-y-4 text-sm text-brand-gray">
                                 <li className="flex gap-3">

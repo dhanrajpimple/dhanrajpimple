@@ -36,7 +36,28 @@ export interface Project {
     yearCompleted: number;
 }
 
-export const projects: Project[] = [
+const optimizeExternalImage = (url: string) => {
+    if (!url.includes("images.unsplash.com")) {
+        return url;
+    }
+
+    const [baseUrl] = url.split("?");
+    return `${baseUrl}?fm=webp&q=75&w=800`;
+};
+
+const optimizeProjectImages = (project: Project): Project => ({
+    ...project,
+    image: optimizeExternalImage(project.image),
+    beforeAfterImages: project.beforeAfterImages
+        ? {
+            ...project.beforeAfterImages,
+            before: optimizeExternalImage(project.beforeAfterImages.before),
+            after: optimizeExternalImage(project.beforeAfterImages.after),
+        }
+        : undefined,
+});
+
+const rawProjects: Project[] = [
     {
         id: "ai-con-vendor",
         title: "AI Vendor Outreach Platform",
@@ -128,7 +149,7 @@ export const projects: Project[] = [
         category: "Web Dev / Entertainment",
         description: "Modern entertainment platform with seamless UX and advanced streaming capabilities.",
         longDescription: "A visually stunning entertainment platform for Flixix Studios built with Remix.js. This project prioritized a seamless user experience and advanced media capabilities. We leveraged Remix's server-side rendering to achieve lightning-fast initial load times and exceptional SEO performance. The backend is powered by a combination of Node.js and MongoDB, with Supabase handling real-time data needs. We used Tailwind CSS for a modern, responsive design and Framer Motion for high-end micro-animations. The result is a high-engagement platform that consistently scores 95+ on Lighthouse audits and has significantly increased user retention for the client.",
-        image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&q=80&w=1200",
+        image: "/assets/flixix.png",
         tags: ["Remix", "Streaming", "SEO"],
         techStack: ["Remix", "Node.js", "MongoDB", "Supabase", "Tailwind CSS", "SEO", "Cloudinary"],
         link: "https://www.flixixstudios.in/",
@@ -173,7 +194,7 @@ export const projects: Project[] = [
         category: "Web Dev / EdTech",
         description: "Comprehensive educational platform connecting students with quality learning resources.",
         longDescription: "A comprehensive education portal designed for Shetty Educators to streamline their enrollment process. Built with Remix.js to handle large volumes of student inquiries, the site connects students with quality learning resources efficiently. We implemented a searchable course database and an automated inquiry routing system that sends leads directly to the appropriate counselor. The backend uses Supabase for reliable data storage and authentication. We focused heavily on technical SEO for course-specific search terms, resulting in a 250% increase in student enrollment within the first few months of launch. The lead management panel provides real-time analytics on student conversion rates.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200",
+        image: "/assets/shettry.png",
         tags: ["EdTech", "Remix", "SEO"],
         techStack: ["Remix.js", "Tailwind CSS", "SEO", "Supabase"],
         link: "https://shettyeducators.in/",
@@ -218,7 +239,7 @@ export const projects: Project[] = [
         category: "Web Dev / Wholesale",
         description: "Wholesale celebration materials platform offering party supplies and decorative items.",
         longDescription: "A specialized B2B wholesale platform for A.P. Celebration Traders. This digital catalog allows wholesale customers to browse party supplies and decorative items at competitive rates. Built with Remix.js and Tailwind CSS, the platform provides a professional interface that reflects the scale of the business. We integrated interactive product displays and a streamlined inquiry process that allows B2B customers to request bulk quotes directly through the site. Using Framer Motion, we created a smooth, engaging browsing experience that works perfectly across mobile and desktop devices. This transition to a digital-first approach established 24/7 access for their global client base and significantly boosted wholesale sales.",
-        image: "https://media.istockphoto.com/id/2150795471/vector/fireworks-background-for-the-4th-of-july-or-bastille-day.jpg?s=612x612&w=0&k=20&c=vfAIdGgSQknrDE-0PQZlK1ZQ-EJ8-qiHKk9ctSd-t_c=",
+        image: "/assets/apcelebration.png",
         tags: ["Wholesale", "B2B", "Remix"],
         techStack: ["Remix.js", "Tailwind CSS", "Framer Motion"],
         link: "https://apcelebrationtraders.in/",
@@ -253,7 +274,7 @@ export const projects: Project[] = [
         category: "Web Dev / Travel",
         description: "Travel agency website with tour packages and an inquiry-based booking system.",
         longDescription: "A professional travel agency website for Flexi Global Holidays, showcasing comprehensive tour packages and international destinations. The site features an inquiry-based booking system that replaces fragmented email chains with a centralized, professional workflow. Built with Remix.js, the architecture is designed for speed and discoverability. Each destination has a dedicated, SEO-optimized landing page featuring dynamic galleries and detailed itineraries. We focused on local SEO for the Maharashtra region, which led to a marked increase in both domestic and international booking inquiries. The system's automated lead tracking ensures that the Flexi Global team can respond to customer requests within record time.",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200",
+        image: "/assets/fleixi global.png",
         tags: ["Travel", "Booking", "Remix"],
         techStack: ["Remix.js", "Tailwind CSS", "Framer Motion"],
         link: "https://flexiglobalholidays.in/",
@@ -291,5 +312,99 @@ export const projects: Project[] = [
         },
         projectDuration: "3 weeks",
         yearCompleted: 2025
+    },
+    {
+        id: "bookkartehai",
+        title: "BookKartehai",
+        category: "E-Commerce / React.js",
+        description: "Online bookstore platform built with React.js featuring comprehensive catalog management and secure payment processing.",
+        longDescription: "A full-featured e-commerce bookstore built with React.js that transformed a local bookshop into a thriving online business. The platform includes advanced search functionality with filters for genre, author, and price range. I implemented a secure authentication system using JWT tokens and integrated Razorpay for reliable payment processing. The admin dashboard allows real-time inventory management, sales analytics, and order tracking. To ensure optimal performance, I implemented lazy loading for images, code splitting, and a progressive web app architecture. The result is a fast, user-friendly platform that helped the client grow their customer base by 300% within the first 6 months.",
+        image: "/assets/bookkartehai.png",
+        tags: ["React.js", "E-Commerce", "Bookstore"],
+        techStack: ["React.js", "Node.js", "Express", "MongoDB", "Razorpay", "JWT", "Redux"],
+        link: "https://www.bookkartehai.in/",
+        results: [
+            "Customer base grew by 300% in 6 months",
+            "Achieved 99.8% payment success rate",
+            "Reduced page load time to 1.8 seconds"
+        ],
+        features: [
+            "Advanced book search with multiple filters",
+            "Secure user authentication and profiles",
+            "Real-time inventory management",
+            "Progressive Web App (PWA) support",
+            "Wishlist and reading recommendations"
+        ],
+        // ROI-First Fields
+        clientName: "BookKartehai",
+        clientIndustry: "E-Commerce / Books",
+        problemStatement: "BookKartehai was a local bookshop with no online presence, limited to walk-in customers. They struggled with inventory management and had no way to reach customers beyond their immediate locality, missing out on the growing online book market.",
+        solutionSummary: "I built a comprehensive React.js e-commerce platform with advanced search capabilities, secure payment integration, and real-time inventory management, enabling them to scale from local shop to online bookstore with 300% customer growth.",
+        roiMetrics: [
+            { metric: "Monthly Sales", before: "₹45,000", after: "₹180,000", improvement: "+300%" },
+            { metric: "Customer Base", before: "~150", after: "600+", improvement: "+300%" },
+            { metric: "Page Load Time", before: "N/A", after: "1.8s", improvement: "Optimized" },
+            { metric: "Payment Success Rate", before: "N/A", after: "99.8%", improvement: "Reliable" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1568667256448-2c942df005a2?auto=format&fit=crop&q=80&w=800",
+            caption: "Local bookshop vs. Online e-commerce platform"
+        },
+        testimonial: {
+            quote: "Our online platform has completely transformed our business. We went from a local shop to serving customers across India, and our sales have quadrupled.",
+            author: "Rajesh Kumar",
+            role: "Owner, BookKartehai"
+        },
+        projectDuration: "8 weeks",
+        yearCompleted: 2025
+    },
+    {
+        id: "kalanganhandmade",
+        title: "Kalangan Handmade",
+        category: "E-Commerce / Next.js",
+        description: "Handmade crafts marketplace built with Next.js, Supabase, and AWS for scalable artisan product sales.",
+        longDescription: "A sophisticated handmade crafts marketplace built with Next.js that connects local artisans with global customers. The platform leverages Supabase for real-time database operations and authentication, ensuring data consistency and security. AWS services handle image storage and CDN delivery for optimal performance worldwide. I implemented a multi-vendor system where artisans can manage their own products, track sales, and handle shipping. The Node.js backend processes orders and manages inventory across multiple vendors. Advanced features include real-time chat between buyers and sellers, custom order requests, and an AI-powered recommendation engine. The platform helped small artisans scale their businesses globally, with some vendors seeing 500% growth in sales.",
+        image: "/assets/kalangan.png",
+        tags: ["Next.js", "Supabase", "AWS", "Marketplace"],
+        techStack: ["Next.js", "Supabase", "AWS (S3, CloudFront)", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
+        link: "https://www.kalanganhandmade.in/",
+        results: [
+            "Enabled 50+ artisans to sell globally",
+            "Some vendors achieved 500% sales growth",
+            "Achieved 2.3s average load time globally"
+        ],
+        features: [
+            "Multi-vendor marketplace system",
+            "Real-time buyer-seller chat",
+            "Custom order request system",
+            "AI-powered product recommendations",
+            "Global shipping and tax calculations"
+        ],
+        // ROI-First Fields
+        clientName: "Kalangan Handmade",
+        clientIndustry: "Handmade Crafts / Marketplace",
+        problemStatement: "Local artisans had no platform to reach customers beyond their immediate area. They struggled with payment processing, shipping logistics, and had no way to showcase their products to a global audience, limiting their income potential.",
+        solutionSummary: "I built a scalable Next.js marketplace with Supabase for real-time operations, AWS for global CDN, and multi-vendor management, enabling artisans to sell globally with some achieving 500% sales growth.",
+        roiMetrics: [
+            { metric: "Artisan Vendors", before: "0", after: "50+", improvement: "New Platform" },
+            { metric: "Average Vendor Sales", before: "₹8,000/month", after: "₹48,000/month", improvement: "+500%" },
+            { metric: "Global Reach", before: "Local only", after: "15+ countries", improvement: "International" },
+            { metric: "Platform Uptime", before: "N/A", after: "99.9%", improvement: "Reliable" }
+        ],
+        beforeAfterImages: {
+            before: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800",
+            after: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
+            caption: "Local artisan sales vs. Global marketplace platform"
+        },
+        testimonial: {
+            quote: "This platform has been life-changing for our artisans. Many have doubled or tripled their income, and we're now selling to customers worldwide.",
+            author: "Anita Deshmukh",
+            role: "Founder, Kalangan Handmade"
+        },
+        projectDuration: "10 weeks",
+        yearCompleted: 2025
     }
 ];
+
+export const projects: Project[] = rawProjects.map(optimizeProjectImages);

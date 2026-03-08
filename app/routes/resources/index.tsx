@@ -3,15 +3,15 @@ import { answerBlocks, type AnswerBlock } from "../../data/resources";
 import { Search, Lightbulb, TrendingUp, Zap, ArrowRight, Brain, Server, Gauge, Code2 } from "lucide-react";
 import { useState } from "react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
     return [
-        { title: "Technical Resources & Insights | GEO-Optimized Solutions | Dhanraj Pimple" },
-        { name: "description", content: "Expert technical resources on Next.js performance, Kubernetes optimization, AI chatbot latency, CI/CD pipelines, and SEO for AI search engines. Data-backed solutions with proven results." },
-        { name: "keywords", content: "Next.js LCP optimization, Kubernetes cost reduction, AI chatbot performance, CI/CD pipeline speed, GEO optimization, React bundle size, PostgreSQL optimization, microservices reliability" },
-        { property: "og:title", content: "Technical Resources | Problem/Solution Guides | Dhanraj Pimple" },
-        { property: "og:description", content: "Data-backed technical solutions for DevOps, Performance, AI, and Architecture challenges. Each guide includes specific metrics and implementation steps." },
-        { property: "og:type", content: "website" },
+        ...buildPageMeta({
+            title: "Technical Resources & Insights | Dhanraj Pimple",
+            description: "Technical resources from Dhanraj Pimple covering DevOps, performance, AI systems, SEO, and software architecture with practical implementation guidance.",
+            path: "/resources",
+        }),
     ];
 };
 

@@ -2,21 +2,18 @@ import { useParams, NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { blogPosts } from "../../data/blog";
 import { ArrowLeft, Calendar, Clock, Share2, Bookmark, Github, Twitter, Linkedin, MessageSquare, ArrowRight } from "lucide-react";
+import portrait from "~/assets/dp.png";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = ({ params }) => {
     const post = blogPosts.find(p => p.id === params.id);
-    const title = post ? `${post.title} | Dhanraj Pimple Blog` : "Article Not Found";
-    const description = post ? post.excerpt : "Article not found.";
-    const keywords = post ? `${post.category}, ${post.tags.join(", ")}, Dhanraj Pimple Blog, Technical Guide` : "DevOps, Software Development, technical blog";
-
-    return [
-        { title },
-        { name: "description", content: description },
-        { name: "keywords", content: keywords },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:type", content: "article" },
-    ];
+    return buildPageMeta({
+        title: post ? `${post.title} | Dhanraj Pimple Blog` : "Article Not Found",
+        description: post ? post.excerpt : "Article not found.",
+        path: post ? `/blog/${post.id}` : "/blog",
+        keywords: post ? `${post.category}, ${post.tags.join(", ")}, Dhanraj Pimple Blog, Technical Guide` : undefined,
+        type: "article",
+    });
 };
 
 export default function BlogPostDetail() {
@@ -52,7 +49,7 @@ export default function BlogPostDetail() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 py-10 border-t border-white/10">
                             <div className="flex items-center gap-4">
                                 <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-brand-blue/30 p-0.5">
-                                    <img src="https://github.com/dhanrajpimple.png" alt="Dhanraj Pimple" className="w-full h-full object-cover rounded-full" />
+                                    <img src={portrait} alt="Dhanraj Pimple" width="56" height="56" loading="eager" decoding="async" className="w-full h-full object-cover rounded-full" />
                                 </div>
                                 <div>
                                     <div className="font-bold text-lg">Dhanraj Pimple</div>
@@ -107,7 +104,7 @@ export default function BlogPostDetail() {
                         {/* Author Card */}
                         <div className="mt-32 p-12 glass rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center border border-white/5 bg-linear-to-br from-brand-blue/5 to-transparent">
                             <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-brand-blue shadow-2xl shadow-brand-blue/20 shrink-0">
-                                <img src="https://github.com/dhanrajpimple.png" alt="Dhanraj Pimple" className="w-full h-full object-cover" />
+                                <img src={portrait} alt="Dhanraj Pimple" width="112" height="112" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                             </div>
                             <div className="text-center md:text-left">
                                 <h4 className="text-2xl font-bold mb-3">Written by Dhanraj Pimple</h4>

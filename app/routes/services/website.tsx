@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, Globe, Rocket, Search, Smartphone, ArrowRight } from "lucide-react";
 import { NavLink, type MetaFunction } from "react-router";
+import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
-    return [
-        { title: "AI SEO Expert & Web Developer Satara | Brave Search Optimization" },
-        { name: "description", content: "High-performance website development optimized for AI search engines and browsers like Brave. Strategic technical SEO for businesses in Pune, Satara, and Kolhapur." },
-        { name: "keywords", content: "AI SEO Expert Satara, Brave Search Optimization, Perplexity SEO, Technical SEO Pune, Web Developer Maharashtra, AI-Friendly Website Design, Google Ranking Expert India" },
-    ];
+    return buildPageMeta({
+        title: "Website Development Services India | Dhanraj Pimple",
+        description: "Affordable web developer India businesses hire for high-performance websites, technical SEO, landing pages, product sites, and website development for small businesses and startups.",
+        path: "/services/website",
+    });
 };
 
 export default function WebsiteService() {
