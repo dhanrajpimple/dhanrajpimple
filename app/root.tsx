@@ -368,7 +368,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: `${SITE_NAME} Portfolio`,
+      name: SITE_NAME,
       url: SITE_URL,
       potentialAction: {
         "@type": "SearchAction",

@@ -289,7 +289,7 @@ const languageSections = [
 export const meta: MetaFunction = () => [
   ...buildPageMeta({
     title:
-      "Freelance Full-Stack & DevOps Engineer India | AI SaaS Developer - Dhanraj Pimple",
+      "Freelance Full-Stack & AI Developer in India | DevOps & SaaS Systems | Dhanraj Pimple",
     description:
       "Hire a top-rated Freelance Full-Stack Developer and DevOps Engineer in India. Expert in AI SaaS, FastAPI backend, Next.js, CI/CD pipelines, and cloud infrastructure. Serving startups in Pune, Satara, Maharashtra & globally. Book a free consultation!",
     path: "/",
@@ -667,8 +667,8 @@ const PricingSection = () => {
               transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
               className={`glass p-8 rounded-3xl border transition-all ${plan.highlight
-                  ? "border-brand-blue/50 shadow-2xl shadow-brand-blue/10"
-                  : "border-white/5"
+                ? "border-brand-blue/50 shadow-2xl shadow-brand-blue/10"
+                : "border-white/5"
                 }`}
             >
               <div className="mb-6">{plan.icon}</div>
@@ -678,8 +678,8 @@ const PricingSection = () => {
               <NavLink
                 to="/pricing"
                 className={`w-full py-3 rounded-xl font-bold text-center inline-block transition-all ${plan.highlight
-                    ? "bg-brand-blue text-brand-navy hover:bg-brand-coral hover:text-white"
-                    : "button-glass hover:bg-white/10"
+                  ? "bg-brand-blue text-brand-navy hover:bg-brand-coral hover:text-white"
+                  : "button-glass hover:bg-white/10"
                   }`}
               >
                 View Details

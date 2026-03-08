@@ -66,6 +66,8 @@ export function buildPageMeta({
     { property: "og:image", content: image },
     { property: "og:url", content: url },
     { property: "og:site_name", content: SITE_NAME },
+    { name: "application-name", content: SITE_NAME },
+    { name: "apple-mobile-web-app-title", content: SITE_NAME },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
