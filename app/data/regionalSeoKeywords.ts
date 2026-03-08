@@ -1,6 +1,14 @@
 export const PRIMARY_SEO_KEYWORDS = [
+  // Core positioning
+  "Freelance Full Stack Developer India",
   "Freelance developer India",
+  "Full stack developer India",
+  "Backend developer India",
+  "Hire developer India",
+
+  // AI & SaaS
   "Hire AI developer India",
+  "AI SaaS developer India",
   "AI agent developer",
   "Agentic AI workflow developer",
   "LangChain developer India",
@@ -8,22 +16,47 @@ export const PRIMARY_SEO_KEYWORDS = [
   "AutoGen developer",
   "AI ML integration developer",
   "Machine learning developer India",
+  "SaaS developer India",
+
+  // Service-specific technical
+  "FastAPI developer India",
+  "Hire FastAPI developer",
+  "FastAPI backend developer",
+  "Python backend developer India",
+  "Next.js developer India",
+  "Hire Next.js developer",
+  "React developer India",
+  "Chatbot developer India",
+  "WhatsApp chatbot developer",
+
+  // DevOps & Cloud
+  "DevOps engineer India",
+  "Freelance DevOps engineer India",
+  "CI/CD pipeline expert India",
+  "Cloud infrastructure engineer India",
+  "Automation engineer India",
+  "Docker Kubernetes expert India",
+  "AWS developer India",
+  "Cloud deployment expert",
+
+  // App types
   "Desktop app developer India",
   "Mobile app developer India",
   "Web developer India",
-  "Full stack developer India",
-  "DevOps engineer India",
-  "Cloud deployment expert",
-  "SaaS developer India",
-  "Chatbot developer India",
-  "WhatsApp chatbot developer",
+
+  // Business audience
   "Affordable web developer India",
-  "Freelance developer Pune",
-  "Freelance developer Satara",
-  "Freelance developer Maharashtra",
   "Website developer for small business India",
   "Startup tech partner India",
   "Remote developer India",
+
+  // Local
+  "Freelance developer Pune",
+  "Freelance developer Satara",
+  "Freelance developer Maharashtra",
+  "Web developer Kolhapur",
+  "Software developer Maharashtra",
+  "DevOps engineer Pune",
 ] as const;
 
 export const MARATHI_SEO_KEYWORDS = [

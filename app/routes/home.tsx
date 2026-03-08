@@ -289,9 +289,9 @@ const languageSections = [
 export const meta: MetaFunction = () => [
   ...buildPageMeta({
     title:
-      "Hire AI Agent & Freelance Developer in India | Dhanraj Pimple - Web, Mobile, Desktop & AI Apps",
+      "Freelance Full-Stack & DevOps Engineer India | AI SaaS Developer - Dhanraj Pimple",
     description:
-      "Dhanraj Pimple is a freelance full-stack developer in India specializing in AI agents, LangChain, mobile apps, desktop apps, web development, DevOps, and ML integration. Serving startups and businesses in Pune, Satara, Maharashtra & globally.",
+      "Hire a top-rated Freelance Full-Stack Developer and DevOps Engineer in India. Expert in AI SaaS, FastAPI backend, Next.js, CI/CD pipelines, and cloud infrastructure. Serving startups in Pune, Satara, Maharashtra & globally. Book a free consultation!",
     path: "/",
     keywords: [...new Set([...PRIMARY_SEO_KEYWORDS, ...MARATHI_SEO_KEYWORDS, ...HINDI_SEO_KEYWORDS, ...GUJARATI_SEO_KEYWORDS])].join(", "),
   }),
@@ -300,9 +300,9 @@ export const meta: MetaFunction = () => [
       "@context": "https://schema.org",
       "@type": "Person",
       name: SITE_AUTHOR,
-      jobTitle: "Freelance Full-Stack Developer & AI Agent Developer",
+      jobTitle: "Freelance Full-Stack Developer, DevOps Engineer & AI SaaS Developer",
       url: SITE_URL,
-      sameAs: [SOCIAL_LINKS[0], SOCIAL_LINKS[1]],
+      sameAs: [SOCIAL_LINKS[0], SOCIAL_LINKS[1], SOCIAL_LINKS[2]],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Satara",
@@ -310,12 +310,20 @@ export const meta: MetaFunction = () => [
         addressCountry: "IN",
       },
       knowsAbout: [
+        "Full-Stack Development",
         "AI Agents",
+        "AI SaaS Development",
         "LangChain",
+        "FastAPI",
+        "Next.js",
         "Web Development",
         "Mobile Apps",
         "Desktop Apps",
         "DevOps",
+        "CI/CD Pipelines",
+        "Docker",
+        "Kubernetes",
+        "AWS",
         "ML Integration",
       ],
     },
@@ -401,7 +409,7 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
-              Hire an <span className="text-gradient">AI Agent Developer</span> in India
+              Freelance <span className="text-gradient">Full-Stack & DevOps</span> Engineer in India
             </h1>
 
             <p className="text-lg md:text-xl text-brand-gray mb-6 max-w-2xl leading-relaxed">
@@ -527,12 +535,12 @@ const ServicesGrid = () => (
     <div className="container mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-          Expertise That Scales
+          AI SaaS · DevOps · FastAPI · Next.js
         </h2>
         <p className="text-brand-gray max-w-3xl mx-auto">
-          From website developer for small business India projects to agentic AI,
-          SaaS, and cloud infrastructure, I deliver build systems that can launch
-          quickly and grow without rewrites.
+          Freelance Full-Stack & DevOps engineer in India delivering AI SaaS platforms,
+          FastAPI backends, Next.js web apps, CI/CD pipelines, and cloud infrastructure.
+          From startup launch to enterprise scale — without agency overhead.
         </p>
       </div>
 
@@ -658,11 +666,10 @@ const PricingSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
               viewport={{ once: true }}
-              className={`glass p-8 rounded-3xl border transition-all ${
-                plan.highlight
+              className={`glass p-8 rounded-3xl border transition-all ${plan.highlight
                   ? "border-brand-blue/50 shadow-2xl shadow-brand-blue/10"
                   : "border-white/5"
-              }`}
+                }`}
             >
               <div className="mb-6">{plan.icon}</div>
               <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
@@ -670,11 +677,10 @@ const PricingSection = () => {
               <div className="text-3xl font-bold mb-8">{plan.price}</div>
               <NavLink
                 to="/pricing"
-                className={`w-full py-3 rounded-xl font-bold text-center inline-block transition-all ${
-                  plan.highlight
+                className={`w-full py-3 rounded-xl font-bold text-center inline-block transition-all ${plan.highlight
                     ? "bg-brand-blue text-brand-navy hover:bg-brand-coral hover:text-white"
                     : "button-glass hover:bg-white/10"
-                }`}
+                  }`}
               >
                 View Details
               </NavLink>

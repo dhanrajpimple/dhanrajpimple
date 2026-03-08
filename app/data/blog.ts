@@ -408,5 +408,115 @@ Don't ignore the Soft Skills. Communication, project management, and basic sales
         readTime: "12 min read",
         category: "Freelancing",
         tags: ["Skills", "Strategy", "Tech Trends"]
+    },
+    {
+        id: "how-to-build-saas-fastapi-react",
+        title: "How to Build a SaaS with FastAPI and React: Complete Guide for Startups",
+        excerpt: "Step-by-step guide to building a production-ready SaaS product using FastAPI backend and React/Next.js frontend, with Stripe billing and Docker deployment.",
+        content: `Stack: FastAPI (backend), Next.js 14 App Router (frontend), PostgreSQL with SQLAlchemy, Redis for caching, Stripe for subscriptions, Docker for deployment.\n\nStep 1 — FastAPI Setup: Create your project, set up Pydantic schemas, configure SQLAlchemy with Alembic and define your multi-tenant data model.\n\nStep 2 — Auth with JWT: Implement JWT-based auth with refresh tokens and bcrypt password hashing.\n\nStep 3 — Stripe Integration: Create subscription plans, integrate Stripe Python SDK for customer creation, subscription management, and webhooks.\n\nStep 4 — Next.js Frontend: Build the dashboard with App Router. Server Components for data fetching, Client Components for interactive UI. Connect to FastAPI via React Query.\n\nStep 5 — Docker and CI/CD: Multi-stage Dockerfile, Docker Compose locally, GitHub Actions CI/CD to AWS ECS.\n\nResult: A production SaaS with auth, billing, and automated deployments in 4–6 weeks.`,
+        date: "Mar 01, 2026",
+        readTime: "20 min read",
+        category: "Software Development",
+        tags: ["FastAPI", "React", "SaaS", "Stripe", "Docker"]
+    },
+    {
+        id: "fastapi-vs-nodejs-backend",
+        title: "FastAPI vs Node.js: Which Backend Should You Choose in 2026?",
+        excerpt: "Comprehensive comparison of FastAPI (Python) vs Node.js — performance, ecosystem, developer experience, and when to use each for your startup backend.",
+        content: `Performance: Both handle I/O-bound workloads well. FastAPI ~25k req/s, Fastify ~30k req/s — negligible for most apps.\n\nDeveloper Experience: FastAPI auto-generates Swagger docs, Pydantic validation, and type hints out of the box. Node.js needs more manual wiring.\n\nAI/ML Ecosystem: If your app needs LangChain, PyTorch, or HuggingFace — FastAPI wins hands down.\n\nRecommendation:\n- AI/ML integration needed → FastAPI\n- Team already knows JavaScript → Node.js/Fastify\n- Best DX for API development → FastAPI\n\nChoose based on your team skills and domain requirements, not micro-benchmarks.`,
+        date: "Feb 22, 2026",
+        readTime: "14 min read",
+        category: "Software Development",
+        tags: ["FastAPI", "Node.js", "Backend", "Comparison"]
+    },
+    {
+        id: "deploy-fastapi-aws-ec2",
+        title: "How to Deploy FastAPI on AWS EC2: Nginx, Docker & GitHub Actions CI/CD",
+        excerpt: "Complete production deployment tutorial — FastAPI on AWS EC2 with Nginx, Docker containers, SSL, and automated GitHub Actions CI/CD pipeline.",
+        content: `Step 1 — Docker: Multi-stage Dockerfile with slim Python. CMD: uvicorn main:app --host 0.0.0.0 --port 8000.\n\nStep 2 — EC2: Launch Ubuntu 22.04, open ports 80/443/22, install Docker.\n\nStep 3 — Nginx: Reverse proxy from :80/:443 to container :8000. Use Certbot for free SSL.\n\nStep 4 — GitHub Actions: On push to main: authenticate AWS with OIDC, build and tag Docker image, push to ECR, SSH into EC2, pull new image, restart container.\n\nStep 5 — Secrets: AWS SSM Parameter Store or .env on server. Never bake secrets into Docker images.\n\nResult: Zero-downtime automated deployments on every git push.`,
+        date: "Feb 15, 2026",
+        readTime: "18 min read",
+        category: "DevOps",
+        tags: ["FastAPI", "AWS", "Docker", "CI/CD", "Nginx"]
+    },
+    {
+        id: "building-ai-saas-from-scratch",
+        title: "Building AI SaaS Products from Scratch: The Complete Founder's Guide",
+        excerpt: "Practical guide for founders building AI SaaS — tech stack, LangChain integration, RAG pipelines, Stripe billing, and launch strategy.",
+        content: `Phase 1 — Validate: Will your AI feature save users more than 1 hour per week or more than $100 per month? If yes, you have a viable SaaS.\n\nPhase 2 — Tech Stack: FastAPI (AI backend), Next.js (dashboard), PostgreSQL + pgVector, OpenAI API, LangChain, Stripe, Clerk, Railway or ECS.\n\nPhase 3 — AI Core: RAG pipeline for document Q&A (chunk, embed, store, retrieve, generate). LangChain agents for automation workflows.\n\nPhase 4 — Productize: Rate limiting per tier, streaming responses, usage tracking for billing, subscription gating on features.\n\nPhase 5 — Launch: Build in public on Twitter and LinkedIn. Target Indie Hackers and r/SaaS. First clients come from direct founder outreach.\n\nShip fast, iterate on feedback.`,
+        date: "Feb 08, 2026",
+        readTime: "22 min read",
+        category: "Software Development",
+        tags: ["AI SaaS", "LangChain", "OpenAI", "Startup", "FastAPI"]
+    },
+    {
+        id: "complete-cicd-pipeline-startups",
+        title: "Complete CI/CD Pipeline for Startups: GitHub Actions + Docker + AWS",
+        excerpt: "Set up a production-grade CI/CD pipeline for your startup with GitHub Actions, Docker, AWS ECS, and zero-downtime deployments.",
+        content: `Architecture: Code push to GitHub triggers Actions, tests run, Docker image builds, image pushes to ECR, ECS task updates, rolling deployment with health checks.\n\nStep 1 — CI on PRs: Run lint, unit tests, integration tests, Docker build on every Pull Request.\n\nStep 2 — CD to Staging: Merge to main triggers AWS OIDC auth, Docker build tagged with git SHA, ECS task definition update, rolling deployment to staging.\n\nStep 3 — Production Gate: Manual approval or automated E2E tests on staging required before production deploy. GitHub Environments with protection rules.\n\nStep 4 — Zero Downtime: ECS rolling update with min_healthy_percent 100. New tasks start before old ones stop.\n\nStep 5 — Rollback: Re-deploy previous ECR image tag. Takes under 2 minutes.\n\nResult: Deploy to production multiple times per day with confidence.`,
+        date: "Feb 01, 2026",
+        readTime: "16 min read",
+        category: "DevOps",
+        tags: ["CI/CD", "GitHub Actions", "Docker", "AWS", "Startup"]
+    },
+    {
+        id: "docker-vs-kubernetes-startups",
+        title: "Docker vs Kubernetes for Startups: When to Actually Upgrade",
+        excerpt: "Honest guide on when Docker Compose is sufficient, when to move to Kubernetes, and the cost-effective middle ground of AWS ECS for startups.",
+        content: `Start with Docker Compose: Single VM handles under 50k requests per day. Simple, debuggable, cheap. Do not over-engineer before product-market fit.\n\nSigns to Upgrade: You need horizontal scaling, you have more than 5 microservices, you need reliable zero-downtime deploys, or your team spends over 20% of time on deployment issues.\n\nThe Middle Ground — AWS ECS: Simpler than Kubernetes, native AWS integration, auto-scaling and rolling deploys. Perfect for most startups.\n\nWhen to Use Kubernetes: More than 10 microservices, advanced scheduling needs, platform engineering team. Always use managed K8s (EKS or GKE), never self-hosted.\n\nDecision Matrix:\n- Under 10k users per day: Docker Compose on Railway or EC2\n- 10k to 500k users per day: AWS ECS Fargate\n- Over 500k users per day: EKS or GKE`,
+        date: "Jan 25, 2026",
+        readTime: "12 min read",
+        category: "DevOps",
+        tags: ["Docker", "Kubernetes", "Startup", "AWS ECS"]
+    },
+    {
+        id: "system-design-scalable-saas",
+        title: "System Design for Scalable SaaS: From 100 to 10 Million Users",
+        excerpt: "Practical system design playbook for SaaS — database scaling, caching, queues, CDN, and architectural patterns at each growth stage.",
+        content: `Stage 1 MVP under 10k users: Single server, PostgreSQL, no cache. Ship fast, keep it simple.\n\nStage 2 early growth 10k to 100k users: Add PostgreSQL read replica, Redis caching, CloudFront CDN, horizontal web scaling behind ALB.\n\nStage 3 100k to 1M users: PgBouncer connection pooling, SQS or Redis message queues, separate services by scaling profile.\n\nStage 4 1M to 10M users: Microservices for high-load domains, Kafka for event-driven architecture, distributed tracing, multi-region for disaster recovery.\n\nDatabase Heuristics:\n- Under 1M records: single PostgreSQL instance\n- 1M to 100M: read replicas plus proper indexes\n- Over 100M: partitioning, sharding, specialized stores like ClickHouse\n\nGolden Rule: Solve today's problem. Premature scaling is waste.`,
+        date: "Jan 20, 2026",
+        readTime: "18 min read",
+        category: "Software Development",
+        tags: ["System Design", "SaaS", "Scalability", "Architecture"]
+    },
+    {
+        id: "aws-cost-optimization-guide",
+        title: "AWS Cost Optimization: How I Cut $3,000/Month in Startup Cloud Bills",
+        excerpt: "Proven AWS cost reduction strategies — EC2 rightsizing, Reserved Instances, S3 lifecycle policies, Spot Instances, and cost monitoring automation.",
+        content: `Quick Wins in the first 3 days:\n\n1. Enable AWS Cost Explorer to understand spend by service.\n2. Delete idle resources: unattached EBS volumes, unused Elastic IPs, stale snapshots.\n3. Rightsize EC2: if average CPU is below 20 percent, downsize. Immediate 30 percent savings.\n\nMedium Wins in the first 4 weeks:\n\n4. Reserved Instances: 40 percent savings for any 24/7 workload (EC2, RDS, ElastiCache).\n5. S3 Lifecycle: Move 30-day-old objects to S3-IA, 90-day to Glacier. 60 to 80 percent storage cost reduction.\n6. Spot Instances for CI workers and batch jobs: 70 to 90 percent cheaper than On-Demand.\n\nArchitecture Changes in month 2:\n\n7. Lambda for sporadic workloads: 1M invocations per month costs $0.20 vs EC2 t3.micro at $8.\n8. Auto-scaling: scale in at night, scale out during peak hours. 30 to 50 percent savings for predictable traffic.\n\nAverage result: 40 to 60 percent reduction in monthly AWS bills without performance degradation.`,
+        date: "Jan 18, 2026",
+        readTime: "15 min read",
+        category: "DevOps",
+        tags: ["AWS", "Cost Optimization", "Cloud", "Reserved Instances"]
+    },
+    {
+        id: "langchain-rag-fastapi-tutorial",
+        title: "Build a Production RAG Pipeline with LangChain and FastAPI",
+        excerpt: "Complete tutorial for building a production-ready RAG pipeline — document processing, vector embeddings, Qdrant, and streaming Q&A API with FastAPI.",
+        content: `Stack: FastAPI, LangChain, OpenAI text-embedding-3-small plus gpt-4o, Qdrant, PostgreSQL, Celery plus Redis.\n\nDocument Ingestion Celery Task: Load PDF with PyPDFLoader, split with RecursiveCharacterTextSplitter at chunk size 1000 with overlap 200, embed with OpenAIEmbeddings, store in Qdrant with metadata.\n\nQuery Pipeline: User question arrives, generate query embedding, retrieve top 5 chunks from Qdrant, construct prompt with retrieved context, stream GPT-4o response to client.\n\nProduction Improvements: Re-ranking with Cohere Rerank, query decomposition for complex questions, embedding cache for repeated queries, source citations in responses, rate limiting per subscription tier.\n\nFastAPI Endpoints: POST /upload for background document processing, POST /query for streaming responses, GET /documents for listing user documents.\n\nThis pattern powers enterprise AI SaaS — knowledge bases, support bots, internal Q&A tools.`,
+        date: "Jan 15, 2026",
+        readTime: "20 min read",
+        category: "Software Development",
+        tags: ["LangChain", "RAG", "FastAPI", "OpenAI", "AI SaaS"]
+    },
+    {
+        id: "kubernetes-startups-practical",
+        title: "Kubernetes for Startups: Practical Guide Without Enterprise Complexity",
+        excerpt: "Use managed EKS or GKE, Helm charts, auto-scaling, and GitOps to run Kubernetes for your startup without a dedicated platform engineering team.",
+        content: `Use Managed K8s: Never self-host Kubernetes. AWS EKS, GCP GKE, and DigitalOcean K8s handle the control plane. You manage workloads only.\n\nEssential Concepts: Deployment manages replicas and rolling updates. Service exposes your app internally or externally. Ingress routes HTTP traffic using ingress-nginx. ConfigMap and Secret hold configuration and environment variables. HorizontalPodAutoscaler scales pods based on CPU or memory.\n\n5-Step Starter Setup:\n1. Provision EKS cluster with 2 to 3 t3.medium nodes.\n2. Install ingress-nginx, cert-manager, and metrics-server.\n3. Write Helm charts for your application.\n4. Configure HPA to scale when CPU exceeds 70 percent.\n5. Set up ArgoCD for GitOps deployments.\n\nCost Control: Set resource requests and limits on every container. Use Cluster Autoscaler to add and remove nodes dynamically.\n\nMonitoring: Install kube-prometheus-stack via Helm. Deploys Prometheus, Grafana, and AlertManager pre-configured in 10 minutes.`,
+        date: "Jan 22, 2026",
+        readTime: "16 min read",
+        category: "DevOps",
+        tags: ["Kubernetes", "EKS", "Helm", "GitOps", "Startup"]
+    },
+    {
+        id: "nextjs-seo-technical-guide",
+        title: "Next.js SEO Optimization: Complete Technical Guide for 2026",
+        excerpt: "Master technical SEO in Next.js — Metadata API, JSON-LD structured data, sitemaps, Core Web Vitals optimization, and App Router SEO best practices.",
+        content: `1. Metadata API: Export metadata object in every page. Include title with template for site branding, description of 140 to 160 characters with primary keyword, and openGraph. Use generateMetadata for dynamic routes.\n\n2. Structured Data: Add JSON-LD scripts for FAQPage, Article, Service, and Person schema. Add via script tag with type application/ld+json in the page head.\n\n3. Sitemap and Robots: Use built-in sitemap.ts and robots.ts in App Router. Generate dynamically to include all pages, blog posts, and service pages.\n\n4. Core Web Vitals:\n- LCP: Use fetchpriority high on hero images and preload critical resources.\n- CLS: Always define explicit width and height on images.\n- INP: Prefer Server Components, minimize client JavaScript.\n\n5. URL Structure: Descriptive keyword-rich slugs. Short and meaningful paths. Use canonical tags to prevent duplicate content.\n\n6. Next.js Image Component: Handles WebP conversion, responsive sizes, lazy loading, and CLS prevention automatically.\n\n7. Performance: App Router with Partial Prerendering gives the best SSR and SSG balance.\n\nResult: 95 plus PageSpeed scores and competitive Google rankings.`,
+        date: "Feb 12, 2026",
+        readTime: "14 min read",
+        category: "Website Development",
+        tags: ["Next.js", "SEO", "Technical SEO", "Core Web Vitals"]
     }
 ];
