@@ -1,6 +1,6 @@
 import { NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
-import { Award, Briefcase, GraduationCap, Code2, Terminal, Cpu, Cloud, Database, Globe, CheckCircle2, Layers } from "lucide-react";
+import { Award, GraduationCap, Code2, Terminal, Cpu, Cloud, Globe, CheckCircle2, Layers } from "lucide-react";
 import portrait from "~/assets/dp.png";
 import { buildPageMeta } from "~/lib/seo";
 
@@ -28,17 +28,6 @@ const SkillCard = ({ title, icon, skills }: { title: string, icon: React.ReactNo
     </div>
 );
 
-const TimelineItem = ({ year, title, company, description }: { year: string, title: string, company: string, description: string }) => (
-    <div className="relative pl-8 pb-12 last:pb-0">
-        <div className="absolute left-0 top-0 w-px h-full bg-brand-blue/20">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-brand-blue shadow-[0_0_10px_rgba(0,217,255,0.5)]" />
-        </div>
-        <div className="text-sm font-bold text-brand-blue mb-2">{year}</div>
-        <h3 className="text-xl font-bold mb-1">{title}</h3>
-        <div className="text-brand-gray text-sm mb-4">{company}</div>
-        <p className="text-brand-gray/80 leading-relaxed text-sm max-w-2xl">{description}</p>
-    </div>
-);
 
 export default function About() {
     const devopsSkills = ["Docker", "Kubernetes", "Jenkins", "GitLab CI", "Terraform", "Ansible", "AWS (EC2, S3, SQS)", "EventBridge", "Linux"];
@@ -133,30 +122,6 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* Experience Timeline */}
-                <div className="mb-32 max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-center">My Career Journey</h2>
-                    <div className="bg-white/5 p-10 md:p-16 rounded-3xl">
-                        <TimelineItem
-                            year="Jun 2025 - Jan 2026"
-                            title="Full Stack Developer (Contract)"
-                            company="Palcode.ai (Remote)"
-                            description="Developed an AI-driven vendor outreach platform for construction businesses using FastAPI, PostgreSQL, and React. Integrated OpenAI, ElevenLabs, Twilio, and DocuSign to automate complex workflows and AI-driven bidding calls."
-                        />
-                        <TimelineItem
-                            year="Jul 2024 - Mar 2025"
-                            title="Software Developer"
-                            company="ProDT Consulting Services (Pune)"
-                            description="Built a real-time travel booking platform using React and Supabase. Optimized database queries improving performance by 40% and served as Scrum Master managing Agile workflows."
-                        />
-                        <TimelineItem
-                            year="Jan 2024 - May 2025"
-                            title="Freelance Developer"
-                            company="Remote"
-                            description="Delivered 4+ production websites including flixixstudios.in and shettyeducators.in using Remix.js and Supabase, focusing on SEO and performance optimization."
-                        />
-                    </div>
-                </div>
 
                 {/* Education & Certs */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
