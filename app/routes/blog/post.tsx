@@ -2,7 +2,7 @@ import { useParams, NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { blogPosts } from "../../data/blog";
 import { ArrowLeft, Calendar, Clock, Share2, Bookmark, Github, Twitter, Linkedin, MessageSquare, ArrowRight } from "lucide-react";
-import portrait from "~/assets/dp.png";
+import portrait from "~/assets/dp.webp";
 import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = ({ params }) => {

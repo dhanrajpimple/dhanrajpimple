@@ -1,3 +1,11 @@
+// Project images imported as modules to ensure visibility in production and dev builds
+import flixixImg from "~/assets/flixix.webp";
+import shettryImg from "~/assets/shettry.webp";
+import apcelebrationImg from "~/assets/apcelebration.webp";
+import flexiGlobalImg from "~/assets/fleixi global.webp";
+import bookkartehaiImg from "~/assets/bookkartehai.webp";
+import kalanganImg from "~/assets/kalangan.webp";
+
 export interface Project {
     id: string;
     title: string;
@@ -149,7 +157,7 @@ const rawProjects: Project[] = [
         category: "Web Dev / Entertainment",
         description: "Modern entertainment platform with seamless UX and advanced streaming capabilities.",
         longDescription: "A visually stunning entertainment platform for Flixix Studios built with Remix.js. This project prioritized a seamless user experience and advanced media capabilities. We leveraged Remix's server-side rendering to achieve lightning-fast initial load times and exceptional SEO performance. The backend is powered by a combination of Node.js and MongoDB, with Supabase handling real-time data needs. We used Tailwind CSS for a modern, responsive design and Framer Motion for high-end micro-animations. The result is a high-engagement platform that consistently scores 95+ on Lighthouse audits and has significantly increased user retention for the client.",
-        image: "/assets/flixix.png",
+        image: flixixImg,
         tags: ["Remix", "Streaming", "SEO"],
         techStack: ["Remix", "Node.js", "MongoDB", "Supabase", "Tailwind CSS", "SEO", "Cloudinary"],
         link: "https://www.flixixstudios.in/",
@@ -194,7 +202,7 @@ const rawProjects: Project[] = [
         category: "Web Dev / EdTech",
         description: "Comprehensive educational platform connecting students with quality learning resources.",
         longDescription: "A comprehensive education portal designed for Shetty Educators to streamline their enrollment process. Built with Remix.js to handle large volumes of student inquiries, the site connects students with quality learning resources efficiently. We implemented a searchable course database and an automated inquiry routing system that sends leads directly to the appropriate counselor. The backend uses Supabase for reliable data storage and authentication. We focused heavily on technical SEO for course-specific search terms, resulting in a 250% increase in student enrollment within the first few months of launch. The lead management panel provides real-time analytics on student conversion rates.",
-        image: "/assets/shettry.png",
+        image: shettryImg,
         tags: ["EdTech", "Remix", "SEO"],
         techStack: ["Remix.js", "Tailwind CSS", "SEO", "Supabase"],
         link: "https://shettyeducators.in/",
@@ -239,7 +247,7 @@ const rawProjects: Project[] = [
         category: "Web Dev / Wholesale",
         description: "Wholesale celebration materials platform offering party supplies and decorative items.",
         longDescription: "A specialized B2B wholesale platform for A.P. Celebration Traders. This digital catalog allows wholesale customers to browse party supplies and decorative items at competitive rates. Built with Remix.js and Tailwind CSS, the platform provides a professional interface that reflects the scale of the business. We integrated interactive product displays and a streamlined inquiry process that allows B2B customers to request bulk quotes directly through the site. Using Framer Motion, we created a smooth, engaging browsing experience that works perfectly across mobile and desktop devices. This transition to a digital-first approach established 24/7 access for their global client base and significantly boosted wholesale sales.",
-        image: "/assets/apcelebration.png",
+        image: apcelebrationImg,
         tags: ["Wholesale", "B2B", "Remix"],
         techStack: ["Remix.js", "Tailwind CSS", "Framer Motion"],
         link: "https://apcelebrationtraders.in/",
@@ -274,7 +282,7 @@ const rawProjects: Project[] = [
         category: "Web Dev / Travel",
         description: "Travel agency website with tour packages and an inquiry-based booking system.",
         longDescription: "A professional travel agency website for Flexi Global Holidays, showcasing comprehensive tour packages and international destinations. The site features an inquiry-based booking system that replaces fragmented email chains with a centralized, professional workflow. Built with Remix.js, the architecture is designed for speed and discoverability. Each destination has a dedicated, SEO-optimized landing page featuring dynamic galleries and detailed itineraries. We focused on local SEO for the Maharashtra region, which led to a marked increase in both domestic and international booking inquiries. The system's automated lead tracking ensures that the Flexi Global team can respond to customer requests within record time.",
-        image: "/assets/fleixi global.png",
+        image: flexiGlobalImg,
         tags: ["Travel", "Booking", "Remix"],
         techStack: ["Remix.js", "Tailwind CSS", "Framer Motion"],
         link: "https://flexiglobalholidays.in/",
@@ -319,7 +327,7 @@ const rawProjects: Project[] = [
         category: "E-Commerce / React.js",
         description: "Online bookstore platform built with React.js featuring comprehensive catalog management and secure payment processing.",
         longDescription: "A full-featured e-commerce bookstore built with React.js that transformed a local bookshop into a thriving online business. The platform includes advanced search functionality with filters for genre, author, and price range. I implemented a secure authentication system using JWT tokens and integrated Razorpay for reliable payment processing. The admin dashboard allows real-time inventory management, sales analytics, and order tracking. To ensure optimal performance, I implemented lazy loading for images, code splitting, and a progressive web app architecture. The result is a fast, user-friendly platform that helped the client grow their customer base by 300% within the first 6 months.",
-        image: "/assets/bookkartehai.png",
+        image: bookkartehaiImg,
         tags: ["React.js", "E-Commerce", "Bookstore"],
         techStack: ["React.js", "Node.js", "Express", "MongoDB", "Razorpay", "JWT", "Redux"],
         link: "https://www.bookkartehai.in/",
@@ -365,7 +373,7 @@ const rawProjects: Project[] = [
         category: "E-Commerce / Next.js",
         description: "Handmade crafts marketplace built with Next.js, Supabase, and AWS for scalable artisan product sales.",
         longDescription: "A sophisticated handmade crafts marketplace built with Next.js that connects local artisans with global customers. The platform leverages Supabase for real-time database operations and authentication, ensuring data consistency and security. AWS services handle image storage and CDN delivery for optimal performance worldwide. I implemented a multi-vendor system where artisans can manage their own products, track sales, and handle shipping. The Node.js backend processes orders and manages inventory across multiple vendors. Advanced features include real-time chat between buyers and sellers, custom order requests, and an AI-powered recommendation engine. The platform helped small artisans scale their businesses globally, with some vendors seeing 500% growth in sales.",
-        image: "/assets/kalangan.png",
+        image: kalanganImg,
         tags: ["Next.js", "Supabase", "AWS", "Marketplace"],
         techStack: ["Next.js", "Supabase", "AWS (S3, CloudFront)", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
         link: "https://www.kalanganhandmade.in/",

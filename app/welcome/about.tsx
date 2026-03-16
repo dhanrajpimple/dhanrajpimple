@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import { GraduationCap, Briefcase, Brain, Star } from "lucide-react"
-import image from '../assests/dp.png'
+import image from '../assets/dp.webp'
 const AboutSection = () => {
   const achievements = [
     { icon: GraduationCap, title: "MCA Graduate", subtitle: "Computer Applications" },

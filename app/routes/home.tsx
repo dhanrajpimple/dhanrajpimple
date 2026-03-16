@@ -20,7 +20,7 @@ import {
 import type { LinksFunction, MetaFunction } from "react-router";
 import { NavLink } from "react-router";
 import { Star } from "lucide-react";
-import portrait from "~/assets/dp.png";
+import portrait from "~/assets/dp.webp";
 import { blogPosts } from "~/data/blog";
 
 import {

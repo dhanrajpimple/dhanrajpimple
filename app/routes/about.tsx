@@ -1,7 +1,7 @@
 import { NavLink, type MetaFunction } from "react-router";
 import { motion } from "framer-motion";
 import { Award, GraduationCap, Code2, Terminal, Cpu, Cloud, Globe, CheckCircle2, Layers } from "lucide-react";
-import portrait from "~/assets/dp.png";
+import portrait from "~/assets/dp.webp";
 import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {

@@ -10,6 +10,23 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/space-grotesk/300.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/600.css";
+import "@fontsource/space-grotesk/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
 import "./app.css";
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail, Terminal, Twitter } from "lucide-react";
@@ -17,31 +34,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SITE_NAME, SITE_URL } from "./lib/seo";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
-  { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
-  { rel: "dns-prefetch", href: "https://images.unsplash.com" },
-  { rel: "dns-prefetch", href: "https://media.istockphoto.com" },
   { rel: "dns-prefetch", href: "https://github.com" },
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "preconnect",
-    href: "https://images.unsplash.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "preconnect",
-    href: "https://media.istockphoto.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
-  },
   { rel: "icon", href: "/favicon.ico" },
   { rel: "apple-touch-icon", href: "/favicon.ico" },
 ];

@@ -9,6 +9,10 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/poppins": "^5.2.7",
+    "@fontsource/space-grotesk": "^5.2.10",
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
     "annyang": "^2.6.1",
