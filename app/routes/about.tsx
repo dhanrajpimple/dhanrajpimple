@@ -6,8 +6,8 @@ import { buildPageMeta } from "~/lib/seo";
 
 export const meta: MetaFunction = () => {
     return buildPageMeta({
-        title: "About Dhanraj Pimple | Freelance Full-Stack & AI Agent Developer India",
-        description: "Learn about Dhanraj Pimple, a freelance full-stack developer in India based in Satara, Maharashtra. He builds web apps, mobile apps, desktop software, AI agents, DevOps pipelines, and cloud-ready products for startups and businesses.",
+        title: "About Dhanraj Pimple | Top Freelancer Software Developer & AI Expert in India",
+        description: "Learn about Dhanraj Pimple, a highly trusted freelancer software developer and expert freelance software engineer based in Satara, Maharashtra. He builds scalable web apps, AI integration, and tech systems to help you rank.",
         path: "/about",
     });
 };
@@ -70,7 +70,7 @@ export default function About() {
                             Hi, I'm <span className="text-gradient">Dhanraj Pimple</span>
                         </h1>
                         <p className="text-xl text-brand-gray mb-6 leading-relaxed">
-                            A Full Stack Developer with over a year of production experience building SaaS and AI-powered platforms. I believe in building systems that work for you, not against you.
+                            A top-ranked freelancer software developer and expert freelance software engineer in India. I specialize in building SEO-optimized tech platforms, fast scalable tech blogs, and AI systems that rank high and work flawlessly for your business.
                         </p>
                         <p className="text-lg text-brand-gray/80 mb-10">
                             My core expertise lies at the intersection of development and operations, ensuring that high-quality code is matched with robust, automated infrastructure. I've helps startups automate their bidding processes and travel agencies optimize their booking systems.
@@ -114,7 +114,7 @@ export default function About() {
 
                 {/* Skills Section */}
                 <div className="mb-32">
-                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-center underline decoration-brand-blue/30 underline-offset-8">Technical Arsenel</h2>
+                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-center underline decoration-brand-blue/30 underline-offset-8">Tech Expertise & SEO Ranking Skills</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <SkillCard title="DevOps & Infrastructure" icon={<Cloud />} skills={devopsSkills} />
                         <SkillCard title="Full Stack Dev" icon={<Code2 />} skills={devSkills} />

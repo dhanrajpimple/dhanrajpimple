@@ -19,15 +19,25 @@ import {
 } from "lucide-react";
 import type { LinksFunction, MetaFunction } from "react-router";
 import { NavLink } from "react-router";
-
+import { Star } from "lucide-react";
 import portrait from "~/assets/dp.png";
 import { blogPosts } from "~/data/blog";
+
 import {
+  ALL_SEO_KEYWORDS,
+  SEO_META_KEYWORDS,
+  ARABIC_SEO_KEYWORDS,
+  CHINESE_SEO_KEYWORDS,
+  FRENCH_SEO_KEYWORDS,
   GUJARATI_SEO_KEYWORDS,
   HINDI_SEO_KEYWORDS,
+  JAPANESE_SEO_KEYWORDS,
+  KOREAN_SEO_KEYWORDS,
   LANGUAGES_I_SERVE,
   MARATHI_SEO_KEYWORDS,
   PRIMARY_SEO_KEYWORDS,
+  RUSSIAN_SEO_KEYWORDS,
+  SCHEMA_ENTITY_TAGS,
 } from "~/data/regionalSeoKeywords";
 import { projects } from "~/data/projects";
 import {
@@ -284,23 +294,53 @@ const languageSections = [
       "હું ફ્રીલાન્સ વેબ ડેવલપર ઇન્ડિયા તરીકે મોબાઇલ એપ ડેવલપર ભારત, AI એજન્ટ ડેવલપર, સસ્તી વેબસાઇટ બનાવો, બિઝનેસ વેબસાઇટ ડેવલપમેન્ટ, ગુજરાત સોફ્ટવેર ડેવલપર, અને AI ચેટબોટ ડેવલપર ઇન્ડિયા માટે પ્રોડક્શન-રેડી સોલ્યુશન્સ આપું છું.",
     keywords: GUJARATI_SEO_KEYWORDS,
   },
+  {
+    heading: "Arabic / العربية",
+    body: "كخبير مطور برامج مستقل، أقدم حلولاً مبتكرة تشمل بناء وكيل ذكاء اصطناعي، تطبيقات سطح المكتب، إنشاء موقع إلكتروني، وتطوير منصات ذكاء اصطناعي وكيلي لمساعدة أعمالك على النمو السريع.",
+    keywords: ARABIC_SEO_KEYWORDS,
+  },
+  {
+    heading: "French / Français",
+    body: "En tant que développeur de logiciels freelance et développeur web indépendant, je crée votre application de bureau idéale, votre site web sur-mesure, ainsi que des agents d'IA agentique performants pour automatiser votre entreprise.",
+    keywords: FRENCH_SEO_KEYWORDS,
+  },
+  {
+    heading: "Russian / Русский",
+    body: "Я независимый разработчик программного обеспечения, специализирующийся на создании сайтов, разработке агентных ИИ (ai агент) и запуске настольных приложений, которые улучшают эффективность бизнеса.",
+    keywords: RUSSIAN_SEO_KEYWORDS,
+  },
+  {
+    heading: "Chinese / 中文",
+    body: "作为一名专业的自由软件开发者，我专注于网站开发、桌面应用程序开发和构建代理型AI（AI代理系统），帮助企业以极高的成本效益获取增长。",
+    keywords: CHINESE_SEO_KEYWORDS,
+  },
+  {
+    heading: "Japanese / 日本語",
+    body: "フリーランスソフトウェア開発者として、最適なデスクトップアプリ、ウェブサイト制作、そして高度なAIエージェント（エージェントAI）の手順を実装し、ビジネスを成功に導きます。",
+    keywords: JAPANESE_SEO_KEYWORDS,
+  },
+  {
+    heading: "Korean / 한국어",
+    body: "저는 최고의 프리랜서 소프트웨어 개발자로서 최신 웹사이트 개발, 데스크톱 앱 구축 및 비용 효율적인 에이전틱 AI (AI 에이전트) 솔루션을 제공하여 귀사의 비즈니스를 지원합니다.",
+    keywords: KOREAN_SEO_KEYWORDS,
+  },
 ] as const;
 
 export const meta: MetaFunction = () => [
   ...buildPageMeta({
     title:
-      "Freelance Full-Stack & AI Developer in India | DevOps & SaaS Systems | Dhanraj Pimple",
+      "Freelance Software Developer & AI Engineer in India | Dhanraj Pimple",
     description:
-      "Hire a top-rated Freelance Full-Stack Developer and DevOps Engineer in India. Expert in AI SaaS, FastAPI backend, Next.js, CI/CD pipelines, and cloud infrastructure. Serving startups in Pune, Satara, Maharashtra & globally. Book a free consultation!",
+      "Looking for a top-rated freelance software developer? I am an expert freelance software engineer in India delivering AI SaaS, FastAPI backends, Nexj.js, and CI/CD pipelines.",
     path: "/",
-    keywords: [...new Set([...PRIMARY_SEO_KEYWORDS, ...MARATHI_SEO_KEYWORDS, ...HINDI_SEO_KEYWORDS, ...GUJARATI_SEO_KEYWORDS])].join(", "),
+    keywords: ["freelancer software developer", "freelance software engineer", "top rank freelance software developer in india", "tech blogs", "tech software developer", SEO_META_KEYWORDS].join(", "),
   }),
   {
     "script:ld+json": {
       "@context": "https://schema.org",
       "@type": "Person",
       name: SITE_AUTHOR,
-      jobTitle: "Freelance Full-Stack Developer, DevOps Engineer & AI SaaS Developer",
+      jobTitle: "Freelance Software Developer, DevOps Engineer & AI SaaS Developer",
       url: SITE_URL,
       sameAs: [SOCIAL_LINKS[0], SOCIAL_LINKS[1], SOCIAL_LINKS[2]],
       address: {
@@ -309,23 +349,7 @@ export const meta: MetaFunction = () => [
         addressRegion: "Maharashtra",
         addressCountry: "IN",
       },
-      knowsAbout: [
-        "Full-Stack Development",
-        "AI Agents",
-        "AI SaaS Development",
-        "LangChain",
-        "FastAPI",
-        "Next.js",
-        "Web Development",
-        "Mobile Apps",
-        "Desktop Apps",
-        "DevOps",
-        "CI/CD Pipelines",
-        "Docker",
-        "Kubernetes",
-        "AWS",
-        "ML Integration",
-      ],
+      knowsAbout: [...SCHEMA_ENTITY_TAGS],
     },
   },
   {
@@ -409,22 +433,20 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight">
-              Freelance <span className="text-gradient">Full-Stack & DevOps</span> Engineer in India
+              Freelance <span className="text-gradient">Software Developer</span> & AI Engineer
             </h1>
 
             <p className="text-lg md:text-xl text-brand-gray mb-6 max-w-2xl leading-relaxed">
-              Dhanraj Pimple is a freelance developer India teams hire for websites,
+              Dhanraj Pimple is a top-ranked freelancer software developer teams hire for websites,
               SaaS platforms, mobile apps, desktop software, AI systems, and cloud
-              delivery. I work as a full stack developer India startups trust, an
-              affordable web developer India small businesses rely on, and a startup
-              tech partner India founders can scale with from strategy to launch.
+              delivery. I work as an expert freelance software engineer startups trust, an
+              affordable tech partner small businesses rely on, and a startup
+              tech partner founders can scale with from strategy to launch.
             </p>
 
-            <p className="text-base text-brand-gray/90 mb-10 max-w-2xl leading-relaxed">
-              If you need to hire AI developer India expertise for LangChain agents,
-              product engineering, or production DevOps, I deliver as a web developer
-              India, mobile app developer India, desktop app developer India, and
-              remote developer India with direct execution from Satara, Maharashtra.
+            <p className="text-base text-brand-gray mb-10 max-w-2xl leading-relaxed">
+              If you need to hire an AI developer or a freelancer software developer for LangChain agents,
+              product engineering, seo regarding tech, or production DevOps, I deliver direct execution from Satara, Maharashtra.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -772,6 +794,76 @@ const FeaturedProjects = () => {
   );
 };
 
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      name: "Alex Thompson",
+      role: "CTO, Palcode.ai",
+      content: "Dhanraj transformed our entire vendor outreach process. What used to take weeks now happens in days, and our response rates have more than tripled.",
+    },
+    {
+      name: "Priya Shetty",
+      role: "Director, Shetty Educators",
+      content: "The new system has revolutionized how we handle student inquiries. We're enrolling more students than ever while actually reducing our admin workload.",
+    },
+    {
+      name: "Rohit Sharma",
+      role: "Founder, Flixix Studios",
+      content: "Our new website has completely transformed our business. We went from invisible to #1 on Google, and inquiries have increased fivefold.",
+    },
+    {
+      name: "Amit Kulkarni",
+      role: "Owner, Flexi Global Holidays",
+      content: "Before working with Dhanraj, we had no online presence. Now we're getting international inquiries daily, and our booking rate has nearly tripled.",
+    },
+    {
+      name: "Rajesh Kumar",
+      role: "Owner, BookKartehai",
+      content: "Our online platform has completely transformed our business. We went from a local shop to serving customers across India, and our sales have quadrupled.",
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-white/5 border-t border-white/5">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+            Trusted by Client Teams
+          </h2>
+          <p className="text-brand-gray text-lg">
+            Real feedback from startups and founders who hire a top-rated freelance software developer.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((test, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="glass p-8 rounded-3xl"
+            >
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={18} fill="currentColor" />
+                ))}
+              </div>
+              <p className="text-brand-offwhite font-medium mb-6 leading-relaxed italic">
+                &quot;{test.content}&quot;
+              </p>
+              <div>
+                <div className="font-bold text-lg text-brand-blue">{test.name}</div>
+                <div className="text-sm text-brand-gray">{test.role}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CitiesIServe = () => (
   <section className="py-24 border-t border-white/5">
     <div className="container mx-auto px-6">
@@ -999,6 +1091,7 @@ export default function Home() {
       <AboutThisDeveloper />
       <PricingSection />
       <FeaturedProjects />
+      <TestimonialsSection />
       <CitiesIServe />
       <LanguagesSection />
       <LatestInsights />

@@ -5,13 +5,13 @@
   --font-display: "Space Grotesk", var(--font-sans);
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
-  --color-brand-navy: #0A192F;
-  --color-brand-charcoal: #2D3748;
-  --color-brand-blue: #00D9FF;
-  --color-brand-green: #10B981;
-  --color-brand-coral: #FF6B6B;
-  --color-brand-offwhite: #F7FAFC;
-  --color-brand-gray: #718096;
+  --color-brand-navy: #F8FAFC;
+  --color-brand-charcoal: #E2E8F0;
+  --color-brand-blue: #2563EB;
+  --color-brand-green: #059669;
+  --color-brand-coral: #E11D48;
+  --color-brand-offwhite: #0F172A;
+  --color-brand-gray: #475569;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
@@ -26,7 +26,7 @@
   
   body {
     @apply bg-brand-navy text-brand-offwhite font-sans antialiased;
-    background-image: radial-gradient(circle at 50% 50%, #112240 0%, #0A192F 100%);
+    background-image: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F1F5F9 100%);
     min-height: 100vh;
   }
 
@@ -37,11 +37,11 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-white/70 backdrop-blur-md border border-gray-200 shadow-sm text-brand-offwhite;
   }
   
   .glass-dark {
-    @apply bg-black/20 backdrop-blur-xl border border-white/5;
+    @apply bg-white/90 backdrop-blur-xl border border-gray-300 shadow-md text-brand-offwhite;
   }
 
   .text-gradient {
@@ -57,7 +57,7 @@
   .bg-grid {
     background-size: 40px 40px;
     background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   }
 }
